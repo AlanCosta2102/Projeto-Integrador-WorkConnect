@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  background-color: #f5f6fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background-color: #04294f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.sidebar hr {
+  width: 100%;
+  border-color: floralwhite;
+  margin: 20px 0;
+}
+
+.sidebar a {
+  color: #d7e3f7;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: #1e56a0;
+  color: #fff;
+}
+
+.content {
+  margin-left: 230px;
+  padding: 2rem;
+}
+.profile-header {
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 0px;
+    margin-bottom: 20px;
+   justify-content: flex-start; 
+    width: 90%; 
+}
+.sidebar img {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid #fff;
+ margin-bottom: 0;
+}
+.sidebar h6 {
+background-color: #1e56a0;
+padding: 6px 30px;
+border-radius: 10px;
+color: #fff;
+font-weight: 2000;
+margin: 0px;
+}

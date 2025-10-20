@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkConnect - Painel do Usuário</title>
+
+   <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+ <div class="sidebar">
+        <div class="profile-header"> 
+        <img src="{% static 'core/img/cristiano.jpg' %}" alt="Usuário">
+        <h6>Olá, {{ request.user.first_name|default:"Cristiano" }}!</h6>
+    </div>
+    <hr>
+
+ <a href="{% url 'candidato:tela_principal_candidato' %}" class="active"><i class="fa-solid fa-house"></i> Início</a>
+    <a href="{% url 'candidato:perfil_candidato' %}"><i class="fa-solid fa-user"></i> Perfil</a>
+    <a href="{% url 'candidato:candidaturas_candidato' %}"><i class="fa-solid fa-briefcase"></i> Candidaturas</a>
+    <a href="{% url 'candidato:vagas_candidato' %}"><i class="fa-solid fa-building"></i> Vagas</a>
+    <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+  </div>
+
+  <div class="content">
+      {% block content %}
+      {% endblock %}
+  </div>
+</body>
+</html>
