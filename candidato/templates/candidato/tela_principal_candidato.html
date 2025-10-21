@@ -1,4 +1,65 @@
 {% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}WorkConnect | Início{% endblock %}
 
 {% block content %}
+  <link rel="stylesheet" href="{% static 'core/css/tela_principal_candidato.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <img src="{% static 'core/img/Logo_WorkConnect.png' %}" alt="WorkConnect" class="logo">
+      <nav>
+        <a href="#">Plataforma</a>
+        <a href="#">Serviços</a>
+        <a href="#">Suporte</a>
+      </nav>
+      <div class="user-icon">
+        <i class="fa-solid fa-circle-user"></i>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="text">
+        <h1>Encontre um emprego<br>que seja adequado aos seus interesses e habilidades.</h1>
+        <p>Aqui você encontra as melhores opções.</p>
+
+        <div class="search-bar">
+          <input type="text" placeholder="Cargo, palavra-chave..." class="input-job">
+          <input type="text" placeholder="Sua localização" class="input-location">
+          <button>Buscar Vaga</button>
+        </div>
+      </div>
+      <img src="{% static 'core/img/Dashboard.png' %}" alt="Pessoa trabalhando" class="hero-img">
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat">
+        <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
+        <p class="label">Vagas Disponíveis</p>
+        <p class="value">234</p>
+      </div>
+      <div class="stat">
+        <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
+        <p class="label">Candidaturas Enviadas</p>
+        <p class="value">12</p>
+      </div>
+      <div class="stat">
+        <div class="icon"><i class="fa-solid fa-building"></i></div>
+        <p class="label">Empresas Ativas</p>
+        <p class="value">189</p>
+      </div>
+    </div>
+  </section>
+
+
+</body>
+</html>
 {% endblock %}
