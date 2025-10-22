@@ -6,6 +6,8 @@ html, body {
   font-family: 'Poppins', sans-serif;
   background-color: #DAE2E5;
   color: #1a1a1a;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .page-container {
@@ -118,6 +120,7 @@ html, body {
   padding: 6rem 7rem;
   text-align: center;
   flex: 1;
+  margin-top: -50px;
 }
 
 .stats-container {
@@ -171,14 +174,15 @@ html, body {
 
 .vagas-section {
     background-color: #d7e4ea;
-    padding: 40px 20px;
+    padding: 20px 0px;
+    margin-top: -50px;;
 }
 
 .vagas-title {
     font-size: 26px;
     font-weight: 700;
     color: #04294f;
-    margin-bottom: 30px;
+    margin-bottom: -50px;
     letter-spacing: 1px;
     position: relative;
     left: 90px;
@@ -214,7 +218,7 @@ html, body {
 .card-header {
     height: 100px;
     position: relative;
-    background-color: #baffb8;
+    background-color: #A6FF9E;
 }
 
 .card-header img {
@@ -231,7 +235,9 @@ html, body {
 .card-body {
     padding: 60px 20px 20px 20px;
 }
-
+.info-value{
+  font-weight: bold;
+}
 .company-name {
     font-weight: 700;
     font-size: 18px;
@@ -256,7 +262,7 @@ html, body {
 
 .details-button {
     display: inline-block;
-    margin-top: 20px;
+    margin-top:-20px;
     padding: 6px 14px;
     background-color: #cce4ff;
     color: #1a3d7c;
@@ -290,7 +296,7 @@ html, body {
 }
 
 .bolinha.verde {
-    background-color: #00a400;
+    background-color: #A6FF9E;
 }
 
 .bolinha.laranja {
