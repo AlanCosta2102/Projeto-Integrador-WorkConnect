@@ -168,20 +168,32 @@ html, body {
     margin-top: -130px;
     margin-bottom: 50px; 
 }
-.stat:not(:last-child) {
-  border-right: 2px solid #d1d1d1;
+
+.vagas-section {
+    background-color: #d7e4ea;
+    padding: 40px 20px;
 }
+
+.vagas-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #04294f;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    position: relative;
+    left: 90px;
+}
+
 .cards-container {
     width: 100%;                  /* ocupa toda a largura da tela */
     display: flex;                /* deixa os cards lado a lado */
-    flex-direction: row;          /* garante alinhamento horizontal */
+    flex-wrap: wrap;          /* garante alinhamento horizontal */
     justify-content: center;      /* centraliza a fileira */
     align-items: flex-start;
     gap: 40px;                    /* espaço entre os cards */
     padding: 40px;
     background-color: #d7e4ea;    /* cor de fundo da seção */
-    flex-wrap: nowrap;            /* impede que quebre a linha */
-    overflow-x: auto;             /* adiciona rolagem horizontal se necessário */
+    flex-wrap: wrap;            /* impede que quebre a linha */
     box-sizing: border-box;       /* evita que padding reduza a largura */
 }
 
@@ -252,4 +264,35 @@ html, body {
     border-radius: 8px;
     text-decoration: none;
     float: right;
+}
+/* Legenda */
+.vagas-legenda {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    left: 1000px;
+}
+
+.legenda-item {
+    font-size: 15px;
+    color: #333;
+    display: flex;
+    gap: 8px;
+}
+
+.bolinha {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.bolinha.verde {
+    background-color: #00a400;
+}
+
+.bolinha.laranja {
+    background-color: #ff9800;
 }
