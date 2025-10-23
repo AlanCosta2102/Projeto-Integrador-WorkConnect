@@ -302,3 +302,27 @@ html, body {
 .bolinha.laranja {
     background-color: #ff9800;
 }
+.ver-mais-container {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.ver-mais-btn {
+  background-color: #04294f;
+  color: #fff;
+  border: none;
+  padding: 12px 65px;
+  border-radius: 35px;
+  font-size: 20px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.ver-mais-btn:hover {
+  background-color: #144a8d;
+  transform: translateY(-2px);
+}
