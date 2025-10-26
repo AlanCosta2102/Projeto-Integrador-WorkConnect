@@ -1,0 +1,205 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}WorkConnect | Candidaturas{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'core/css/candidaturas_candidato.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <img src="{% static 'core/img/LogoTemplate.png' %}" alt="WorkConnect" class="logo">
+      <nav>
+        <a href="#">Plataforma</a>
+        <a href="#">Serviços</a>
+        <a href="#">Suporte</a>
+      </nav>
+      <div class="user-icon">
+        <i class="fa-solid fa-circle-user"></i>
+      </div>
+    </div>
+  </header>
+
+  <section class="filter-section">
+  <h2 class="filter-title">Filtros</h2>
+
+  <div class="search-bar">
+          <input type="text" placeholder="Cargo, Empresas..." class="input-job">
+          <input type="text" placeholder="Cidade" class="input-location">
+          <input type="text" placeholder="Modo de trabalho" class="input-location">
+          <button>Buscar Vaga</button>
+        </div>
+      </div>
+  
+<section class="vagas-section">
+  <h2 class="candidaturas-title">Suas Candidaturas:</h2>
+
+  <div class="cards-container">
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Ellipse 14.png' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">Elétrica Cervejaria <span class="status">Ativa</span></p>
+      <p class="company-location">Pau dos Ferros/RN</p>
+
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Barmen</div>
+
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Noturno - 4h</div>
+
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Farmacia.png' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">Farmacia Ideal <span class="status">Ativa</span></p>
+      <p class="company-location">Pau dos Ferros/RN</p>
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Farmacêutico</div>
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Integral - 10h</div>
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Hotel.png' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">West Hotel <span class="status">Ativa</span></p>
+      <p class="company-location">Pau dos Ferros/RN</p>
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Camareiro (a)</div>
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Meio périodo - 6h</div>
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Peechinchou.png' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">Pechinchou <span class="status">Ativa</span></p>
+      <p class="company-location">Pau dos Ferros/RN</p>
+
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Social Media</div>
+
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Fléxivel - 8h</div>
+
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Atacarejo.png' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">Nosso Atacarejo <span class="status">Ativa</span></p>
+      <p class="company-location">Pau dos Ferros/RN</p>
+
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Operador(a) de caixa</div>
+
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Integral - 8h</div>
+
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Pizzaria.png' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">Água na boca<span class="status">Ativa</span></p>
+      <p class="company-location">Pau dos Ferros/RN</p>
+
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Entregador</div>
+
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Noturno - 6h</div>
+
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Nike.jpg' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">Nike<span class="status">Ativa</span></p>
+      <p class="company-location">Natal/RN</p>
+
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Atendente de loja</div>
+
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Integral - 6h</div>
+
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Brisanet.png' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">Brisanet<span class="status">Ativa</span></p>
+      <p class="company-location">Pau dos Ferros/RN</p>
+
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Operador de Suporte</div>
+
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Noturno - 6h</div>
+
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="{% static 'core/img/Nubank.jpg' %}">
+    </div>
+    <div class="card-body">
+      <p class="company-name">Nubank<span class="status">Ativa</span></p>
+      <p class="company-location">Rio de Janeiro/RJ</p>
+
+      <div class="info-label"><span>🎯 Vaga</span></div>
+      <div class="info-value">Front-End</div>
+
+      <div class="info-label"><span>⏰ Turno e Horário</span></div>
+      <div class="info-value">Integral - 6h</div>
+
+      <a href="#" class="details-button">Detalhes ›</a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+</body>
+</html>
+{% endblock %}
