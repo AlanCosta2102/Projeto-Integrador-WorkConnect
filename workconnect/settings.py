@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'core',
     'empresa',
     'candidato',
+    'administrador',
 ]
 
 MIDDLEWARE = [

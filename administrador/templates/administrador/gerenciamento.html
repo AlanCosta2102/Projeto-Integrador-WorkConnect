@@ -1,0 +1,193 @@
+{% load static %}
+
+<html lang="pt-br">
+<head>
+    <title>Gerenciamento</title>
+  <link rel="stylesheet" href="{% static 'administrador/css/gerenciamento.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    
+ <header class="navbar">
+    <div class="container">
+      <img src="{% static 'core/img/LogoTemplate.png' %}" alt="WorkConnect" class="logo">
+      <nav>
+        <a href="#">Plataforma</a>
+        <a href="#">Serviços</a>
+        <a href="#">Suporte</a>
+      </nav>
+      <div class="user-icon">
+        <i class="fa-solid fa-circle-user"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-container">
+  <div class="search-bar">
+    <div class="search-item">
+      <i class="fa fa-search"></i>
+      <input type="text" placeholder="Pesquisar por nome">
+    </div>
+    <div class="divider"></div>
+    <div class="search-item">
+      <i class="fa fa-map-marker-alt"></i>
+      <input type="text" placeholder="|E-mail">
+    </div>
+    <div class="divider"></div>
+    <div class="search-item">
+      <i class="fa fa-layer-group"></i>
+      <select>
+        <option selected disabled>Selecionar por Status</option>
+        <option>Ativo</option>
+        <option>Inativo</option>
+      </select>
+    </div>
+    <button class="search-btn">Buscar</button>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="tabela-container">
+      <table class="tabela-usuarios">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Tipo</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="perfil">
+             <img src="{% static 'administrador/img/Cristiano.png' %}">
+              Cristiano Ronaldo
+            </td>
+            <td>cristiano@example.com</td>
+            <td>Empresa</td>
+            <td><span class="status inativo">● Inativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="perfil">
+                    <img src="{% static 'administrador/img/Nubank.png' %}">
+              Nubank
+            </td>
+            <td>nubank@gmail.com</td>
+            <td>Candidato</td>
+            <td><span class="status ativo">● Ativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="perfil">
+    <img src="{% static 'administrador/img/Alan.png' %}">
+                  Alan Costa
+            </td>
+            <td>alan@gmail.com</td>
+            <td>Candidato</td>
+            <td><span class="status inativo">● Inativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="perfil">
+    <img src="{% static 'administrador/img/Eletrica.png' %}">
+                  Cervejaria Elétrica
+            </td>
+            <td>eletrica@gmail.com</td>
+            <td>Empresa</td>
+            <td><span class="status ativo">● Ativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="perfil">
+    <img src="{% static 'administrador/img/Arrascaeta.png' %}">
+                  Giorgian De Arrascaeta
+            </td>
+            <td>arrascaeta@gmail.com</td>
+            <td>Candidato</td>
+            <td><span class="status inativo">● Inativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="perfil">
+    <img src="{% static 'administrador/img/Brisanet.png' %}">
+                  Brisanet
+            </td>
+            <td>brisanet@gmail.com</td>
+            <td>Empresa</td>
+            <td><span class="status ativo">● Ativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="perfil">
+    <img src="{% static 'administrador/img/Thiago.png' %}">
+                  Thiago Henrique
+            </td>
+            <td>thiago@gmail.com</td>
+            <td>Candidato</td>
+            <td><span class="status inativo">● Inativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="perfil">
+    <img src="{% static 'administrador/img/Nike.png' %}">
+                  Nike
+            </td>
+            <td>nike@gmail.com</td>
+            <td>Empresa</td>
+            <td><span class="status ativo">● Ativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="perfil">
+    <img src="{% static 'administrador/img/Irlan.png' %}">
+                  Irlan
+            </td>
+            <td>irlan@gmail.com</td>
+            <td>Empresa</td>
+            <td><span class="status inativo">● Inativo</span></td>
+            <td>
+              <button class="excluir">Excluir</button>
+              <button class="detalhes">↗</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
