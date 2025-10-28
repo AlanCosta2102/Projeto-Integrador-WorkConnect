@@ -271,7 +271,6 @@ html, body {
     text-decoration: none;
     float: right;
 }
-/* Legenda */
 .vagas-legenda {
     display: flex;
     flex-direction: column;
