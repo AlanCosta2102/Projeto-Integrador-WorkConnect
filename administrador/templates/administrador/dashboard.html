@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Administrador</title>
+  <link rel="stylesheet" href="{% static 'administrador/css/dashboard.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <main class="dashboard">
+    <section class="boas-vindas">
+      <h1>Bem vindo de volta, <span>Admin!</span></h1>
+      <p>Aqui estão as últimas atualizações do sistema.</p>
+    </section>
+
+    <section class="metricas">
+      <div class="card">
+        <div class="icon">
+          <i class="fa-solid fa-user-group"></i>
+        </div>
+        <div class="info">
+          <p>Candidatos Cadastrados</p>
+          <h3>5,423</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <i class="fa-solid fa-building-user"></i>
+        </div>
+        <div class="info">
+          <p>Empresas Cadastradas</p>
+          <h3>1,893</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <i class="fa-solid fa-desktop"></i>
+        </div>
+        <div class="info">
+          <p>Vagas Publicadas</p>
+          <h3>189</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <i class="fa-solid fa-user-check"></i>
+        </div>
+        <div class="info">
+          <p>Vagas Ativas</p>
+          <h3>5,423</h3>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="titulo-gerenciamento">Gerenciamento</h2>
+
+    <section class="painel-gerenciamento">
+      <div class="bloco">
+        <div class="texto">
+          <h3>Candidatos</h3>
+          <p>Visualizar, editar e gerenciar perfis de candidatos</p>
+          <button>10 registros</button>
+        </div>
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div class="bloco">
+        <div class="texto">
+          <h3>Empresas</h3>
+          <p>Visualizar, editar e gerenciar empresas cadastradas</p>
+          <button>10 registros</button>
+        </div>
+        <i class="fa-solid fa-building"></i>
+      </div>
+
+      <div class="bloco">
+        <div class="texto">
+          <h3>Vagas</h3>
+          <p>Visualizar, editar e gerenciar vagas publicadas</p>
+          <button>10 registros</button>
+        </div>
+        <i class="fa-solid fa-briefcase"></i>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
