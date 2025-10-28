@@ -188,18 +188,18 @@ html, body {
 .cards-container {
     width: 100%;                  /* ocupa toda a largura da tela */
     display: flex;                /* deixa os cards lado a lado */
-    flex-wrap: wrap;          /* garante alinhamento horizontal */
+    flex-wrap: wrap;            /* garante alinhamento horizontal */
     justify-content: center;      /* centraliza a fileira */
     align-items: flex-start;
     gap: 40px;                    /* espaço entre os cards */
     padding: 40px;
     background-color: #d7e4ea;    /* cor de fundo da seção */
-    flex-wrap: wrap;            /* impede que quebre a linha */
+    flex-wrap: wrap;              /* impede que quebre a linha */
     box-sizing: border-box;       /* evita que padding reduza a largura */
 }
 
 .card {
-    width: 320px;                 /* largura fixa */
+    width: 320px;                  /* largura fixa */
     background-color: #f5f5f5;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -320,4 +320,3 @@ html, body {
   background-color: #144a8d;
   transform: translateY(-2px);
 }
-

@@ -4,235 +4,256 @@
 {% block title %}WorkConnect | Início{% endblock %}
 
 {% block content %}
-  <link rel="stylesheet" href="{% static 'candidato/css/tela_principal_candidato.css' %}">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'candidato/css/tela_principal_candidato.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="container">
-      <img src="{% static 'core/img/LogoTemplate.png' %}" alt="WorkConnect" class="logo">
-      <nav>
-        <a href="#">Plataforma</a>
-        <a href="#">Serviços</a>
-        <a href="#">Suporte</a>
-      </nav>
-      <div class="user-icon">
-         <i class="fa-solid fa-bell"></i>
-      </div>
-    </div>
-  </header>
+<header class="navbar">
+<div class="container">
+<img src="{% static 'core/img/LogoTemplate.png' %}" alt="WorkConnect" class="logo">
+<nav>
+<a href="#">Plataforma</a>
+<a href="#">Serviços</a>
+<a href="#">Suporte</a>
+</nav>
+<div class="user-icon">
+<i class="fa-solid fa-bell"></i>
+</div>
+</div>
+</header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <div class="text">
-        <h1>Encontre um emprego<br>que seja adequado aos seus interesses e habilidades.</h1>
-        <p>Aqui você encontra as melhores opções.</p>
+<section class="hero">
+<div class="hero-content">
+<div class="text">
+<h1>Encontre um emprego
 
-        <div class="search-bar">
-          <input type="text" placeholder="Cargo, palavra-chave..." class="input-job">
-          <input type="text" placeholder="Sua localização" class="input-location">
-          <button>Buscar Vaga</button>
-        </div>
-      </div>
-      <img src="{% static 'core/img/Dashboard.png' %}" alt="Pessoa trabalhando" class="hero-img">
-    </div>
-  </section>
 
-  <section class="stats">
-    <div class="stats-container">
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
-        <p class="label">Vagas Disponíveis</p>
-        <p class="value">234</p>
-      </div>
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
-        <p class="label">Candidaturas Enviadas</p>
-        <p class="value">12</p>
-      </div>
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-building"></i></div>
-        <p class="label">Empresas Ativas</p>
-        <p class="value">189</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="vagas-section">
-  <h2 class="vagas-title">Vagas Recentes</h2>
+que seja adequado aos seus interesses e habilidades.</h1>
+<p>Aqui você encontra as melhores opções.</p>
 
-  <div class="vagas-legenda">
-    <span class="legenda-item">
-      <span class="bolinha verde"></span> Disponíveis
-    </span>
-    <span class="legenda-item">
-      <span class="bolinha laranja"></span> Estágio
-    </span>
-  </div>
-
-  <div class="cards-container">
-
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Ellipse 14.png' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">Elétrica Cervejaria <span class="status">Ativa</span></p>
-      <p class="company-location">Pau dos Ferros/RN</p>
-
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Barmen</div>
-
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Noturno - 4h</div>
-
-      <a href="#" class="details-button">Detalhes ›</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Cargo, palavra-chave..." class="input-job">
+      <input type="text" placeholder="Sua localização" class="input-location">
+      <button>Buscar Vaga</button>
     </div>
   </div>
+  <img src="{% static 'core/img/Dashboard.png' %}" alt="Pessoa trabalhando" class="hero-img">
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Farmacia.png' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">Farmacia Ideal <span class="status">Ativa</span></p>
-      <p class="company-location">Pau dos Ferros/RN</p>
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Farmacêutico</div>
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Integral - 10h</div>
-      <a href="#" class="details-button">Detalhes ›</a>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Hotel.png' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">West Hotel <span class="status">Ativa</span></p>
-      <p class="company-location">Pau dos Ferros/RN</p>
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Camareiro (a)</div>
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Meio périodo - 6h</div>
-      <a href="#" class="details-button">Detalhes ›</a>
-    </div>
-  </div>
+</section>
 
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Peechinchou.png' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">Pechinchou <span class="status">Ativa</span></p>
-      <p class="company-location">Pau dos Ferros/RN</p>
+<section class="stats">
+<div class="stats-container">
+<div class="stat">
+<div class="icon"><i class="fa-solid fa-briefcase"></i></div>
+<p class="label">Vagas Disponíveis</p>
+<p class="value">234</p>
+</div>
+<div class="stat">
+<div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
+<p class="label">Candidaturas Enviadas</p>
+<p class="value">12</p>
+</div>
+<div class="stat">
+<div class="icon"><i class="fa-solid fa-building"></i></div>
+<p class="label">Empresas Ativas</p>
+<p class="value">189</p>
+</div>
+</div>
+</section>
 
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Social Media</div>
+<section class="vagas-section">
+<h2 class="vagas-title">Vagas Recentes</h2>
 
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Fléxivel - 8h</div>
+<div class="vagas-legenda">
+<span class="legenda-item">
+<span class="bolinha verde"></span> Disponíveis
+</span>
+<span class="legenda-item">
+<span class="bolinha laranja"></span> Estágio
+</span>
+</div>
 
-      <a href="#" class="details-button">Detalhes ›</a>
-    </div>
-  </div>
+<div class="cards-container">
 
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Atacarejo.png' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">Nosso Atacarejo <span class="status">Ativa</span></p>
-      <p class="company-location">Pau dos Ferros/RN</p>
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Ellipse 14.png' %}">
+</div>
+<div class="card-body">
+<p class="company-name">Elétrica Cervejaria <span class="status">Ativa</span></p>
+<p class="company-location">Pau dos Ferros/RN</p>
 
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Operador(a) de caixa</div>
+  <div class="info-label"><span>🎯 Vaga</span></div>
+  <div class="info-value">Barmen</div>
 
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Integral - 8h</div>
+  <div class="info-label"><span>⏰ Turno e Horário</span></div>
+  <div class="info-value">Noturno - 4h</div>
 
-      <a href="#" class="details-button">Detalhes ›</a>
-    </div>
-  </div>
+  <a href="#" class="details-button">Detalhes ›</a>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Pizzaria.png' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">Água na boca<span class="status">Ativa</span></p>
-      <p class="company-location">Pau dos Ferros/RN</p>
 
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Entregador</div>
+</div>
 
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Noturno - 6h</div>
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Farmacia.png' %}">
+</div>
+<div class="card-body">
+<p class="company-name">Farmacia Ideal <span class="status">Ativa</span></p>
+<p class="company-location">Pau dos Ferros/RN</p>
+<div class="info-label"><span>🎯 Vaga</span></div>
+<div class="info-value">Farmacêutico</div>
+<div class="info-label"><span>⏰ Turno e Horário</span></div>
+<div class="info-value">Integral - 10h</div>
+<a href="#" class="details-button">Detalhes ›</a>
+</div>
+</div>
 
-      <a href="#" class="details-button">Detalhes ›</a>
-    </div>
-  </div>
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Hotel.png' %}">
+</div>
+<div class="card-body">
+<p class="company-name">West Hotel <span class="status">Ativa</span></p>
+<p class="company-location">Pau dos Ferros/RN</p>
+<div class="info-label"><span>🎯 Vaga</span></div>
+<div class="info-value">Camareiro (a)</div>
+<div class="info-label"><span>⏰ Turno e Horário</span></div>
+<div class="info-value">Meio périodo - 6h</div>
+<a href="#" class="details-button">Detalhes ›</a>
+</div>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Nike.jpg' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">Nike<span class="status">Ativa</span></p>
-      <p class="company-location">Natal/RN</p>
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Peechinchou.png' %}">
+</div>
+<div class="card-body">
+<p class="company-name">Pechinchou <span class="status">Ativa</span></p>
+<p class="company-location">Pau dos Ferros/RN</p>
 
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Atendente de loja</div>
+  <div class="info-label"><span>🎯 Vaga</span></div>
+  <div class="info-value">Social Media</div>
 
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Integral - 6h</div>
+  <div class="info-label"><span>⏰ Turno e Horário</span></div>
+  <div class="info-value">Fléxivel - 8h</div>
 
-      <a href="#" class="details-button">Detalhes ›</a>
-    </div>
-  </div>
+  <a href="#" class="details-button">Detalhes ›</a>
+</div>
 
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Brisanet.png' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">Brisanet<span class="status">Ativa</span></p>
-      <p class="company-location">Pau dos Ferros/RN</p>
 
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Operador de Suporte</div>
+</div>
 
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Noturno - 6h</div>
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Atacarejo.png' %}">
+</div>
+<div class="card-body">
+<p class="company-name">Nosso Atacarejo <span class="status">Ativa</span></p>
+<p class="company-location">Pau dos Ferros/RN</p>
 
-      <a href="#" class="details-button">Detalhes ›</a>
-    </div>
-  </div>
+  <div class="info-label"><span>🎯 Vaga</span></div>
+  <div class="info-value">Operador(a) de caixa</div>
 
-  <div class="card">
-    <div class="card-header">
-      <img src="{% static 'candidato/img/Nubank.jpg' %}">
-    </div>
-    <div class="card-body">
-      <p class="company-name">Nubank<span class="status">Ativa</span></p>
-      <p class="company-location">Rio de Janeiro/RJ</p>
+  <div class="info-label"><span>⏰ Turno e Horário</span></div>
+  <div class="info-value">Integral - 8h</div>
 
-      <div class="info-label"><span>🎯 Vaga</span></div>
-      <div class="info-value">Front-End</div>
+  <a href="#" class="details-button">Detalhes ›</a>
+</div>
 
-      <div class="info-label"><span>⏰ Turno e Horário</span></div>
-      <div class="info-value">Integral - 6h</div>
 
-      <a href="#" class="details-button">Detalhes ›</a>
-    </div>
-  </div>
+</div>
+
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Pizzaria.png' %}">
+</div>
+<div class="card-body">
+<p class="company-name">Água na boca<span class="status">Ativa</span></p>
+<p class="company-location">Pau dos Ferros/RN</p>
+
+  <div class="info-label"><span>🎯 Vaga</span></div>
+  <div class="info-value">Entregador</div>
+
+  <div class="info-label"><span>⏰ Turno e Horário</span></div>
+  <div class="info-value">Noturno - 6h</div>
+
+  <a href="#" class="details-button">Detalhes ›</a>
+</div>
+
+
+</div>
+
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Nike.jpg' %}">
+</div>
+<div class="card-body">
+<p class="company-name">Nike<span class="status">Ativa</span></p>
+<p class="company-location">Natal/RN</p>
+
+  <div class="info-label"><span>🎯 Vaga</span></div>
+  <div class="info-value">Atendente de loja</div>
+
+  <div class="info-label"><span>⏰ Turno e Horário</span></div>
+  <div class="info-value">Integral - 6h</div>
+
+  <a href="#" class="details-button">Detalhes ›</a>
+</div>
+
+
+</div>
+
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Brisanet.png' %}">
+</div>
+<div class="card-body">
+<p class="company-name">Brisanet<span class="status">Ativa</span></p>
+<p class="company-location">Pau dos Ferros/RN</p>
+
+  <div class="info-label"><span>🎯 Vaga</span></div>
+  <div class="info-value">Operador de Suporte</div>
+
+  <div class="info-label"><span>⏰ Turno e Horário</span></div>
+  <div class="info-value">Noturno - 6h</div>
+
+  <a href="#" class="details-button">Detalhes ›</a>
+</div>
+
+
+</div>
+
+<div class="card">
+<div class="card-header">
+<img src="{% static 'candidato/img/Nubank.jpg' %}">
+</div>
+<div class="card-body">
+<p class="company-name">Nubank<span class="status">Ativa</span></p>
+<p class="company-location">Rio de Janeiro/RJ</p>
+
+  <div class="info-label"><span>🎯 Vaga</span></div>
+  <div class="info-value">Front-End</div>
+
+  <div class="info-label"><span>⏰ Turno e Horário</span></div>
+  <div class="info-value">Integral - 6h</div>
+
+  <a href="#" class="details-button">Detalhes ›</a>
+</div>
+
+
+</div>
 
 </div>
 <div class="ver-mais-container">
-    <button class="ver-mais-btn">Ver mais</button>
-  </div>
+<button class="ver-mais-btn">Ver mais</button>
+</div>
 </body>
 </html>
 {% endblock %}
