@@ -302,3 +302,26 @@ html, body {
 .bolinha.laranja {
     background-color: #ff9800;
 }
+.ver-mais-container {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.ver-mais-btn {
+  background-color: #032D5D;
+  color: #fff;
+  border: none;
+  padding: 18px 65px;
+  border-radius: 35px;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ver-mais-btn:hover {
+  background-color: #144a8d;
+  transform: translateY(-2px);
+}
+

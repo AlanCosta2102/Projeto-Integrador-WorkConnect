@@ -1,0 +1,171 @@
+/* ====== ESTILOS GERAIS ====== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #dbe3e7;
+  margin: 0;
+  padding: 0;
+  color: #1a1a1a;
+}
+.navbar {
+  background-color: #DAE2E5;
+  padding: 0.3rem 3rem 0rem 3rem;
+  border-bottom: 3px solid #082f63;
+  width: 90%;          /* ajusta o comprimento total */
+  margin: 0 auto;      /* centraliza horizontalmente */
+}
+
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  width: 150px;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: #082f63;
+  margin: 0 15px;
+  font-weight: 500;
+}
+
+.navbar nav a:hover {
+  color: #1e56a0;
+}
+.dashboard {
+  padding: 40px 60px;
+}
+
+/* ====== CABEÇALHO ====== */
+.boas-vindas h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.boas-vindas h1 span {
+  color: #022D52;
+}
+
+.boas-vindas p {
+  margin-top: 0;
+  font-size: 0.95rem;
+}
+
+/* ====== MÉTRICAS SUPERIORES ====== */
+.metricas {
+  margin-top: 25px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 25px 20px;
+  gap: 15px;
+}
+
+.metricas .card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #f6fff9;
+  border-radius: 10px;
+  padding: 15px 25px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 250px;
+  justify-content: center;
+}
+
+.metricas .icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #d4fbe1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metricas .icon i {
+  color: #1d9c4d;
+  font-size: 22px;
+}
+
+.metricas .info p {
+  font-size: 0.85rem;
+  margin: 0;
+  color: #555;
+}
+
+.metricas .info h3 {
+  margin: 3px 0 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ====== TÍTULO GERENCIAMENTO ====== */
+.titulo-gerenciamento {
+  margin-top: 40px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ====== ÁREA GERENCIAMENTO ====== */
+.painel-gerenciamento {
+  background-color: #022D52;
+  border-radius: 8px;
+  padding: 40px 30px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.bloco {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.bloco:hover {
+  transform: translateY(-3px);
+}
+
+.bloco .texto h3 {
+  color: #022D52;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.bloco .texto p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.bloco button {
+  background-color: #022D52;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bloco button:hover {
+  background-color: #083b74;
+}
+
+.bloco i {
+  font-size: 40px;
+  color: #022D52;
+}
