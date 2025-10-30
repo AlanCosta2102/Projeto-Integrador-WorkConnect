@@ -61,7 +61,7 @@ html, body {
   padding: 10px;
   width: 90%;
   position: relative;
-  left: 50px;
+  left: 90px;
 }
 
 .search-bar input {
@@ -93,7 +93,7 @@ html, body {
     margin-bottom: -50px;
     letter-spacing: 1px;
     position: relative;
-    left: 55px;
+    left: 95px;
     margin-top: 100px;;
 }
 .vagas-section {
@@ -106,7 +106,7 @@ html, body {
     margin-bottom: -50px;
     letter-spacing: 1px;
     position: relative;
-    left: 315px;
+    left: 130px;
     margin-top: 60px;;
 
 }
@@ -120,7 +120,7 @@ html, body {
     padding: 40px;
     box-sizing: border-box;       /* evita que padding reduza a largura */
     position: relative;
-    left: 120px;
+    left: 10px;
     margin-top: 50px;
 }
 
@@ -193,4 +193,101 @@ html, body {
     border-radius: 8px;
     text-decoration: none;
     float: right;
+}
+.footer { 
+    background-color: #04294f;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    padding: 30px 60px 10px;
+    box-sizing: border-box;
+    z-index: 110;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 200px;
+    position: relative;
+    left: 220px;
+}
+
+.footer-left {
+    flex: 1;
+    max-width: 400px;
+}
+
+.footer-logo {
+    width: 160px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cdd8e4;
+    margin-bottom: 20px;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 14px;
+}
+
+.footer-icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.footer-icons a:hover {
+    color: #9cc9ff;
+}
+
+.footer-section {
+    flex: 0.3;
+}
+
+.footer-section h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 6px;
+}
+
+.footer-section ul li a {
+    color: #cfd8dc;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+
+.footer hr {
+    margin-top: 30px;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #cfd8dc;
 }
