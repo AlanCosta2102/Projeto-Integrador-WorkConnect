@@ -1,0 +1,138 @@
+{% extends 'core/base_empresa.html' %}
+{% load static %}
+
+{% block title %}WorkConnect | Vagas{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vagas</title>
+  <link rel="stylesheet" href="{% static 'core/css/vagas.css' %}">
+</head>
+<body>
+    
+  <main class="vagas-container">
+    <h2 class="titulo">Vagas ativas</h2>
+
+    <div class="cards-grid">
+      {% comment %} Exemplo: iterar sobre vagas_ativas no contexto {% endcomment %}
+      {% for vaga in vagas_ativas %}
+      <div class="card ativa">
+        <div class="card-header">
+          <div class="header-bg"></div>
+          <img src="{% static vaga.logo %}" alt="Logo" class="logo">
+        </div>
+
+        <div class="card-body">
+          <div class="card-header-top">
+            <div>
+              <h3 class="empresa">{{ vaga.empresa }}</h3>
+              <p class="local">{{ vaga.local }}</p>
+            </div>
+            <span class="status ativa">Ativa</span>
+          </div>
+
+          <div class="vaga-info">
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">{{ vaga.titulo }}</p>
+
+            <p class="label">⏰ Turno e Horário</p>
+            <p class="valor">{{ vaga.turno }}</p>
+          </div>
+
+          <button class="btn-desativar">Desativar</button>
+        </div>
+      </div>
+      {% empty %}
+      <!-- fallback: mostrar 6 cards de exemplo se não houver dados -->
+      {% for i in "123456" %}
+      <div class="card ativa">
+        <div class="card-header">
+          <div class="header-bg"></div>
+          <img src="{% static 'core/img/Ellipse 14.png' %}" alt="Logo" class="logo">
+        </div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div>
+              <h3 class="empresa">Elétrica Cervejaria</h3>
+              <p class="local">Pau dos Ferros/RN</p>
+            </div>
+            <span class="status ativa">Ativa</span>
+          </div>
+          <div class="vaga-info">
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">Barmen</p>
+            <p class="label">⏰ Turno e Horário</p>
+            <p class="valor">Noturno - 4h</p>
+          </div>
+          <button class="btn-desativar">Desativar</button>
+        </div>
+      </div>
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+    <h2 class="titulo">Vagas arquivadas</h2>
+
+    <div class="cards-grid">
+      {% for vaga in vagas_arquivadas %}
+      <div class="card arquivada">
+        <div class="card-header">
+          <div class="header-bg arquivada"></div>
+          <img src="{% static vaga.logo %}" alt="Logo" class="logo">
+        </div>
+
+        <div class="card-body">
+          <div class="card-header-top">
+            <div>
+              <h3 class="empresa">{{ vaga.empresa }}</h3>
+              <p class="local">{{ vaga.local }}</p>
+            </div>
+            <span class="status arquivada">Arquivada</span>
+          </div>
+
+          <div class="vaga-info">
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">{{ vaga.titulo }}</p>
+
+            <p class="label">⏰ Turno e Horário</p>
+            <p class="valor">{{ vaga.turno }}</p>
+          </div>
+
+          <button class="btn-ativar">Ativar</button>
+        </div>
+      </div>
+      {% empty %}
+      {% for i in "123" %}
+      <div class="card arquivada">
+        <div class="card-header">
+          <div class="header-bg arquivada"></div>
+          <img src="{% static 'core/img/Ellipse 14.png' %}" alt="Logo" class="logo">
+        </div>
+        <div class="card-body">
+          <div class="card-header-top">
+            <div>
+              <h3 class="empresa">Elétrica Cervejaria</h3>
+              <p class="local">Pau dos Ferros/RN</p>
+            </div>
+            <span class="status arquivada">Arquivada</span>
+          </div>
+          <div class="vaga-info">
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">Barmen</p>
+            <p class="label">⏰ Turno e Horário</p>
+            <p class="valor">Noturno - 4h</p>
+          </div>
+          <button class="btn-ativar">Ativar</button>
+        </div>
+      </div>
+      {% endfor %}
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>
+{% endblock %}
