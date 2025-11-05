@@ -1,0 +1,112 @@
+{% extends 'core/base_empresa.html' %}
+{% load static %}
+
+{% block title %}WorkConnect | Vagas{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'core/css/lista_candidatos.css' %}">
+
+<main class="content">
+  <section class="header-section">
+    <div class="card">
+      <div class="card-header">
+        <img src="{% static 'core/img/Ellipse 14.png' %}">
+      </div>
+      <div class="card-body">
+        <p class="company-name">
+          Elétrica Cervejaria
+          <span class="status ativa">Ativa</span>
+        </p>
+        <p class="company-location">Pau dos Ferros/RN</p>
+
+        <div class="info-label"><span>🎯 Vaga</span></div>
+        <div class="info-value">Barmen</div>
+
+        <div class="info-label"><span>⏰ Turno e Horário</span></div>
+        <div class="info-value">Noturno - 4h</div>
+
+        <a href="#" class="details-button">Detalhes ›</a>
+      </div>
+    </div>
+
+    <div class="painel-info">
+      <h2>Total de Candidatos</h2>
+      <p class="numero">50</p>
+      <div class="search-bar">
+        <input type="text" placeholder="Pesquise por nome" class="input-job">
+        <button>Buscar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Data da inscrição</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="{% static 'core/img/Cristiano.png' %}" alt="">Cristiano Ronaldo</td>
+          <td>cristiano@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/ney.jpg' %}" alt="">Neymar Jr</td>
+          <td>Neymar@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Alan.png' %}" alt="">Alan Costa</td>
+          <td>alanzin@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/messi.png' %}" alt="">Lionel Messi</td>
+          <td>messi@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Arrascaeta.png' %}" alt="">Giorgian De Arrascaeta</td>
+          <td>Arrascaeta@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/gabigol.jpg' %}" alt="">Gabriel Barbosa</td>
+          <td>gabigol@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Thiago.png' %}" alt="">Thiago Henrique</td>
+          <td>thiago@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/vini.png' %}" alt="">Vinicius Junior</td>
+          <td>Vini@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Irlan.png' %}" alt="">Irlan Yarlei</td>
+          <td>Irlan@example.com</td>
+          <td>21/02/2025</td>
+          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+{% endblock %}
