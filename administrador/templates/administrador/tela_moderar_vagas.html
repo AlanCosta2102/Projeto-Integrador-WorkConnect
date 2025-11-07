@@ -1,0 +1,169 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'administrador/css/moderar_vagas.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<main class="content">
+
+    <div class="search-container">
+  <div class="search-bar">
+    <div class="search-item">
+      <i class="fa fa-search"></i>
+      <input type="text" placeholder="Pesquisar por Titulo">
+    </div>
+    <div class="divider"></div>
+    <div class="search-item">
+      <i class="fa fa-map-marker-alt"></i>
+      <select>
+        <option selected disabled>Localização</option>
+        <option>Pau dos Ferros/RN</option>
+        <option>Encanto/RN</option>
+      </select>
+    </div>
+    <div class="divider"></div>
+    <div class="search-item">
+      <i class="fa fa-layer-group"></i>
+      <select>
+        <option selected disabled>Selecionar por categoria</option>
+        <option>Ativo</option>
+        <option>Inativo</option>
+      </select>
+    </div>
+    <button class="search-btn">Buscar</button>
+  </div>
+</div>
+
+  
+ <section class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Título da Vaga</th>
+          <th>Data da publicação</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="{% static 'core/img/Ellipse 14.png' %}" alt="">Cervejaria eletrica
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Barmen</td>
+          <td>21/02/2025</td>
+          <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Brisanet.png' %}" alt="">Brisanet
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Operador de suporte técnico</td>
+          <td>21/02/2025</td>
+        <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Nike.jpg' %}" alt="">Nike
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Vendedor de loja</td>
+          <td>21/02/2025</td>
+          <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Nubank.jpg' %}" alt="">Nubank
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Desenvolvedor Front-end</td>
+          <td>21/02/2025</td>
+          <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Peechinchou.png' %}" alt="">Peechinchou
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Balconista</td>
+          <td>21/02/2025</td>
+          <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Pizzaria.png' %}" alt="">Pizzaria Água na boca
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Garçom(A)</td>
+          <td>21/02/2025</td>
+          <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Hotel.png' %}" alt="">West Hotel
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Camareiro(A)</td>
+          <td>21/02/2025</td>
+          <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Farmacia.png' %}" alt="">Farmacia Ideal
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Balconista</td>
+          <td>21/02/2025</td>
+          <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="{% static 'core/img/Brisanet.png' %}" alt="">Brisanet
+            <p class="empresa-detalhes">
+                  <i class="fa-solid fa-location-dot"></i> Pau dos Ferros/RN &nbsp;&nbsp;
+                  <i class="fa-solid fa-sack-dollar"></i> R$ 1.512,00 - 2.000,00
+                </p>
+        </td>
+          <td>Operador de retencão</td>
+          <td>21/02/2025</td>
+          <td class="acoes">
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
