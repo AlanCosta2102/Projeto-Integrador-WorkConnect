@@ -11,4 +11,6 @@ urlpatterns = [
     path('candidaturas/', views.candidaturas_candidato, name='candidaturas_candidato'),
     
     path('vagas/', views.vagas_candidato, name='vagas_candidato'),
+
+    path('criar_conta/', views.criar_conta, name='criar_conta'),   
 ]
