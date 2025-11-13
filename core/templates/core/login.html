@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'core/css/login.css' %}">
+    <title>WorkConnect - Login</title>
+</head>
+<body>
+    
+    <main class = "container">
+        <section class ="lado-esquerdo">
+            <div class="ilustration">
+                <img src="img/img-login.png" alt="img-login">
+            </div>
+            <p class="texto-conta"> 
+                Não tem conta? <a href="#"> Cadastre-se</a>
+            </p>
+        </section>
+
+        <section class="lado-direito">
+            <div class="box-login">
+                <div class="logo-slogan">
+                    <img src="img/logomarca.png" alt="">
+                </div>
+
+                <h2>Bem vindo ao WorkConnect!</h2>
+                <h3>Login</h3>
+
+            <form action="#" method="post" class="login-form">
+                <div class="input-group">
+                        <label for="usuario">Usuário</label>
+                        <input type="text" id="usuario" name="usuário" placeholder="CPF" required>
+                        <div class="input-group"></div>
+                        <label for="senha">Senha</label>
+                        <div class="password-wrapper">
+                            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                            <button type="button" class="toggle-password"> <img src="img/show-password.png" alt="" ></button>
+                        </div>
+                    </div>
+
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+
+                    
+                    <button type="submit" class="button-enter">Entrar</button>
+                    <p class="Or">Ou</p>
+                 
+                    <button type="button" class="button-google">
+                        <img src="img/icon-google.png" alt="Google"> Entre com sua conta do Google 
+                        
+                    </button>
+               
+                    </div>
+                    
+                </form>
+            </div>
+            
+        </section>
+
+    </main>
+     <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <img src="{% static 'core/img/Logo_WorkConnect.png' %}" alt="WorkConnect Logo" class="footer-logo">
+                    <p class="footer-text">
+                        WorkConnect, uma plataforma para facilitar a divulgação e a busca por vagas de emprego, focado no comércio local
+                    </p>
+                    <div class="footer-icons">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Plataforma</h4>
+                    <ul>
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Serviços</a></li>
+                        <li><a href="#">Testemunhos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contatos</h4>
+                    <ul>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Telefone</a></li>
+                        <li><a href="#">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2025 Work Connect</p>
+            </div>
+        </footer>
+</body>
+</html>
