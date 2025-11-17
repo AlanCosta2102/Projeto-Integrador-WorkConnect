@@ -17,3 +17,6 @@ def vagas_empresa(request):
 
 def lista_candidatos(request):
     return render(request,'empresa/lista_candidatos.html')
+
+def tela_perfil_candidato(request):
+    return render(request, 'empresa/tela_perfil_candidato.html')

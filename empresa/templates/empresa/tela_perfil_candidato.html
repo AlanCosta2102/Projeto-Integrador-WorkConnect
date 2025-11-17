@@ -1,0 +1,76 @@
+{% extends 'core/base_empresa.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'core/css/tela_perfil_candidato.css' %}">
+
+<div class="perfil-container">
+
+    <!-- Banner -->
+    <div class="perfil-banner">
+        <img src="{% static 'core/img/Thiago.png' %}" alt="Foto do Candidato" class="perfil-foto">
+        <div class="perfil-info">
+            <h2>Thiago Henrique</h2>
+            <p>thiagohenrique@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="perfil-grid">
+
+        <!-- Sobre -->
+        <div class="card sobre-card">
+            <h3 class="card-title">Sobre</h3>
+
+            <ul class="sobre-list">
+                <li><i class="fa-solid fa-user"></i> Thiago Henrique dos Santos Oliveira</li>
+                <li><i class="fa-solid fa-calendar"></i> 22 anos</li>
+                <li><i class="fa-solid fa-location-dot"></i> Maceió - AL</li>
+                <li><i class="fa-solid fa-envelope"></i> thiagohenrique@gmail.com</li>
+                <li><i class="fa-solid fa-phone"></i> (82) 99123-4567</li>
+            </ul>
+        </div>
+
+        <!-- Experiência -->
+        <div class="card experiencia-card">
+            <h3 class="card-title azul">Experiência Profissional</h3>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <h4>Tosador de Petshop</h4>
+                    <span class="exp-date">2022 – 2025</span>
+                </div>
+                <p>
+                    Tosando as mais variadas raças de cães e gatos. 
+                    Experiência com máquina, tesoura e tosa higiênica. 
+                    Realização de tosas específicas como padrão e tosa bebê.
+                </p>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <h4>Ciência de Dados</h4>
+                    <span class="exp-date">2023 – 2026</span>
+                </div>
+                <p>
+                    Desenvolvimento de soluções baseadas em dados para apoiar decisões. 
+                    Tratamento, análise e visualização de dados; criação de modelos estatísticos 
+                    e preditivos; geração de insights estratégicos.
+                </p>
+            </div>
+        </div>
+
+        <!-- Formação -->
+        <div class="card formacao-card">
+            <h3 class="card-title">Formação Acadêmica</h3>
+
+            <div class="form-item">
+                <h4>Bacharelado em Ciência da Computação - UFAL</h4>
+                <p>
+                    Foco em algoritmos, estruturas de dados e desenvolvimento de software.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
