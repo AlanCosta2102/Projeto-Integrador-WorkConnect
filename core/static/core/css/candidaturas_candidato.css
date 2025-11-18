@@ -291,3 +291,154 @@ html, body {
     font-size: 13px;
     color: #cfd8dc;
 }
+
+@media (max-width: 1200px) {
+  .navbar {
+    width: 90%;
+    padding: 0.5rem 1rem;
+  }
+
+  .footer-content {
+    left: 0;
+    gap: 80px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .navbar .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .search-bar {
+    left: 0;
+    width: 95%;
+    margin: 40px auto 0 auto;
+  }
+
+  .filter-title,
+  .candidaturas-title {
+    left: 0;
+    text-align: center;
+  }
+
+  .cards-container {
+    left: 0;
+    gap: 40px;
+  }
+
+  .footer-content {
+    flex-wrap: wrap;
+    gap: 40px;
+    left: 0;
+  }
+
+  .footer-section {
+    flex: 1 1 200px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .navbar nav a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-bar button {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .cards-container {
+    padding: 20px;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-left {
+    max-width: 100%;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+}
+
+/* Telas até 600px (celulares médios) */
+@media (max-width: 600px) {
+
+  .navbar .logo {
+    width: 120px;
+  }
+
+  .filter-title,
+  .candidaturas-title {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .cards-container {
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-header img {
+    left: calc(50% - 40px);
+  }
+}
+
+/* Telas até 480px (celulares pequenos) */
+@media (max-width: 480px) {
+
+  .navbar nav a {
+    font-size: 12px;
+    margin: 0 6px;
+  }
+
+  .search-bar input {
+    font-size: 0.85rem;
+  }
+
+  .filter-title,
+  .candidaturas-title {
+    font-size: 18px;
+  }
+
+  .details-button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .footer {
+    padding: 20px;
+  }
+
+  .footer-text {
+    font-size: 11px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+  }
+}

@@ -11,11 +11,10 @@ body {
     min-height: 90vh;
 }
 
-/* Painel esquerdo */
 .left-panel {
     background-color: #032D5D;
     width: 619px;
-    height: 800px;  /* <<< Altura reduzida */
+    height: 800px; 
     border-radius: 10px;
     color: white;
     display: flex;
@@ -223,7 +222,6 @@ input {
     color: #cfd8dc;
 }
 
-/* ====== Responsivo ====== */
 @media (max-width: 900px) {
     .register-container {
         flex-direction: column;
