@@ -12,5 +12,9 @@ urlpatterns = [
     
     path('vagas/', views.vagas_empresa, name='vagas_empresa'),
 
-    path('lista_candidatos/', views.lista_candidatos, name='lista_candidatos')
+    path('lista_candidatos/', views.lista_candidatos, name='lista_candidatos'),
+
+    path('cadastrar_emprego/', views.cadastrar_emprego, name= 'cadastrar_emprego'),
+
+    path('cadastrar_estagio/', views.cadastrar_estagio, name= 'cadastrar_estagio'),
 ]

@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/cadastrar_estagio.css' %}">
+    <title>Cadastrar Vaga - Estágio</title>
+</head>
+<body>
+    
+    <main class="main-content">
+
+
+    <section class="top-banner">
+        <div class="banner-text">
+            <h2>Cadastre sua oferta de vaga aqui!</h2>
+            <p>Descreva a seguir as informações sobre a vaga que deseja ofertar </p>
+        </div>
+        <div class="banner-img">
+            <img src="{% static 'core/img/banner-img.png' %}" alt="img-banner">
+        </div>
+        </div>
+    </section>
+
+    <section class="form-container">
+        <h3 class="title">Vamos lá!</h3>
+
+        <div class="tabs">
+            <button class="tab active">Emprego</button>
+            <button class="tab-other">Estágio</button>
+        </div>
+
+        <form class="job-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="titulo">Titulo da vaga*</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ex: Vendedor">
+                </div>
+                
+                    
+
+
+             <div class="form-group">
+                    <label for="titulo">Quantidade de vagas</label>
+                    <input type="number" id="quantidade" name="quantidade" min="0" placeholder="0">
+             </div>   
+            </div>
+            </div>
+            
+
+            <div class="form-row">
+                <div class="form-group largura_total">
+                    <label for="Requisitos">Requisitos e qualificações*</label>
+                    <textarea name="Requisitos" id="Requisitos" placeholder="Click 'Enter' a cada requisito"></textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="modelo">Modelo de Trabalho</label>
+                    <select name="modelo" id="modelo">
+                        <option value="">Selecione</option>
+                        <option value="">Presencial</option>
+                        <option value="">Híbrido</option>
+                        <option value="">Remoto</option>
+                    </select>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="salario">Remuneração</label>
+                    <input type="text" id="salario" name="salario" placeholder="R$ 0,00">
+                </div>  
+                  </div>
+                  
+                  <div class="form-row">
+                <div class="form-group">
+                    <label for="contrato">Tipo de contrato</label>
+                    <select name="contrato" id="contrato">
+                        <option value="">Selecione</option>
+                        <option value="">CLT</option>
+                        <option value="">PJ</option>
+                        <option value="">Temporário</option>
+                        <option value="">Freelance</option>
+                    </select>
+                
+
+                </div>
+                <div class="form-group">
+                    <label for="Jornada">Jornada de Trabalho</label>
+                    <input type="text" id="jornada" name="jornada" placeholder="Ex: 8h diárias">
+
+                </div>
+            </div>    
+
+                      <div class="form-row">
+                <div class="form-group">
+                    <label for="">Benefícios</label>
+                    <div class="check-box">
+                        <label>
+                            <input type="checkbox" name="beneficio" value="vale_refeicao"> Vale-refeição 
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="beneficio" valeu="plano_saude"> Plano de Saúde
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="beneficio" value="vale_tranporte"> Vale-transporte
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="beneficio" valeu="outros"> Outros
+                        </label>
+                    </div>
+                     </div>  
+                      
+                    
+                    <div class="form-group">
+                    <label for="Diferencial">Diferencial(Não obrigatório)</label>
+                    <input type="text" id="Diferencial" name="Diferencial" placeholder="">
+                  </div>  
+                  </div>
+                     
+                        <div class="form-group full-width">
+                            <label for="descrição">Descrição</label>
+                            <textarea name="descricao" id="descricao"></textarea>
+                        </div>
+                     
+                     
+                     <div class="button">
+                         <button type="submit">Cadastrar</button>
+                        </div>
+                    
+            </form>
+                    
+</section>
+        
+   </main>
+</body>
+</html>
