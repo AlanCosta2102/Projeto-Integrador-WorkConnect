@@ -17,3 +17,9 @@ def vagas_empresa(request):
 
 def lista_candidatos(request):
     return render(request,'empresa/lista_candidatos.html')
+
+def cadastrar_emprego(request):
+    return render(request, 'empresa/cadastrar_emprego.html')
+
+def cadastrar_estagio(request):
+    return render(request, 'empresa/cadastrar_estagio.html')

@@ -17,3 +17,7 @@ def vagas_candidato(request):
 
 def criar_conta(request):
     return render(request, 'candidato/criar_conta.html')
+
+def descricao_vaga(request):
+    return render(request, 'candidato/descricao_vaga.html')
+
