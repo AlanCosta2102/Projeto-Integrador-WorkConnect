@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #0d4c91 0%, #0054a0 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.decor {
+    position: absolute;
+    opacity: .25;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.decor-network {
+    top: 30px;
+    left: 50px;
+    width: 160px;
+}
+
+.decor-briefcase {
+    bottom: 60px;
+    left: 80px;
+    width: 130px;
+}
+
+.decor-wifi {
+    top: 90px;
+    right: 70px;
+    width: 160px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 60px auto;
+    max-width: 1150px;
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
+}
+
+.lado-esquerdo {
+    flex: 1;
+    background-color: #0a56a3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.img-ilustracao {
+    width: 90%;
+    max-width: 460px;
+}
+
+.lado-direito {
+    flex: 1;
+    background: #0a56a3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.card {
+    background: #ffffff;
+    width: 85%;
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.logo {
+    width: 230px;
+    margin-bottom: 1px;
+    margin-top: -70px;
+}
+
+.slogan {
+    font-size: 15px;
+    margin-bottom: 30px;
+    color: #2D4F6F;
+    margin-top: -80px;
+    max-width: 180px;
+    word-break: break-word;
+    position: relative;
+    left: 90px;
+}
+
+.voce-e {
+    color: black;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.btn-padrao {
+    width: 70%;
+    padding: 10px;
+    background: #022d63;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 5px;
+    transition: 0.2s;
+}
+
+.btn-padrao:hover {
+    background: #003a7a;
+    transform: scale(1.03);
+}
+
+.ou {
+    margin: 18px 0;
+    font-weight: 600;
+    color:black;
+}
+
+.footer {
+    margin-top: 50px;
+    background: #042f56;
+    color: #e6f0fb;
+    padding: 40px 60px 20px;
+}
+
+.footer-content {
+    max-width: 1150px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-logo {
+    width: 140px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    color: rgba(230,240,251,0.9);
+    font-size: .92rem;
+    line-height: 1.4;
+    max-width: 330px;
+}
+
+.footer-icons a {
+    color: white;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: #e6f0fb;
+    font-size: .93rem;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer hr {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin: 25px auto;
+    max-width: 1150px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: .85rem;
+}
+
+@media (max-width: 992px) {
+
+    .container {
+        flex-direction: column;
+        margin: 30px auto;
+        width: 90%;
+    }
+
+    .lado-esquerdo {
+        padding: 20px;
+    }
+
+    .lado-direito {
+        padding: 20px;
+    }
+
+    .card {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .logo {
+        width: 180px;
+        margin-top: -40px;
+    }
+
+    .btn-padrao {
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    body {
+        background: linear-gradient(180deg, #0d4c91 0%, #0054a0 100%);
+    }
+
+    .decor-network,
+    .decor-briefcase,
+    .decor-wifi {
+        display: none; /
+    }
+
+    .container {
+        margin: 20px auto;
+        width: 95%;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    .slogan {
+        font-size: 11px;
+        max-width: 160px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .logo {
+        width: 160px;
+        margin-top: -20px;
+    }
+
+    .btn-padrao {
+        font-size: 14px;
+        width: 90%;
+    }
+
+    .slogan {
+        font-size: 11px;
+        max-width: 150px;
+    }
+}

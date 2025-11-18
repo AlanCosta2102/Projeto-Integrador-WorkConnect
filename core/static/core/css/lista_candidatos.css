@@ -220,3 +220,153 @@ td i {
     position: relative;
     left: 170px;
 }
+/* ===========================================
+   📱 RESPONSIVIDADE
+   =========================================== */
+
+/* Telas até 1200px */
+@media (max-width: 1200px) {
+
+  .navbar {
+    margin-left: 0;
+    left: 0;
+    width: 95%;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .header-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .painel-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .search-bar {
+    width: 95%;
+  }
+
+  table {
+    font-size: 0.95rem;
+  }
+}
+
+/* Telas até 992px (notebooks menores e tablets landscape) */
+@media (max-width: 992px) {
+
+  .navbar nav a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .content {
+    width: 95%;
+  }
+
+  .search-bar {
+    left: 0;
+    margin: 40px auto 0 auto;
+  }
+
+  .table-section {
+    overflow-x: auto; /* evita que a tabela quebre */
+  }
+
+  .card {
+    width: 280px;
+  }
+}
+
+/* Telas até 768px (tablets) */
+@media (max-width: 768px) {
+
+  .navbar .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header-section {
+    padding: 1.5rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-bar button {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .card {
+    width: 90%;
+    margin: auto;
+  }
+
+  .details-button {
+    left: 0;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+/* Telas até 600px (celulares médios) */
+@media (max-width: 600px) {
+
+  .navbar nav a {
+    font-size: 13px;
+    margin: 0 6px;
+  }
+
+  .painel-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .numero {
+    font-size: 2rem;
+  }
+
+  table th, table td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .card-header img {
+    left: calc(50% - 40px);
+  }
+}
+
+/* Telas até 480px (celulares pequenos) */
+@media (max-width: 480px) {
+
+  .navbar .logo {
+    width: 120px;
+  }
+
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+
+  .header-section {
+    padding: 1rem;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .details-button {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  td img {
+    width: 30px;
+    height: 30px;
+  }
+}

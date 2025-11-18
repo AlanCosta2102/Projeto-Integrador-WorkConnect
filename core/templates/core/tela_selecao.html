@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkConnect – Selecione</title>
+    <link rel="stylesheet" href="{% static 'core/css/tela_selecao.css' %}">
+</head>
+
+<body>
+
+    <!-- ÍCONES DE FUNDO -->
+    <img src="{% static 'core/img/pessoas.png' %}" class="decor decor-network">
+    <img src="{% static 'core/img/maleta.png' %}" class="decor decor-briefcase">
+    <img src="{% static 'core/img/wifi.png' %}" class="decor decor-wifi">
+
+    <main class="container">
+
+        <!-- LADO ESQUERDO -->
+        <section class="lado-esquerdo">
+            <img src="{% static 'core/img/Frame 395.png' %}" class="img-ilustracao">
+        </section>
+
+        <!-- CARD DIREITO -->
+        <section class="lado-direito">
+            <div class="card">
+
+                <img src="{% static 'core/img/LogoTemplate.png' %}" class="logo">
+
+                <p class="slogan">
+                    Conectamos talentos às melhores oportunidades
+                </p>
+
+                <h3 class="voce-e">Você é:</h3>
+
+                <button class="btn-padrao">Pessoa</button>
+
+                <p class="ou">Ou</p>
+
+                <button class="btn-padrao">Empresa</button>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+
+            <div class="footer-left">
+                <img src="{% static 'core/img/Logo_WorkConnect.png' %}" class="footer-logo">
+
+                <p class="footer-text">
+                    WorkConnect, uma plataforma para facilitar a divulgação e a busca por vagas de emprego, focada no comércio local.
+                </p>
+
+                <div class="footer-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Testemunhos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contatos</h4>
+                <ul>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Telefone</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+            <p>© Copyright 2025 Work Connect</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
