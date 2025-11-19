@@ -23,4 +23,6 @@ urlpatterns = [
     path('criar_conta_empresa/', views.criar_conta_empresa, name='criar_conta_empresa'),
 
     path('visualizar_curriculo/', views.visualizar_curriculo, name='visualizar_curriculo'),
+
+    path('editar_vaga/', views.editar_vaga, name='editar_vaga'),
 ]

@@ -32,3 +32,7 @@ def criar_conta_empresa(request):
 
 def visualizar_curriculo(request):
     return render(request, 'empresa/visualizar_curriculo.html')
+
+def editar_vaga(request):
+    return render(request, 'empresa/editar_vaga.html')
+

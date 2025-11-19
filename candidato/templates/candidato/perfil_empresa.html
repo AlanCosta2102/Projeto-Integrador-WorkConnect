@@ -1,0 +1,92 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}WorkConnect | Candidaturas{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'core/css/perfil_empresa.css' %}">
+
+<div class="perfil-content">
+<div class="banner">
+        <img src="{% static 'core/img/capa-perfil.png' %}" alt="Banner da Empresa">
+    </div>
+
+    <!-- Header da Empresa -->
+    <div class="empresa-header">
+        <img class="empresa-logo" src="{% static 'core/img/perfil-empresa.png' %}" alt="Logo da Empresa">
+
+        <div class="empresa-info">
+            <h1>Elétrica Cervejaria</h1>
+            <p class="empresa-segmento">CNPJ: 00.111.222/0001-00</p>
+        </div>
+
+        <div class="contato">
+            <h3>Contato</h3>
+
+            <p><span class="icone"><img src="{% static 'core/img/icon-email.png' %}" alt=""></span> email@gmail.com</p>
+            <p><span class="icone"><img src="{% static 'core/img/icon-phone.png' %}" alt=""></span> (00) 99999-9999</p>
+            <p><span class="icone"><img src="{% static 'core/img/icon-insta.png' %}" alt=""></span> @eletricaempresa</p>
+        </div>
+    </div>
+
+      <hr>
+
+    <!-- Sobre Nós -->
+    <section class="secao">
+        <h2><span class="icone"><img src="{% static 'core/img/icon-sobre.png' %}" alt=""></span> Sobre nós</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Morbi eget ligula eu velit faucibus elementum...
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- Localização -->
+    <section class="secao">
+        <h2><span class="icone"><img src="{% static 'core/img/icon-local.png' %}" alt=""></span> Localização</h2>
+        <p><strong>Endereço:</strong> Rua qualquer, 123</p>
+        <p><strong>Bairro:</strong> Boa Vista — 93500-000</p>
+        <p><strong>Complemento:</strong> Próximo ao IFN</p>
+    </section>
+
+    <hr>
+
+    <!-- Vagas Publicadas -->
+    <section class="secao">
+        <h2><span class="icone"><img src="{% static 'core/img/icon-mala.png' %}" alt=""></span> Vagas Publicadas</h2>
+
+        <div class="vagas-grid">
+
+            <!-- Vaga 1 -->
+            <div class="vaga-card verde">
+                <img src="{% static 'core/img/Ellipse 14.png' %}" class="vaga-logo">
+                <h2>Elétrica Cervejaria</h2>
+
+                <p><strong>Barmen</strong></p>
+                <p>50 visualizações</p>
+                <p>Noturno — 4h</p>
+
+                <button class="btn-detalhes">Detalhes</button>
+            </div>
+
+            <!-- Vaga 2 -->
+            <div class="vaga-card vermelho">
+                <img src="{% static 'core/img/Ellipse 14.png' %}" class="vaga-logo">
+                <h3>Elétrica Cervejaria</h3>
+
+                <p><strong>Balconista</strong></p>
+                <p>80 visualizações</p>
+                <p>Manhã — 4h</p>
+
+                <button class="btn-detalhes">Detalhes</button>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+</div>
+{% endblock %}
