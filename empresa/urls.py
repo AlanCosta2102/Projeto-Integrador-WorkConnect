@@ -17,4 +17,6 @@ urlpatterns = [
     path('cadastrar_emprego/', views.cadastrar_emprego, name= 'cadastrar_emprego'),
 
     path('cadastrar_estagio/', views.cadastrar_estagio, name= 'cadastrar_estagio'),
+
+    path('tela_principal_empresa/', views.tela_principal_empresa, name='tela_principal_empresa'),
 ]
