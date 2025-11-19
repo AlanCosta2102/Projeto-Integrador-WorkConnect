@@ -18,4 +18,6 @@ urlpatterns = [
 
     path('perfil_candidato/', views.perfil_candidato, name='perfil_candidato'),
 
+     path('perfil_empresa/', views.perfil_empresa, name='perfil_empresa') 
+
 ]

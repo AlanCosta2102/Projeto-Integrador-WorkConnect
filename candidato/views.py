@@ -24,3 +24,5 @@ def descricao_vaga(request):
 def perfil_candidato(request):
     return render(request, 'candidato/perfil_candidato.html')
 
+def perfil_empresa(request):
+    return render(request, 'candidato/perfil_empresa.html')
