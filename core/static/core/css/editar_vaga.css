@@ -1,0 +1,253 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#DAE2E5;
+     min-height: 100vh;
+}
+
+.main-content{
+  max-width: 980px;      /* largura máxima do conteúdo para leitura confortável */
+  margin: 24px auto;     /* centraliza horizontalmente e adiciona espaçamento vertical */
+  padding: 25px;   
+}
+
+.top{
+    background-color: white;
+    border-radius: 15px;
+
+}
+.top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+
+}
+
+.top-bar .logo img{
+    width: 150px;
+    height: auto;
+}
+
+.nav-links{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    font-size: 14px;
+    color: black;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+.nav-links a:hover{
+    background-color: rgba(51,65,85,0.06)
+}
+
+.detalhes-vaga{
+    display: block;
+}
+
+.cabeçalho-vaga{
+   
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 8px rgba(16,24,40,0.06);
+    padding-bottom: 18px; ;
+}
+
+.capa-perfil{
+    width: 100%;
+    display: block;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.infos-vaga{
+   
+    display: block;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 20px;
+    
+  
+}
+
+.logo-empresa{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border-color: #9D9A9A;
+    overflow: hidden;
+    flex: 0 0 72;
+    box-shadow: 0 4px 10px rgba(16,24,40,0.08);
+    top: -85px;
+    left: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-empresa img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.nome-empresa h2{
+    margin: -75px 0px 20px 30px;
+    font-size: 20px;
+    color:black;
+}
+
+.nome-empresa .area-atuaçao{
+font-size: 12px;
+color: #6b7280;
+ margin: -20px 0px 20px 30px;
+
+}
+
+
+.row{
+   border-bottom: 3px solid #c6c2c2;
+   width: 90%;
+   margin: 0 auto;
+}
+
+.resumo-vaga{
+    
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 30px 20px 20px 50px;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    
+}
+
+.itens-resumos {
+   
+    border-radius: 10px;
+    padding: 12px 14px;
+    min-width: 220px;
+    box-shadow: 0 4px 14px rgba(16,24,40,0.04);
+    
+
+}
+
+
+
+
+
+
+
+.titulos-resumo {
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgb(150, 146, 146);
+    font-weight: 600;
+   
+      
+    
+}
+
+.descrição-vaga{
+    margin-top: 18px;
+    background: white;
+    border-radius: 15px;
+    padding: 18px;
+    padding-bottom: 40px;
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+    color: #0f172a;
+    
+}
+
+.menu-aba{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    
+}
+
+.conteudo-geral{
+    margin-left: 20px;
+}
+.outra-aba{
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #9D9A9A;
+    transition: background-color 0.16s, color 0.16s;
+}
+
+.acao-aba{
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-bottom: 3px solid #032D5D;
+   
+}
+
+
+.conteudo-aba h3{
+    font-size: 17px;
+    margin-bottom: 10px;
+    
+}
+
+.conteudo-aba p{
+    margin-bottom: 25px;
+}
+.conteudo-aba h4{
+    padding: 15px 0px 8px 0px;
+    
+}
+
+.conteudo-aba ul{
+    margin-left: 18px;
+    margin-bottom: 14px;
+    list-style: disc;
+    color: #39414a
+}
+
+.button{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-right: 50px;
+
+}
+
+.button button{
+    background: #051D4D;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 8px 26px rgba(11, 75, 155, 0.12);
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+
+.button button:hover {
+  transform: translateY(-2px);        /* efeito sutil de elevação ao passar o mouse */
+  box-shadow: 0 12px 30px rgba(11, 75, 155, 0.16);
+}
