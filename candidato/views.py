@@ -18,6 +18,11 @@ def vagas_candidato(request):
 def criar_conta(request):
     return render(request, 'candidato/criar_conta.html')
 
+<<<<<<< Updated upstream
 def descricao_vaga(request):
     return render(request, 'candidato/descricao_vaga.html')
 
+=======
+def perfil_candidato(request):
+    return render(request, 'candidato/perfil_candidato.html')
+>>>>>>> Stashed changes

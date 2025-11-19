@@ -1,0 +1,164 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'core/css/perfil_candidato.css' %}">
+
+<div class="perfil-container">
+
+    <!-- Banner -->
+    <div class="perfil-banner">
+        <img src="{% static 'core/img/Thiago.png' %}" alt="Foto do Candidato" class="perfil-foto">
+        <div class="perfil-info">
+            <h2>Thiago Henrique</h2>
+            <p>thiagohenrique@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="perfil-grid">
+
+        <!-- Sobre -->
+        <div class="card sobre-card">
+            <h3 class="card-title">Sobre</h3>
+            <ul class="sobre-list">
+                <li><i class="fa-solid fa-user"></i> Thiago Henrique dos Santos Oliveira</li>
+                <li><i class="fa-solid fa-calendar"></i> 22 anos</li>
+                <li><i class="fa-solid fa-location-dot"></i> Maceió - AL</li>
+                <li><i class="fa-solid fa-envelope"></i> thiagohenrique@gmail.com</li>
+                <li><i class="fa-solid fa-phone"></i> (82) 99123-4567</li>
+            </ul>
+        </div>
+
+        <!-- Experiência -->
+        <div class="card experiencia-card">
+            <h3 class="card-title azul">Experiência Profissional</h3>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <h4>Tosador de Petshop</h4>
+                    <span class="exp-date">2022 – 2025</span>
+                </div>
+                <p>
+                    Tosando as mais variadas raças de cães e gatos. 
+                    Experiência com máquina, tesoura e tosa higiênica. 
+                    Realização de tosas específicas como padrão e tosa bebê.
+                </p>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <h4>Ciência de Dados</h4>
+                    <span class="exp-date">2023 – 2026</span>
+                </div>
+                <p>
+                    Desenvolvimento de soluções baseadas em dados para apoiar decisões. 
+                    Tratamento, análise e visualização de dados; criação de modelos estatísticos 
+                    e preditivos; geração de insights estratégicos.
+                </p>
+            </div>
+        </div>
+
+        <!-- Formação -->
+        <div class="card formacao-card">
+            <h3 class="card-title">Formação Acadêmica</h3>
+            <div class="form-item">
+                <h4>Bacharelado em Ciência da Computação - UFAL</h4>
+                <p>
+                    Foco em algoritmos, estruturas de dados e desenvolvimento de software.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!--                MINHAS CANDIDATURAS                 -->
+    <!-- ================================================== -->
+
+    <section class="candidaturas-wrapper">
+    <div class="candidaturas-header">
+        <h2>Minhas Candidaturas</h2>
+        <a href="#" class="ver-todas">Ver todas</a>
+    </div>
+
+    <div class="candidaturas-cards">
+
+        <!-- CARD 1 - Aprovado -->
+        <div class="candidatura-card status-aprovado">
+            <img src="{% static 'core/img/Peechinchou.png' %}" class="cand-logo">
+            <h4>Pechinchou</h4>
+            <span class="status-badge aprovado">Aprovado</span>
+
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">Social Media</p>
+
+            <p class="label clock">⏰ Turno e Horário</p>
+            <p class="valor">Flexível - 8h</p>
+
+            <a class="btn-details">Detalhes ></a>
+        </div>
+
+        <!-- CARD 2 - Reprovado -->
+        <div class="candidatura-card status-reprovado">
+            <img src="{% static 'core/img/Nosso.png' %}" class="cand-logo">
+            <h4>Elétrica Cervejaria</h4>
+            <span class="status-badge reprovado">Reprovado</span>
+
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">Setor Econômico</p>
+
+            <p class="label clock">⏰ Turno e Horário</p>
+            <p class="valor">Meio período - 5h</p>
+
+            <a class="btn-details">Detalhes ></a>
+        </div>
+
+        <!-- CARD 3 - Aprovado -->
+        <div class="candidatura-card status-aprovado">
+            <img src="{% static 'core/img/Agua.png' %}" class="cand-logo">
+            <h4>Água na Boca</h4>
+            <span class="status-badge aprovado">Aprovado</span>
+
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">Entregador</p>
+
+            <p class="label clock">⏰ Turno e Horário</p>
+            <p class="valor">Noturno - 5h</p>
+
+            <a class="btn-details">Detalhes ></a>
+        </div>
+
+        <!-- CARD 4 - Aprovado -->
+        <div class="candidatura-card status-aprovado">
+            <img src="{% static 'core/img/Electrica.png' %}" class="cand-logo">
+            <h4>Elétrica Cervejaria</h4>
+            <span class="status-badge aprovado">Aprovado</span>
+
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">Barmen</p>
+
+            <p class="label clock">⏰ Turno e Horário</p>
+            <p class="valor">Noturno - 4h</p>
+
+            <a class="btn-details">Detalhes ></a>
+        </div>
+
+        <!-- CARD 5 - Aprovado -->
+        <div class="candidatura-card status-aprovado">
+            <img src="{% static 'core/img/Farmacia.png' %}" class="cand-logo">
+            <h4>Farmácia Ideal</h4>
+            <span class="status-badge aprovado">Aprovado</span>
+
+            <p class="label">🎯 Vaga</p>
+            <p class="valor">Farmacêutico</p>
+
+            <p class="label clock">⏰ Turno e Horário</p>
+            <p class="valor">Integral - 10h</p>
+
+            <a class="btn-details">Detalhes ></a>
+        </div>
+
+    </div>
+</section>
+
+</div>
+{% endblock %}
