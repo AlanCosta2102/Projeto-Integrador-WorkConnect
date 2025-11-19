@@ -5,18 +5,11 @@
 }
 
 body{
-    background-color: #DAE2E5;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 30px 10px;
+    background-color: #DAE2E5 !important;
+
 }
 
-.main-content{
-    width: 100%;
-    max-width: 900px;
-}
+
 
 .top-banner{
     background-color: #032D5D;
@@ -27,6 +20,8 @@ body{
     justify-content: space-between;
     padding: 25px 30px ;
     margin-bottom: 40px;
+    width: 850px;
+    margin: auto;
 
 }
 
@@ -42,9 +37,9 @@ body{
 
 .form-container{
     background-color: white;
-    width: 800px;
-    position: absolute;
-    left: 360px;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
     border-radius: 15px;
     padding: 40px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
