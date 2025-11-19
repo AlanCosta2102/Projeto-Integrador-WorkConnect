@@ -1,0 +1,13 @@
+.cv-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.cv-image {
+    width: 100%;
+    max-width: 800px;  /* controla o tamanho máximo */
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
