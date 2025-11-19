@@ -14,7 +14,11 @@ urlpatterns = [
 
     path('criar_conta/', views.criar_conta, name='criar_conta'),   
 
+<<<<<<< Updated upstream
     path('descricao_vaga/', views.descricao_vaga, name= 'descricao_vaga'),
 
    
+=======
+    path('perfil_candidato/', views.perfil_candidato, name='perfil_candidato'),
+>>>>>>> Stashed changes
 ]
