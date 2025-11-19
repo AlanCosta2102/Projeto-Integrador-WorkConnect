@@ -23,3 +23,6 @@ def cadastrar_emprego(request):
 
 def cadastrar_estagio(request):
     return render(request, 'empresa/cadastrar_estagio.html')
+
+def tela_principal_empresa(request):
+    return render(request, 'empresa/tela_principal_empresa.html')

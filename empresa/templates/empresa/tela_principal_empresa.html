@@ -1,0 +1,133 @@
+{% extends 'core/base_empresa.html' %}
+{% load static %}
+
+{% block title %}WorkConnect | Início{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'core/css/tela_principal_empresa.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="text">
+      <h1>Encontre o candidato ideal <br>para seu negócio</h1>
+      <h2>Aqui estão as últimas atualizações de suas vagas.</h2>
+    </div>
+    <img src="{% static 'core/img/banner_empresa.png' %}" alt="Pessoa trabalhando" class="hero-img">
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-container">
+    <div class="stat">
+      <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
+      <p class="label">Vagas Disponíveis</p>
+      <p class="value">234</p>
+    </div>
+    <div class="stat">
+      <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
+      <p class="label">Candidaturas Enviadas</p>
+      <p class="value">12</p>
+    </div>
+    <div class="stat">
+      <div class="icon"><i class="fa-solid fa-building"></i></div>
+      <p class="label">Empresas Ativas</p>
+      <p class="value">189</p>
+    </div>
+  </div>
+</section>
+
+<div class="vagas-duplas">
+  <!-- Seção de vagas publicadas -->
+  <section class="vagas-section" style="padding-top:20px; padding-bottom:0;">
+  <h2 class="vagas-title" style="margin-bottom:0; padding-left:60px;">Suas Últimas vagas publicadas</h2>
+  
+  <div class="cards-container" 
+       style="display:flex; flex-wrap:wrap; justify-content:flex-start; 
+              gap:40px; padding:20px 60px 40px 60px; margin-top:0;">
+              
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-header">
+        <img src="{% static 'core/img/Peechinchou.png' %}">
+      </div>
+      <div class="card-body">
+        <p class="company-name">Pechinchou <span class="status">Ativa</span></p>
+        <p class="company-location">Pau dos Ferros/RN</p>
+        <div class="info-label"><span>🎯 Vaga</span></div>
+        <div class="info-value">Social Media</div>
+        <div class="info-label"><span>⏰ Turno e Horário</span></div>
+        <div class="info-value">Fléxivel - 8h</div>
+        <a href="#" class="details-button">Detalhes ›</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-header">
+        <img src="{% static 'core/img/Atacarejo.png' %}">
+      </div>
+      <div class="card-body">
+        <p class="company-name">Nosso Atacarejo <span class="status">Ativa</span></p>
+        <p class="company-location">Pau dos Ferros/RN</p>
+        <div class="info-label"><span>🎯 Vaga</span></div>
+        <div class="info-value">Operador(a) de caixa</div>
+        <div class="info-label"><span>⏰ Turno e Horário</span></div>
+        <div class="info-value">Integral - 8h</div>
+        <a href="#" class="details-button">Detalhes ›</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Seção de vagas desativadas -->
+  <section class="vagas-section" style="padding-top:20px; padding-bottom:0;">
+  <h2 class="vagas-title" style="margin-bottom:0; padding-left:60px;">Vagas Desativadas</h2>
+  
+  <div class="cards-container" 
+       style="display:flex; flex-wrap:wrap; justify-content:flex-start; 
+              gap:40px; padding:20px 60px 40px 60px; margin-top:0;">
+              
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-header">
+        <img src="{% static 'core/img/Peechinchou.png' %}">
+      </div>
+      <div class="card-body">
+        <p class="company-name">Pechinchou <span class="status">Desativada</span></p>
+        <p class="company-location">Pau dos Ferros/RN</p>
+        <div class="info-label"><span>🎯 Vaga</span></div>
+        <div class="info-value">Social Media</div>
+        <div class="info-label"><span>⏰ Turno e Horário</span></div>
+        <div class="info-value">Fléxivel - 8h</div>
+        <a href="#" class="details-button">Detalhes ›</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-header">
+        <img src="{% static 'core/img/Nike.jpg' %}">
+      </div>
+      <div class="card-body">
+        <p class="company-name">Nike <span class="status">Desativada</span></p>
+        <p class="company-location">Natal/RN</p>
+        <div class="info-label"><span>🎯 Vaga</span></div>
+        <div class="info-value">Atendente de loja</div>
+        <div class="info-label"><span>⏰ Turno e Horário</span></div>
+        <div class="info-value">Integral - 6h</div>
+        <a href="#" class="details-button">Detalhes ›</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+ </div>
+</body>
+</html>
+{% endblock %}
