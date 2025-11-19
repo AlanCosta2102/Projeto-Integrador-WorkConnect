@@ -1,27 +1,22 @@
+{% extends 'core/base_empresa.html' %}
 {% load static %}
 
+{% block title %}WorkConnect | Vagas{% endblock %}
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'core/css/cadastrar_emprego.css' %}">
-    <title>Cadastrar Vaga - Emprego</title>
-</head>
-<body>
-    
-    <main class="main-content">
+{% block content %}
 
+<link rel="stylesheet" href="{% static 'core/css/cadastrar_emprego.css' %}">
+<title>WorkConnect - Cadastra Vaga</title>
+
+<div class="main-content">
 
     <section class="top-banner">
         <div class="banner-text">
             <h2>Cadastre sua oferta de vaga aqui!</h2>
-            <p>Descreva a seguir as informações sobre a vaga que deseja ofertar </p>
+            <p>Descreva a seguir as informações sobre a vaga que deseja ofertar</p>
         </div>
         <div class="banner-img">
             <img src="{% static 'core/img/banner-img.png' %}" alt="img-banner">
-        </div>
         </div>
     </section>
 
@@ -34,111 +29,98 @@
         </div>
 
         <form class="job-form">
+
             <div class="form-row">
                 <div class="form-group">
                     <label for="titulo">Titulo da vaga*</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Ex: Vendedor">
+                    <input type="text" id="titulo" placeholder="Ex: Vendedor">
                 </div>
-                
 
-             <div class="form-group">
-                    <label for="titulo">Quantidade de vagas</label>
-                    <input type="number" id="quantidade" name="quantidade" min="0" placeholder="0">
-             </div>   
+                <div class="form-group">
+                    <label>Quantidade de vagas</label>
+                    <input type="number" id="quantidade" min="0" placeholder="0">
+                </div>
             </div>
-            </div>
-            
-            
 
             <div class="form-row">
                 <div class="form-group largura_total">
                     <label for="Requisitos">Requisitos e qualificações*</label>
-                    <textarea name="Requisitos" id="Requisitos" placeholder="Click 'Enter' a cada requisito"></textarea>
+                    <textarea id="Requisitos" placeholder="Click 'Enter' a cada requisito"></textarea>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="modelo">Modelo de Trabalho</label>
-                    <select name="modelo" id="modelo">
+                    <label>Modelo de Trabalho</label>
+                    <select id="modelo">
                         <option value="">Selecione</option>
-                        <option value="">Presencial</option>
-                        <option value="">Híbrido</option>
-                        <option value="">Remoto</option>
+                        <option>Presencial</option>
+                        <option>Híbrido</option>
+                        <option>Remoto</option>
                     </select>
                 </div>
-               
-                
 
                 <div class="form-group">
-                    <label for="salario">Faixa Salarial</label>
-                    <input type="text" id="salario" name="salario" placeholder="R$ 0,00">
-                  </div>  
-                   </div>
+                    <label>Faixa Salarial</label>
+                    <input type="text" id="salario" placeholder="R$ 0,00">
+                </div>
+            </div>
 
-                  <div class="form-row">
+            <div class="form-row">
                 <div class="form-group">
-                    <label for="contrato">Tipo de contrato</label>
-                    <select name="contrato" id="contrato">
-                        <option value="">Selecione</option>
-                        <option value="">CLT</option>
-                        <option value="">PJ</option>
-                        <option value="">Temporário</option>
-                        <option value="">Freelance</option>
+                    <label>Tipo de contrato</label>
+                    <select id="contrato">
+                        <option>Selecione</option>
+                        <option>CLT</option>
+                        <option>PJ</option>
+                        <option>Temporário</option>
+                        <option>Freelance</option>
                     </select>
-                
-
                 </div>
-                <div class="form-group">
-                    <label for="Jornada">Jornada de Trabalho</label>
-                    <input type="text" id="jornada" name="jornada" placeholder="Ex: 8h diárias">
 
+                <div class="form-group">
+                    <label>Jornada de Trabalho</label>
+                    <input type="text" id="jornada" placeholder="Ex: 8h diárias">
                 </div>
-            </div>    
+            </div>
 
-                        <div class="form-row">
+            <div class="form-row">
                 <div class="form-group">
-                    <label for="">Benefícios</label>
+                    <label>Benefícios</label>
                     <div class="check-box">
                         <label>
-                            <input type="checkbox" name="beneficio" value="vale_refeicao"> Vale-refeição 
+                            <input type="checkbox" value="vale_refeicao"> Vale-refeição 
                         </label>
-
                         <label>
-                            <input type="checkbox" name="beneficio" valeu="plano_saude"> Plano de Saúde
+                            <input type="checkbox" value="plano_saude"> Plano de Saúde
                         </label>
-
                         <label>
-                            <input type="checkbox" name="beneficio" value="vale_tranporte"> Vale-transporte
+                            <input type="checkbox" value="vale_transporte"> Vale-transporte
                         </label>
-
                         <label>
-                            <input type="checkbox" name="beneficio" valeu="outros"> Outros
+                            <input type="checkbox" value="outros"> Outros
                         </label>
                     </div>
-                     </div>  
-                     
-                     
-                     <div class="form-group">
-                         <label for="Diferencial">Diferencial(Não obrigatório)</label>
-                         <input type="text" id="Diferencial" name="Diferencial" placeholder="">
-                        </div>  
-                         </div>
-                     
-                        <div class="form-group full-width">
-                            <label for="descrição">Descrição</label>
-                            <textarea name="descricao" id="descricao"></textarea>
-                        
-                            </div>
-                     
-                     <div class="button">
-                         <button type="submit">Cadastrar</button>
-                        </div>
-                    
-            </form>
-                    
-</section>
-        
-</main>
-</body>
-</html>
+                </div>
+
+                <div class="form-group">
+                    <label>Diferencial (Não obrigatório)</label>
+                    <input type="text" id="Diferencial">
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label>Descrição</label>
+                <textarea id="descricao"></textarea>
+            </div>
+
+            <div class="button">
+                <button type="submit">Cadastrar</button>
+            </div>
+
+        </form>
+    </section>
+
+</div>
+
+{% endblock %}
