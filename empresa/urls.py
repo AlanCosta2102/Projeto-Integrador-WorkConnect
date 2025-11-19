@@ -19,4 +19,6 @@ urlpatterns = [
     path('cadastrar_estagio/', views.cadastrar_estagio, name= 'cadastrar_estagio'),
 
     path('tela_principal_empresa/', views.tela_principal_empresa, name='tela_principal_empresa'),
+
+    path('criar_conta_empresa/', views.criar_conta_empresa, name='criar_conta_empresa'),
 ]

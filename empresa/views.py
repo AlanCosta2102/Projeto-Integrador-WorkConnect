@@ -26,3 +26,6 @@ def cadastrar_estagio(request):
 
 def tela_principal_empresa(request):
     return render(request, 'empresa/tela_principal_empresa.html')
+
+def criar_conta_empresa(request):
+    return render(request, 'empresa/criar_conta_empresa.html')
