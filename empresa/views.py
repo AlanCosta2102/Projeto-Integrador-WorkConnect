@@ -29,3 +29,6 @@ def tela_principal_empresa(request):
 
 def criar_conta_empresa(request):
     return render(request, 'empresa/criar_conta_empresa.html')
+
+def visualizar_curriculo(request):
+    return render(request, 'empresa/visualizar_curriculo.html')
