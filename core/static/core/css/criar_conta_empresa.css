@@ -1,0 +1,239 @@
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.register-container {
+    display: flex;
+    align-items: stretch;
+    min-height: 90vh;
+}
+
+.left-panel {
+    background-color: #032D5D;
+    width: 619px;
+    height: 800px; 
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 70px auto; /* Centraliza verticalmente e dá espaço em cima/baixo */
+}
+
+.banner-img {
+    width: 60%;
+    max-width: 300px;
+    margin-bottom: 25px;
+}
+
+.banner-text {
+    font-size: 14px;
+    width: 70%;
+    color: #dce7f5;
+    line-height: 1.6;
+}
+/* Painel direito */
+.right-panel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-panel h2 {
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.register-form {
+    width: 80%;
+    max-width: 500px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* Botões */
+.btn-submit {
+    background-color: #04294f;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #063b74;
+}
+
+.btn-google {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-google img {
+    width: 22px;
+}
+
+/* Login */
+.login-text {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.login-text a {
+    color: #04294f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+/* ====== FOOTER ====== */
+.footer {
+    background-color: #04294f;
+    color: #fff;
+    padding: 40px 80px 15px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.footer-left {
+    flex: 1;
+    max-width: 350px;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: #cdd8e4;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-icons a {
+    color: #fff;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.footer-icons a:hover {
+    color: #9cc9ff;
+}
+
+.footer-section {
+    flex: 0.3;
+}
+
+.footer-section h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 6px;
+}
+
+.footer-section ul li a {
+    color: #cfd8dc;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+.footer hr {
+    margin-top: 25px;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #cfd8dc;
+}
+
+@media (max-width: 900px) {
+    .register-container {
+        flex-direction: column;
+    }
+
+    .left-panel, .right-panel {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+}

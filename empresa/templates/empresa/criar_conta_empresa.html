@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crie sua conta - Empresa</title>
+    <link rel="stylesheet" href="{% static 'core/css/criar_conta_empresa.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="register-container">
+        <div class="left-panel">
+            <img src="{% static 'core/img/imagemempresa.png' %}" alt="Banner WorkConnect" class="banner-img">
+            <p class="banner-text">Conecte sua empresa a talentos incríveis na WorkConnect.</p>
+        </div>
+
+        <div class="right-panel">
+            <h2>Crie uma conta da empresa</h2>
+
+            <form method="post" class="register-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="nome_empresa">Nome da empresa</label>
+                    <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Nome da empresa" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email empresarial</label>
+                    <input type="email" id="email" name="email" placeholder="Digite o e-mail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmar">Confirme sua senha</label>
+                    <input type="password" id="confirmar" name="confirmar" placeholder="Confirme sua senha" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Criar conta da empresa</button>
+
+                <button type="button" class="btn-google">
+                    <img src="{% static 'core/img/flat-color-icons_google.png' %}" alt="Google">
+                    Entre com sua conta Google
+                </button>
+
+                <p class="login-text">Já tem uma conta? <a href="#">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <img src="{% static 'core/img/Logo_WorkConnect.png' %}" alt="WorkConnect Logo" class="footer-logo">
+                <p class="footer-text">
+                    WorkConnect é uma plataforma para facilitar a conexão entre empresas e talentos.
+                </p>
+                <div class="footer-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Testemunhos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contatos</h4>
+                <ul>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Telefone</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+            <p>&copy; Copyright 2025 Work Connect</p>
+        </div>
+    </footer>
+
+</body>
+</html>
