@@ -23,8 +23,10 @@ html, body {
   background-color: #DAE2E5;
   padding: 0.3rem 3rem 0rem 3rem;
   border-bottom: 3px solid #082f63;
-  width: 90%;          /* ajusta o comprimento total */
-  margin: 0 auto;      /* centraliza horizontalmente */
+  width: 70%;          
+  margin: 0 auto;   
+  position: relative;
+  left: 100px;  
 }
 
 
