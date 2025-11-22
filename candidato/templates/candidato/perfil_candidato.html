@@ -1,161 +1,147 @@
-{% extends 'core/base.html' %}
+{%extends 'core/base.html'%}
 {% load static %}
+{%block content%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Profissional - Cristiano R. A.</title>
+    <link rel="stylesheet" href="{% static 'core/css/perfil_candidato.css' %}">
+</head>
 
-{% block content %}
-<link rel="stylesheet" href="{% static 'core/css/perfil_candidato.css' %}">
 
-<div class="perfil-container">
-
-    <!-- Banner -->
-    <div class="perfil-banner">
-        <img src="{% static 'core/img/cristiano.png' %}" alt="Foto do Candidato" class="perfil-foto">
-        <div class="perfil-info">
-            <h2>Cristiano Ronaldo</h2>
-            <p>cristiano@gmail.com</p>
+    <header class="header-topo">
+        <div class="perfil">
+            <img src="{% static 'core/img/cristiano.png' %}" alt="Foto de Perfil de Cristiano Ronaldo" class="foto-perfil">
+            <div class="info-principal">
+                <h1>Cristiano Ronaldo dos Santos Aveiro</h1>
+                <p>cristianor@gmail.com</p>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <div class="perfil-grid">
+    <main class="secoes-principais">
+        
+        <section class="card sobre">
+            <h2>Sobre</h2>
+            <hr class="divisor">
+            <div class="dados-contato">
+                <p><strong>Nome Completo:</strong> Cristiano Ronaldo dos Santos Aveiro</p>
+                <p class="contato-item">📍 Madeira, Portugal</p>
+                <p class="contato-item">📧 cristianor@gmail.com</p>
+                <p class="contato-item">📱 211234567</p>
+            </div>
+        </section>
 
-        <!-- Sobre -->
-        <div class="card sobre-card">
-            <h3 class="card-title">Sobre</h3>
-            <ul class="sobre-list">
-                <li><i class="fa-solid fa-user"></i> Cristiano Ronaldo dos Santos Aveiro</li>
-                <li><i class="fa-solid fa-calendar"></i> 40 anos</li>
-                <li><i class="fa-solid fa-location-dot"></i> Ilha da Madeira - PT</li>
-                <li><i class="fa-solid fa-envelope"></i> cristiano@gmail.com</li>
-                <li><i class="fa-solid fa-phone"></i> (82) 99123-4567</li>
-            </ul>
-        </div>
+        <section class="card experiencia">
+            <h2>Experiência Profissional</h2>
+            <hr class="divisor">
 
-        <!-- Experiência -->
-        <div class="card experiencia-card">
-            <h3 class="card-title azul">Experiência Profissional</h3>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <h4>Tosador de Petshop</h4>
-                    <span class="exp-date">2022 – 2025</span>
+            <div class="experiencia-item">
+                <div class="titulo-periodo">
+                    <h3>Tosador de Petshop</h3>
+                    <span class="periodo">2022 - 2025</span>
                 </div>
-                <p>
-                    Tosando as mais variadas raças de cães e gatos. 
-                    Experiência com máquina, tesoura e tosa higiênica. 
-                    Realização de tosas específicas como padrão e tosa bebê.
-                </p>
+                <p class="descricao">Tosando os mais variados raças de cães e gatos. Especialista em máquinas adequadas para pelos embaraçados e na tesoura (com acabamento mais delicado, para pelos médios e longos), além de estilos mais específicos como "nosso visual pelo lombo de um leão", além da tosa bebê (visual de "ursinho") e a tosa de raça (que segue o padrão do cão).</p>
             </div>
-
-            <div class="exp-item">
-                <div class="exp-header">
-                    <h4>Ciência de Dados</h4>
-                    <span class="exp-date">2023 – 2026</span>
+            
+            <div class="experiencia-item">
+                <div class="titulo-periodo">
+                    <h3>Ciência de Dados</h3>
+                    <span class="periodo">2018 - 2021</span>
                 </div>
-                <p>
-                    Desenvolvimento de soluções baseadas em dados para apoiar decisões. 
-                    Tratamento, análise e visualização de dados; criação de modelos estatísticos 
-                    e preditivos; geração de insights estratégicos.
-                </p>
+                <p class="descricao">Atuação no desenvolvimento de soluções baseadas em dados para apoio à tomada de decisão, por meio de coleta, tratamento, análise e visualização dos dados. Experiência com modelagem estatística, aprendizado de máquina, análise preditiva e interpretação de resultados para geração de insights estratégicos.</p>
             </div>
-        </div>
+        </section>
 
-        <!-- Formação -->
-        <div class="card formacao-card">
-            <h3 class="card-title">Formação Acadêmica</h3>
-            <div class="form-item">
-                <h4>Bacharelado em Ciência da Computação - UFAL</h4>
-                <p>
-                    Foco em algoritmos, estruturas de dados e desenvolvimento de software.
-                </p>
+        <section class="card formacao">
+            <h2>Formação Acadêmica</h2>
+            <hr class="divisor">
+            <p><strong>Bacharelado em Ciência da Computação - USP</strong></p>
+            <p>Formação sólida em algoritmos, estruturas de dados e desenvolvimento de software.</p>
+        </section>
+
+    </main>
+
+    <section class="candidaturas-container">
+        <div class="candidaturas-header">
+            <h2>Minhas Candidaturas</h2>
+            <a href="#" class="ver-todas">Ver todas</a>
+        </div>
+        
+        <div class="cards-container">
+            <div class="card-candidatura card-verde">
+                <div class="card-header">
+                    <img src="{% static 'core/img/Ellipse 14.png' %}"> 
+                </div>
+                <div class="card-body">
+                    <p class="company-name">Elétrica Cervejaria <span class="status status-ativa">Ativa</span></p>
+                    <p class="company-location">Pau dos Ferros/RN</p>
+
+                    <div class="info-label"><span>🎯 Vaga</span></div>
+                    <div class="info-value">Barmen</div>
+
+                    <div class="info-label"><span>⏰ Turno e Horário</span></div>
+                    <div class="info-value">Noturno - 4h</div>
+
+                    <a href="#" class="details-button">Detalhes ›</a>
+                </div>
             </div>
+
+            <div class="card-candidatura card-vermelho">
+                <div class="card-header header-vermelho">
+                    <img src="{% static 'core/img/Brisanet.png' %}"> 
+                </div>
+                <div class="card-body">
+                    <p class="company-name">Operador Suporte <span class="status status-rejeitada">Rejeitada</span></p>
+                    <p class="company-location">Natal/RN</p>
+
+                    <div class="info-label"><span>🎯 Vaga</span></div>
+                    <div class="info-value">Tosador</div>
+
+                    <div class="info-label"><span>⏰ Turno e Horário</span></div>
+                    <div class="info-value">Integral - 8h</div>
+
+                    <a href="#" class="details-button">Detalhes ›</a>
+                </div>
+            </div>
+
+            <div class="card-candidatura card-amarelo">
+                <div class="card-header header-amarelo">
+                    <img src="{% static 'core/img/Nike.jpg' %}"> 
+                </div>
+                <div class="card-body">
+                    <p class="company-name">Consultoria XYZ <span class="status status-aguardando">Aguardando</span></p>
+                    <p class="company-location">São Paulo/SP</p>
+
+                    <div class="info-label"><span>🎯 Vaga</span></div>
+                    <div class="info-value">Cientista de Dados</div>
+
+                    <div class="info-label"><span>⏰ Turno e Horário</span></div>
+                    <div class="info-value">Remoto - 6h</div>
+
+                    <a href="#" class="details-button">Detalhes ›</a>
+                </div>
+            </div>
+
+            <div class="card-candidatura card-verde">
+                <div class="card-header">
+                    <img src="{% static 'core/img/Peechinchou.png' %}"> 
+                </div>
+                <div class="card-body">
+                    <p class="company-name">Marketing Digital <span class="status status-ativa">Ativa</span></p>
+                    <p class="company-location">Recife/PE</p>
+
+                    <div class="info-label"><span>🎯 Vaga</span></div>
+                    <div class="info-value">Social Media</div>
+
+                    <div class="info-label"><span>⏰ Turno e Horário</span></div>
+                    <div class="info-value">Híbrido - 7h</div>
+
+                    <a href="#" class="details-button">Detalhes ›</a>
+                </div>
+            </div>
+            
         </div>
-    </div>
+    </section>
 
-
-    <section class="candidaturas-wrapper">
-    <div class="candidaturas-header">
-        <h2>Minhas Candidaturas</h2>
-        <a href="#" class="ver-todas">Ver todas</a>
-    </div>
-
-    <div class="candidaturas-cards">
-
-        <!-- CARD 1 - Aprovado -->
-        <div class="candidatura-card status-aprovado">
-            <img src="{% static 'core/img/Peechinchou.png' %}" class="cand-logo">
-            <h4>Pechinchou</h4>
-            <span class="status-badge aprovado">Aprovado</span>
-
-            <p class="label">🎯 Vaga</p>
-            <p class="valor">Social Media</p>
-
-            <p class="label clock">⏰ Turno e Horário</p>
-            <p class="valor">Flexível - 8h</p>
-
-            <a class="btn-details">Detalhes ></a>
-        </div>
-
-        <!-- CARD 2 - Reprovado -->
-        <div class="candidatura-card status-reprovado">
-            <img src="{% static 'core/img/Nosso.png' %}" class="cand-logo">
-            <h4>Elétrica Cervejaria</h4>
-            <span class="status-badge reprovado">Reprovado</span>
-
-            <p class="label">🎯 Vaga</p>
-            <p class="valor">Setor Econômico</p>
-
-            <p class="label clock">⏰ Turno e Horário</p>
-            <p class="valor">Meio período - 5h</p>
-
-            <a class="btn-details">Detalhes ></a>
-        </div>
-
-        <!-- CARD 3 - Aprovado -->
-        <div class="candidatura-card status-aprovado">
-            <img src="{% static 'core/img/Agua.png' %}" class="cand-logo">
-            <h4>Água na Boca</h4>
-            <span class="status-badge aprovado">Aprovado</span>
-
-            <p class="label">🎯 Vaga</p>
-            <p class="valor">Entregador</p>
-
-            <p class="label clock">⏰ Turno e Horário</p>
-            <p class="valor">Noturno - 5h</p>
-
-            <a class="btn-details">Detalhes ></a>
-        </div>
-
-        <!-- CARD 4 - Aprovado -->
-        <div class="candidatura-card status-aprovado">
-            <img src="{% static 'core/img/Electrica.png' %}" class="cand-logo">
-            <h4>Elétrica Cervejaria</h4>
-            <span class="status-badge aprovado">Aprovado</span>
-
-            <p class="label">🎯 Vaga</p>
-            <p class="valor">Barmen</p>
-
-            <p class="label clock">⏰ Turno e Horário</p>
-            <p class="valor">Noturno - 4h</p>
-
-            <a class="btn-details">Detalhes ></a>
-        </div>
-
-        <!-- CARD 5 - Aprovado -->
-        <div class="candidatura-card status-aprovado">
-            <img src="{% static 'core/img/Farmacia.png' %}" class="cand-logo">
-            <h4>Farmácia Ideal</h4>
-            <span class="status-badge aprovado">Aprovado</span>
-
-            <p class="label">🎯 Vaga</p>
-            <p class="valor">Farmacêutico</p>
-
-            <p class="label clock">⏰ Turno e Horário</p>
-            <p class="valor">Integral - 10h</p>
-
-            <a class="btn-details">Detalhes ></a>
-        </div>
-
-    </div>
-</section>
-
-</div>
-{% endblock %}
+{%endblock%}
