@@ -1,232 +1,285 @@
-.perfil-container {
-    width: 100%;
+:root {
+    --cor-primaria: #032D5D; 
+    --cor-secundaria: #1a3d7c; /* Azul dos detalhes do botão */
+    --fundo-cinza: #f4f4f9; /* Cinza Claro do topo/cartões */
+    --texto-escuro: #333;
+    --borda-card: 1px solid #ddd;
+    
+    /* Cores do Novo Card */
+    --verde-status: #00a400;
+    --vermelho-status: #e74c3c;
+    --amarelo-status: #f39c12;
+    --header-ativa: #A6FF9E;
+    --header-rejeitada: #FFBD9E;
+    --header-aguardando: #FFF3A6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+body {
+    background-color: white;
+}
+
+
+.header-topo {
+    background-color: #032D5D;
+    padding: 20px 5%;
+    border-bottom: 1px solid #ddd;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
 }
 
-.perfil-banner {
-    background-color: #0a2d57;
-    height: 160px;
-    border-radius: 10px;
-    position: relative;
-    display: flex;
-    align-items: end;
-    padding: 20px;
-    color: white;
-    margin-bottom: 40px;
-}
-
-.perfil-foto {
-    width: 90px;
-    height: 90px;
+.foto-perfil {
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    border: 4px solid white;
-    position: absolute;
-    bottom: -40px;
+    margin-right: 20px;
+    object-fit: cover;
+    border: 3px solid white; 
+    box-shadow: 0 0 0 1px #ccc;
 }
 
-.perfil-info {
-    margin-left: 120px;
-    padding-bottom: 10px;
+.info-principal h1 {
+    font-size: 1.5em;
+    color:white;
 }
 
-.perfil-info h2 {
-    margin: 0;
-    font-size: 22px;
+.info-principal p {
+    color: white;
+    font-size: 0.9em;
 }
 
-.perfil-info p {
-    margin: 5px 0 0;
-    font-size: 14px;
-}
 
-/* ========================================================= */
-/* ========================= GRID ========================== */
-/* ========================================================= */
-
-.perfil-grid {
-    margin-top: 60px;
+.secoes-principais {
     display: grid;
-    grid-template-columns: 260px 1fr 260px;
-    gap: 25px;
+    grid-template-columns: 1fr 2fr 1fr; 
+    gap: 30px;
+    padding: 30px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
-    background: white;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: var(--borda-card);
+    min-height: 250px; 
 }
 
-.card-title {
-    font-size: 16px;
-    margin-bottom: 15px;
+.card h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--texto-escuro);
     font-weight: 600;
 }
 
-.card-title.azul {
-    color: #1d4e89;
+.divisor {
+    border: none;
+    height: 1px;
+    background-color: #eee;
+    margin-bottom: 15px;
 }
 
-.sobre-list {
-    list-style: none;
-    padding: 0;
-}
-
-.sobre-list li {
-    margin-bottom: 12px;
-    font-size: 14px;
-}
-
-.sobre-list i {
-    margin-right: 8px;
-    color: #1d4e89;
-}
-
-.exp-item {
-    margin-bottom: 25px;
-}
-
-.exp-header {
+.experiencia-item { margin-bottom: 25px; }
+.titulo-periodo {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 5px;
 }
-
-.exp-header h4 {
-    margin: 0;
-    font-size: 15px;
-}
-
-.exp-date {
-    background: #eeeeee;
-    padding: 4px 10px;
+.experiencia-item h3 { font-size: 1.1em; font-weight: 600; }
+.periodo {
+    background-color: #e0e0e0;
+    padding: 3px 8px;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: var(--texto-escuro);
 }
-
-.exp-item p {
-    font-size: 13px;
-    margin-top: 8px;
-    color: #555;
-}
-
-.form-item h4 {
-    font-size: 15px;
-    margin-bottom: 8px;
-}
-
-.form-item p {
-    font-size: 13px;
-    color: #555;
-}
-
-/* ========================================================= */
-/* ====================== CANDIDATURAS ===================== */
-/* ========================================================= */
+.descricao { font-size: 0.9em; color: #555; line-height: 1.5; }
 
 
-
-/* CONTAINER GERAL */
-.candidaturas-wrapper {
-    background: #04326b; 
-    padding: 40px;
-    border-radius: 25px;
+/* --- 3. SEÇÃO DE CANDIDATURAS (NOVO ESTILO DE CARD) --- */
+.candidaturas-container {
+    background-color: var(--cor-primaria);
     color: white;
-    margin-top: 40px;
+    padding: 30px 5% 60px 5%; /* Aumenta o padding inferior */
+    margin-top: 30px; 
 }
 
-/* TÍTULO + VER TODAS */
 .candidaturas-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    max-width: 1300px; /* Aumenta a largura para comportar mais cards */
+    margin: 0 auto 20px auto;
 }
 
 .candidaturas-header h2 {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 1.8em;
+    font-weight: 600;
 }
 
 .ver-todas {
     color: white;
-    font-size: 18px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: bold;
+    font-size: 0.9em;
 }
 
-/* LISTA DE CARDS */
-.candidaturas-cards {
+.cards-container {
+    width: 100%;
     display: flex;
-    gap: 25px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    scroll-behavior: smooth;
+    flex-wrap: nowrap; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px; 
+    max-width: 1300px; 
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: auto; 
+    overflow-y: hidden
 }
 
-/* CARD INDIVIDUAL */
-.candidatura-card {
-    width: 260px;
-    padding: 22px;
-    border-radius: 18px;
+/* Card Principal (Baseado no seu CSS) */
+.card-candidatura { /* Usando a classe card-candidatura para manter a consistência */
+    width: 320px;
+    background-color: #f5f5f5;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
     flex-shrink: 0;
-
-    /* 🔥 Corrige alinhamento vertical */
-    height: 260px;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 20px; /* Adiciona margem inferior para quebra de linha */
 }
 
-/* STATUS BACKGROUNDS  */
-.status-aprovado {
-    background: #e8ffeb; 
+.card-candidatura:hover {
+    transform: translateY(-5px);
 }
 
-.status-reprovado {
-    background: #ffe5e7; 
+.card-header {
+    height: 100px;
+    position: relative;
+    background-color: var(--header-ativa); /* Padrão: Verde/Ativa */
 }
+.header-vermelho { background-color: var(--header-rejeitada); }
+.header-amarelo { background-color: var(--header-aguardando); }
 
-.status-analisando {
-    background: #fff7d6; 
-}
-
-/* LOGO */
-.cand-logo {
-    width: 65px;
+.card-header img {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    border: 3px solid #fff;
+    position: absolute;
+    bottom: -40px;
+    left: 20px;
+    background-color: #fff;
+    object-fit: cover;
 }
 
+.card-body {
+    padding: 60px 20px 20px 20px;
+    color: black;
+}
 
-/* TÍTULO EMPRESA */
+.company-name {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0;
+    color: black;
+}
 
+.company-location {
+    color: #777;
+    font-size: 14px;
+    margin: 4px 0 10px 0;
+}
 
-/* ========================================================= */
-/* =================== RESPONSIVO MOBILE =================== */
-/* ========================================================= */
+/* Status: Borda e Cor do Texto */
+.status {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: 600;
+}
 
-@media (max-width: 600px) {
-    .perfil-grid {
+.status-ativa {
+    border: 1px solid var(--verde-status);
+    color: var(--verde-status);
+}
+
+.status-rejeitada {
+    border: 1px solid var(--vermelho-status);
+    color: var(--vermelho-status);
+}
+
+.status-aguardando {
+    border: 1px solid var(--amarelo-status);
+    color: var(--amarelo-status);
+}
+
+/* Labels e Valores de Informação */
+.info-label {
+    margin-top: 15px;
+    color: #555;
+    font-size: 13px;
+}
+.info-value{
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.details-button {
+    display: inline-block;
+    /* Ajustado para alinhar melhor no fluxo, se a margin-top for muito grande */
+    margin-top: 20px; 
+    padding: 6px 14px;
+    background-color: #cce4ff;
+    color: var(--cor-secundaria);
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    float: right;
+    transition: background-color 0.3s;
+}
+
+.details-button:hover {
+    background-color: #aaccff;
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 1024px) {
+    .secoes-principais {
+        grid-template-columns: 1fr 1fr;
+    }
+    .experiencia {
+        grid-column: span 2; 
+    }
+}
+
+@media (max-width: 768px) {
+    .secoes-principais {
         grid-template-columns: 1fr;
     }
-
-    .candidatura-card {
-        width: 150px;
-        height: auto;
-        padding: 12px;
-    }
-
-    .cand-logo {
-        width: 45px;
-    }
-
-    .candidatura-card h4 {
-        font-size: 14px;
-    }
-
-    .candidatura-card p {
-        font-size: 12px;
+    .experiencia {
+        grid-column: span 1; 
     }
 }

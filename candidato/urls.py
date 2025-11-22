@@ -18,6 +18,8 @@ urlpatterns = [
 
     path('perfil_candidato/', views.perfil_candidato, name='perfil_candidato'),
 
-     path('perfil_empresa/', views.perfil_empresa, name='perfil_empresa') 
+     path('perfil_empresa/', views.perfil_empresa, name='perfil_empresa'),
+
+     path('inscricao/',views.inscricao,name='inscricao'),
 
 ]

@@ -196,6 +196,7 @@ html, body {
     background-color: #d7e4ea;    /* cor de fundo da seção */
     flex-wrap: wrap;            /* impede que quebre a linha */
     box-sizing: border-box;       /* evita que padding reduza a largura */
+    color: #1a1a1a;
 }
 
 .card {
@@ -206,6 +207,7 @@ html, body {
     overflow: hidden;
     transition: transform 0.3s ease;
     flex-shrink: 0;               /* impede que o flexbox reduza o tamanho */
+    color: #1a1a1a;
 }
 
 .card:hover {
@@ -234,11 +236,13 @@ html, body {
 }
 .info-value{
   font-weight: bold;
+  color: black;
 }
 .company-name {
     font-weight: 700;
     font-size: 18px;
     margin: 0;
+    color: black;
 }
 
 .company-location {

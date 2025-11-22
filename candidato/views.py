@@ -26,3 +26,6 @@ def perfil_candidato(request):
 
 def perfil_empresa(request):
     return render(request, 'candidato/perfil_empresa.html')
+
+def inscricao(request):
+    return render(request,'candidato/inscricao.html')

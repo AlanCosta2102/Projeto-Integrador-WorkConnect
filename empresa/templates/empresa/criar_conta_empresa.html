@@ -12,8 +12,8 @@
 
     <div class="register-container">
         <div class="left-panel">
-            <img src="{% static 'core/img/imagemempresa.png' %}" alt="Banner WorkConnect" class="banner-img">
-            <p class="banner-text">Conecte sua empresa a talentos incríveis na WorkConnect.</p>
+            <img src="{% static 'core/img/Empresa.png' %}" alt="Banner WorkConnect" class="banner-img">
+            <p class="banner-text">Descubra oportunidades infinitasno WorkConnect, onde pessoas e empresas se unem.</p>
         </div>
 
         <div class="right-panel">
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email empresarial</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Digite o e-mail" required>
                 </div>
 
@@ -59,7 +59,7 @@
                     Entre com sua conta Google
                 </button>
 
-                <p class="login-text">Já tem uma conta? <a href="#">Login</a></p>
+                <p class="login-text">Já tem uma conta?<a href="{% url "login" %}">Login</a></p>
             </form>
         </div>
     </div>
