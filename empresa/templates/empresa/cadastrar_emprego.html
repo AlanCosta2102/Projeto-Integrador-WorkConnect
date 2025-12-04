@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'core/css/cadastrar_emprego.css' %}">
+<link rel="stylesheet" href="{% static 'empresa/css/cadastrar_emprego.css' %}">
 <title>WorkConnect - Cadastra Vaga</title>
 
 
@@ -25,10 +25,18 @@
     <section class="form-container">
         <h3 class="title">Vamos lá!</h3>
 
-        <div class="tabs">
-            <button class="tab active">Emprego</button>
-            <button class="tab-other">Estágio</button>
-        </div>
+     <div class="tabs">
+    <button class="tab active"
+            onclick="window.location.href='{% url 'empresa:cadastrar_emprego' %}'">
+        Emprego
+    </button>
+
+    <button class="tab-other"
+            onclick="window.location.href='{% url 'empresa:cadastrar_estagio' %}'">
+        Estágio
+    </button>
+</div>
+
 
         <form class="job-form">
 

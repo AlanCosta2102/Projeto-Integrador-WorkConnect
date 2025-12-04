@@ -1,0 +1,119 @@
+{% extends 'core/base_empresa.html' %}
+{% load static %}
+
+{% block title %}WorkConnect | Perfil{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'core/css/perfil_empresa.css' %}">
+
+
+<div class="container">
+
+    <!-- CAPA -->
+    <div class="capa-container">
+ <img src="{% static 'core/img/capa-perfil.png' %}" alt="img-banner">
+    </div>
+
+    <!-- BOX PRINCIPAL -->
+    <div class="card-principal">
+
+        <!-- Parte esquerda -->
+        <div class="lado-esq">
+
+            <!-- Foto/redondo -->
+            <div class="logo-empresa">
+ <img src="{% static 'core/img/Ellipse 14.png' %}" alt="img-banner">
+</div>
+
+            <h2 class="nome-empresa">Elétrica Cervejaria</h2>
+            <p class="tipo-empresa">🍽 Restaurante</p>
+            <p class="cnpj">CNPJ – 12.345.678/0001-10</p>
+
+            <!-- Sobre nós -->
+            <div class="secao">
+                <p class="titulo-secao">📄 Sobre nós</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis
+                    condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                </p>
+            </div>
+
+            <!-- Localização -->
+            <div class="secao">
+                <p class="titulo-secao">📍 Localização</p>
+                <p>Estado: Rio Grande do Norte</p>
+                <p>Cidade: Pau dos Ferros – 59900-000</p>
+                <p>Bairro:</p>
+                <p>Complemento: Próximo ao IFRN</p>
+            </div>
+
+            <!-- Últimas vagas -->
+            <div class="secao">
+                <p class="titulo-secao">🧾 Últimas Vagas Publicadas</p>
+            </div>
+
+        </div>
+
+        <!-- Parte direita - contato -->
+        <div class="lado-dir">
+            <h3>Contato</h3>
+
+            <div class="contato-item">
+                <span class="icon">📧</span>  
+                <p>email<br><span class="txt-menor">eletrica@gmail.com</span></p>
+            </div>
+
+            <div class="contato-item">
+                <span class="icon">📞</span>
+                <p>telefone<br><span class="txt-menor">(84) 1234-5678</span></p>
+            </div>
+
+            <div class="contato-item">
+                <span class="icon">📷</span>
+                <p>instagram<br><span class="txt-menor">@eletricacervejaria</span></p>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="linha">
+
+    <!-- LISTA DE VAGAS -->
+    <div class="vagas-container">
+
+        <div class="vaga-card">
+            <img src="logo.png" class="vaga-logo">
+            <h4>Elétrica Cervejaria <span class="status active">Ativo</span></h4>
+            <h3 class="cargo">Barmen</h3>
+
+            <div class="info-vaga">
+                <p>📄 02 vagas</p>
+                <p>🕒 Noturno - 4h</p>
+            </div>
+
+            <a class="btn-detalhes">Detalhes ›</a>
+        </div>
+
+        <div class="vaga-card">
+            <img src="logo.png" class="vaga-logo">
+            <h4>Elétrica Cervejaria <span class="status active">Ativo</span></h4>
+            <h3 class="cargo">Barmen</h3>
+
+            <div class="info-vaga">
+                <p>📄 02 vagas</p>
+                <p>🕒 Noturno - 4h</p>
+            </div>
+
+            <a class="btn-detalhes">Detalhes ›</a>
+        </div>
+
+    </div>
+
+    <!-- Ver todas -->
+    <div class="ver-todas">
+        <a href="#">ver todas</a>
+    </div>
+
+</div>
+{% endblock %}

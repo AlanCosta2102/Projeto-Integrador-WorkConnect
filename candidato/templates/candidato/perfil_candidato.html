@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo Profissional - Cristiano R. A.</title>
-    <link rel="stylesheet" href="{% static 'core/css/perfil_candidato.css' %}">
+    <link rel="stylesheet" href="{% static 'candidato/css/perfil_candidato.css' %}">
 </head>
 
 
@@ -65,7 +65,7 @@
     <section class="candidaturas-container">
         <div class="candidaturas-header">
             <h2>Minhas Candidaturas</h2>
-            <a href="#" class="ver-todas">Ver todas</a>
+            <a href="{% url 'candidato:candidaturas_candidato' %}"class="ver-todas">Ver todas</a>
         </div>
         
         <div class="cards-container">

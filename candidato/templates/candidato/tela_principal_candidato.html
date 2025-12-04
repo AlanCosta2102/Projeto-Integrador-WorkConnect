@@ -4,7 +4,7 @@
 {% block title %}WorkConnect | Início{% endblock %}
 
 {% block content %}
-  <link rel="stylesheet" href="{% static 'core/css/tela_principal_candidato.css' %}">
+  <link rel="stylesheet" href="{% static 'candidato/css/tela_principal_candidato.css' %}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -231,8 +231,8 @@
 
 </div>
 <div class="ver-mais-container">
-    <button class="ver-mais-btn">Ver mais</button>
-  </div>
+    <a href="{% url 'candidato:vagas_candidato' %}" class="ver-mais-btn">Ver mais</a>
+</div>
 </section>
 </body>
 </html>

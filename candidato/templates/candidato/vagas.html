@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'core/css/vagas_candidato.css' %}">
+<link rel="stylesheet" href="{% static 'candidato/css/vagas_candidato.css' %}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -54,7 +54,7 @@
       <div class="info-label"><span>⏰ Turno e Horário</span></div>
       <div class="info-value">Noturno - 4h</div>
 
-      <a href="#" class="details-button">Detalhes ›</a>
+      <a href="{% url 'candidato:descricao_vaga' %}"  class="details-button">Detalhes ›</a>
     </div>
   </div>
 

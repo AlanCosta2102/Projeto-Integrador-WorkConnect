@@ -36,3 +36,6 @@ def visualizar_curriculo(request):
 def editar_vaga(request):
     return render(request, 'empresa/editar_vaga.html')
 
+def perfil_empresa(request):
+    return render(request,'empresa/perfil_empresa.html')
+

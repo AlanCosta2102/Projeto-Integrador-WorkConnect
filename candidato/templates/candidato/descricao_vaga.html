@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'core/css/descricao_vaga.css' %}">
+    <link rel="stylesheet" href="{% static 'candidato/css/descricao_vaga.css' %}">
     <title>Descrição da vaga</title>
 </head>
 <body>
@@ -96,9 +96,13 @@ de novas criações para complemetnar nossos cardápios</p>
                 </div>
         </div>
 
-        <div class="button">
-            <button type="button">Inscrever-se na vaga</button>
-        </div>
+    <div class="button">
+    <button type="button" onclick="window.location.href='{% url 'candidato:inscricao' %}'">
+        Inscrever-se na vaga
+    </button>
+</div>
+
+
     </section>
 </main>
 </body>
