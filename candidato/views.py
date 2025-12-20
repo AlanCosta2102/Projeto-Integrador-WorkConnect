@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from core.models import Usuario
+from candidato.models import Candidato
+from django.contrib import messages
+
 
 def index(request):
     return render(request, 'candidato/base.html')
@@ -6,8 +10,8 @@ def index(request):
 def tela_principal_candidato(request):
     return render(request, 'candidato/tela_principal_candidato.html')
 
-def perfil_candidato(request):
-    return render(request, 'candidato/perfil.html') 
+# def perfil_candidato(request):
+#     return render(request, 'candidato/perfil.html') 
 
 def candidaturas_candidato(request):
     return render(request, 'candidato/candidaturas.html')

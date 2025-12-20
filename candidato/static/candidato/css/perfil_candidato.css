@@ -1,39 +1,4 @@
-:root {
-    --cor-primaria: #032D5D; 
-    --cor-secundaria: #1a3d7c; /* Azul dos detalhes do botão */
-    --fundo-cinza: #f4f4f9; /* Cinza Claro do topo/cartões */
-    --texto-escuro: #333;
-    --borda-card: 1px solid #ddd;
-    
-    /* Cores do Novo Card */
-    --verde-status: #00a400;
-    --vermelho-status: #e74c3c;
-    --amarelo-status: #f39c12;
-    --header-ativa: #A6FF9E;
-    --header-rejeitada: #FFBD9E;
-    --header-aguardando: #FFF3A6;
-}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-}
-
-body {
-    background-color: white;
-}
-
-
-.header-topo {
-    background-color: #032D5D;
-    padding: 20px 5%;
-    border-bottom: 1px solid #ddd;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
 
 .perfil {
     display: flex;
@@ -126,7 +91,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1300px; /* Aumenta a largura para comportar mais cards */
+    max-width: 1300px; 
     margin: 0 auto 20px auto;
 }
 
