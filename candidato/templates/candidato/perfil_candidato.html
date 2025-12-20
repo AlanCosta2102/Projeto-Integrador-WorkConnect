@@ -1,13 +1,9 @@
 {%extends 'core/base.html'%}
 {% load static %}
+{% block css%}
+<link rel="stylesheet" href="{% static 'candidato/css/perfil_candidato.css' %}">
+{%endblock css %}
 {%block content%}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo Profissional - Cristiano R. A.</title>
-    <link rel="stylesheet" href="{% static 'candidato/css/perfil_candidato.css' %}">
-</head>
-
 
     <header class="header-topo">
         <div class="perfil">
