@@ -1,12 +1,80 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login as auth_login,logout
 from .models import Usuario
 from candidato.models import Candidato
 from empresa.models import Empresa
 from django.contrib import messages
+import re
 
 def login(request):
+    if request.method == 'POST':
+        identificacao_raw = request.POST.get('identificacao')
+        senha = request.POST.get('senha')
+
+        if not identificacao_raw or not senha:
+            messages.error(request, 'Preencha todos os campos.')
+            return render(request, 'core/login.html')
+
+        identificacao = re.sub(r'\D', '', identificacao_raw)
+
+        if len(identificacao) == 11:
+            candidato = Candidato.objects.filter(cpf=identificacao).first()
+            if not candidato:
+                messages.error(request, 'CPF não cadastrado.')
+                return render(request, 'core/login.html')
+
+            user = authenticate(
+                request,
+                username=candidato.usuario.username,
+                password=senha
+            )
+
+        elif len(identificacao) == 14:
+            empresa = Empresa.objects.filter(cnpj=identificacao).first()
+            if not empresa:
+                messages.error(request, 'CNPJ não cadastrado.')
+                return render(request, 'core/login.html')
+
+            user = authenticate(
+                request,
+                username=empresa.usuario.username,
+                password=senha
+            )
+
+        else:
+            user = authenticate(
+                request,
+                username=identificacao_raw,
+                password=senha
+            )
+
+            if not user or user.tipo_usuario != 'admin':
+                messages.error(request, 'Credenciais inválidas.')
+                return render(request, 'core/login.html')
+
+            auth_login(request, user)
+            return redirect('administrador:dashboard')
+
+        if not user:
+            messages.error(request, 'Senha incorreta.')
+            return render(request, 'core/login.html')
+
+        auth_login(request, user)
+
+        if user.tipo_usuario == 'candidato':
+            return redirect('candidato:tela_principal_candidato')
+
+        if user.tipo_usuario == 'empresa':
+            return redirect('empresa:tela_principal_empresa')
+
+        messages.error(request, 'Tipo de usuário inválido.')
+        return render(request, 'core/login.html')
+
     return render(request, 'core/login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 def tela_selecao(request):
     return render(request,'core/tela_selecao.html')
@@ -18,25 +86,30 @@ def cadastro_candidato(request):
 
         if senha != confirmar:
             messages.error(request, 'As senhas não coincidem')
-            return redirect('criar_conta')
+            return redirect('candidato:criar_conta')
 
         user = Usuario.objects.create_user(
             username=request.POST['email'],
             email=request.POST['email'],
             password=senha,
-            tipo_usuario='candidato'
+            tipo_usuario = 'candidato'
         )
+
+        user.tipo_usuario = 'candidato'
+        user.save()
 
         Candidato.objects.create(
             usuario=user,
             nome=request.POST['nome'],
-            cpf=request.POST['cpf'],
+            cpf=re.sub(r'\D', '', request.POST['cpf']),
             email=request.POST['email']
         )
 
-        return redirect('login')
+        auth_login(request, user)
+        return redirect('candidato:tela_principal_candidato')
 
     return render(request, 'candidato/criar_conta.html')
+
 
 def cadastro_empresa(request):
     if request.method == 'POST':
@@ -46,9 +119,11 @@ def cadastro_empresa(request):
         if senha != confirmar:
             messages.error(request,'As senhas não são iguais.')
             return redirect('criar_conta_empresa')
-        
+
+        cnpj_limpo = re.sub(r'\D', '', request.POST['cnpj'])
+
         user = Usuario.objects.create_user(
-            username=request.POST['email'],
+            username=cnpj_limpo,  
             email=request.POST['email'],
             password=senha,
             tipo_usuario='empresa'
@@ -57,10 +132,11 @@ def cadastro_empresa(request):
         Empresa.objects.create(
             usuario=user,
             razao_social=request.POST['nome_empresa'],
-            cnpj=request.POST['cnpj'],
+            cnpj=cnpj_limpo, 
             email=request.POST['email']
         )
 
+        messages.success(request, 'Conta criada com sucesso.')
         return redirect('login')
-    
+
     return render(request,'empresa/criar_conta_empresa.html')
