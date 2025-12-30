@@ -1,4 +1,5 @@
 from django.db import models
+from core.models import Usuario
 from django.conf import settings
 
 User = settings.AUTH_USER_MODEL
@@ -11,4 +12,48 @@ class Empresa(models.Model):
 
     def __str__(self):
         return self.razao_social
-    
+
+class Vaga(models.Model):
+    empresa = models.ForeignKey(
+        Empresa,
+        on_delete=models.CASCADE,
+        related_name='vagas'
+    )
+    titulo = models.CharField(max_length=100)
+    quantidade = models.PositiveBigIntegerField(default=1)
+  
+
+    requisitos = models.TextField()
+
+    MODELO_TRABALHO = [
+        ('presencial','Presencial'),
+        ('remoto','Remoto'),
+        ('hibrido','Híbrido'),
+    ]
+
+    modelo_trabalho = models.CharField(max_length=20,choices=MODELO_TRABALHO)
+
+    TIPO_CONTRATO = [
+        ('clt','CLT'),
+        ('pj','PJ'),
+        ('temporario','Temporário'),
+    ]
+
+    tipo_contrato = models.CharField(max_length=20,choices=TIPO_CONTRATO)
+
+    jornada = models.CharField(max_length=50)
+    faixa_salarial = models.DecimalField(max_digits=10,decimal_places=2)
+
+    vale_refeicao = models.BooleanField(default=False)
+    plano_saude = models.BooleanField(default=False)
+    vale_transporte = models.BooleanField(default=False)
+    outros_beneficios = models.BooleanField(default=False)
+
+    diferencial = models.CharField(max_length=255,blank=True,null=True)
+    descricao = models.TextField()
+
+    ativa = models.BooleanField(default=True)
+    criada_em = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.titulo

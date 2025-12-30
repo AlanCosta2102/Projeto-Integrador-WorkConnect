@@ -47,37 +47,40 @@
          style="display:flex; flex-wrap:wrap; justify-content:flex-start;
          gap:40px; padding:20px 60px 40px 60px; margin-top:0;">
 
-      <div class="card">
-        <div class="card-header">
-          <img src="{% static 'core/img/Peechinchou.png' %}">
-        </div>
-        <div class="card-body">
-          <p class="company-name">Pechinchou <span class="status">Ativa</span></p>
-          <p class="company-location">Pau dos Ferros/RN</p>
-          <div class="info-label"><span>🎯 Vaga</span></div>
-          <div class="info-value">Social Media</div>
-          <div class="info-label"><span>⏰ Turno e Horário</span></div>
-          <div class="info-value">Fléxivel - 8h</div>
-          <a href="#" class="details-button">Detalhes ›</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <img src="{% static 'core/img/Atacarejo.png' %}">
-        </div>
-        <div class="card-body">
-          <p class="company-name">Nosso Atacarejo <span class="status">Ativa</span></p>
-          <p class="company-location">Pau dos Ferros/RN</p>
-          <div class="info-label"><span>🎯 Vaga</span></div>
-          <div class="info-value">Operador(a) de caixa</div>
-          <div class="info-label"><span>⏰ Turno e Horário</span></div>
-          <div class="info-value">Integral - 8h</div>
-          <a href="#" class="details-button">Detalhes ›</a>
-        </div>
-      </div>
-
+         {% for vaga in vagas_ativas %}
+<div class="card">
+    <div class="card-header">
+        <img src="{% static 'core/img/Ellipse 14.png' %}">
     </div>
+
+    <div class="card-body">
+        <p class="company-name">
+            {{ vaga.empresa.username }}
+            {% if not vaga.ativa %}
+                <span class="status Desativada">Arquivada</span>
+            {% endif %}
+        </p>
+
+        <p class="company-location">Pau dos Ferros/RN</p>
+
+        <div class="info-label"><span>🎯 Vaga</span></div>
+        <div class="info-value">{{ vaga.titulo }}</div>
+
+        <div class="info-label"><span>⏰ Turno e Horário</span></div>
+        <div class="info-value">
+            {{ vaga.modelo_trabalho|capfirst }} - {{ vaga.jornada }}
+        </div>
+
+        <a href="{% url 'empresa:detalhes_vaga' vaga.id %}" class="details-button">
+            Detalhes ›
+        </a>
+    </div>
+</div>
+{% empty %}
+<p>Nenhuma vaga ativa cadastrada.</p>
+{% endfor %}
+
+
   </section>
 
   <!-- Vagas Desativadas -->
@@ -87,38 +90,40 @@
     <div class="cards-container"
          style="display:flex; flex-wrap:wrap; justify-content:flex-start;
          gap:40px; padding:20px 60px 40px 60px; margin-top:0;">
-
-      <div class="card">
-        <div class="card-header">
-          <img src="{% static 'core/img/Peechinchou.png' %}">
-        </div>
-        <div class="card-body">
-          <p class="company-name">Pechinchou <span class="status Desativada">Arquivada</span></p>
-          <p class="company-location">Pau dos Ferros/RN</p>
-          <div class="info-label"><span>🎯 Vaga</span></div>
-          <div class="info-value">Social Media</div>
-          <div class="info-label"><span>⏰ Turno e Horário</span></div>
-          <div class="info-value">Fléxivel - 8h</div>
-          <a href="#" class="details-button">Detalhes ›</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <img src="{% static 'core/img/Nike.jpg' %}">
-        </div>
-        <div class="card-body">
-          <p class="company-name">Nike <span class="status Desativada">Arquivada</span></p>
-          <p class="company-location">Natal/RN</p>
-          <div class="info-label"><span>🎯 Vaga</span></div>
-          <div class="info-value">Atendente de loja</div>
-          <div class="info-label"><span>⏰ Turno e Horário</span></div>
-          <div class="info-value">Integral - 6h</div>
-          <a href="#" class="details-button">Detalhes ›</a>
-        </div>
-      </div>
-
+      
+ 
+{% for vaga in vagas_arquivadas %}
+<div class="card">
+    <div class="card-header">
+        <img src="{% static 'core/img/Peechinchou.png' %}">
     </div>
+
+    <div class="card-body">
+        <p class="company-name">
+            {{ vaga.empresa.username }}
+            <span class="status Desativada">Arquivada</span>
+        </p>
+
+        <p class="company-location">Pau dos Ferros/RN</p>
+
+        <div class="info-label"><span>🎯 Vaga</span></div>
+        <div class="info-value">{{ vaga.titulo }}</div>
+
+        <div class="info-label"><span>⏰ Turno e Horário</span></div>
+        <div class="info-value">
+            {{ vaga.modelo_trabalho|capfirst }} - {{ vaga.jornada }}
+        </div>
+
+        <a href="{% url 'empresa:detalhes_vaga' vaga.id %}" class="details-button">
+            Detalhes ›
+        </a>
+    </div>
+</div>
+{% empty %}
+<p>Nenhuma vaga arquivada.</p>
+{% endfor %}
+
+
   </section>
 
 </div>

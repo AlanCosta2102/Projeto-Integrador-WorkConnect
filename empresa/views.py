@@ -1,37 +1,121 @@
-from django.shortcuts import render,redirect
-from core.models import Usuario
-from empresa.models import Empresa
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from core.models import Usuario
+from empresa.models import Empresa, Vaga
 import re
+
 
 def index(request):
     return render(request, 'empresa/base_empresa.html')
 
+
 @login_required(login_url='login')
 def tela_principal_empresa(request):
-    return render(request, 'empresa/tela_principal_empresa.html')
+    if request.user.tipo_usuario != 'empresa':
+        return redirect('login')
 
-def perfil_empresa(request):
-    return render(request, 'empresa/perfil.html') 
+    try:
+        empresa = Empresa.objects.get(usuario=request.user)
+    except Empresa.DoesNotExist:
+        return redirect('login')
 
-def cadastrar_vagas(request):
-    return render(request, 'empresa/cadastrar_vagas.html')
+    vagas_ativas = Vaga.objects.filter(
+        empresa=empresa,
+        ativa=True
+    ).order_by('-criada_em')
 
-def vagas_empresa(request):
-    return render(request, 'empresa/vagas.html')
+    vagas_arquivadas = Vaga.objects.filter(
+        empresa=empresa,
+        ativa=False
+    ).order_by('-criada_em')
 
-def lista_candidatos(request):
-    return render(request,'empresa/lista_candidatos.html')
+    return render(request, 'empresa/tela_principal_empresa.html', {
+        'vagas_ativas': vagas_ativas,
+        'vagas_arquivadas': vagas_arquivadas
+    })
 
+
+@login_required(login_url='login')
 def cadastrar_emprego(request):
+    if request.user.tipo_usuario != 'empresa':
+        return redirect('login')
+
+    try:
+        empresa = Empresa.objects.get(usuario=request.user)
+    except Empresa.DoesNotExist:
+        return redirect('login')
+
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        quantidade = request.POST.get('quantidade') or 1
+        requisitos = request.POST.get('requisitos')
+        modelo_trabalho = request.POST.get('modelo_trabalho')
+        tipo_contrato = request.POST.get('tipo_contrato')
+        jornada = request.POST.get('jornada')
+        faixa_salarial = request.POST.get('faixa_salarial') or 0
+        vale_refeicao = bool(request.POST.get('vale_refeicao'))
+        plano_saude = bool(request.POST.get('plano_saude'))
+        vale_transporte = bool(request.POST.get('vale_transporte'))
+        outros_beneficios = bool(request.POST.get('outros_beneficios'))
+        diferencial = request.POST.get('diferencial')
+        descricao = request.POST.get('descricao')
+
+        if not titulo or not requisitos or not modelo_trabalho or not tipo_contrato:
+            messages.error(request, 'Preencha os campos obrigatórios.')
+            return render(request, 'empresa/cadastrar_emprego.html')
+
+        Vaga.objects.create(
+            empresa=empresa,
+            titulo=titulo,
+            quantidade=quantidade,
+            requisitos=requisitos,
+            modelo_trabalho=modelo_trabalho,
+            tipo_contrato=tipo_contrato,
+            jornada=jornada,
+            faixa_salarial=faixa_salarial,
+            vale_refeicao=vale_refeicao,
+            plano_saude=plano_saude,
+            vale_transporte=vale_transporte,
+            outros_beneficios=outros_beneficios,
+            diferencial=diferencial,
+            descricao=descricao
+        )
+
+        messages.success(request, 'Vaga cadastrada com sucesso.')
+        return redirect('empresa:tela_principal_empresa')
+
     return render(request, 'empresa/cadastrar_emprego.html')
+
+@login_required(login_url='login')
+def detalhes_vaga(request, vaga_id):
+    empresa = Empresa.objects.get(usuario=request.user)
+    vaga = Vaga.objects.get(id=vaga_id,empresa=empresa)
+    return render(request, 'empresa/detalhes_vaga.html',{'vaga':vaga})
 
 def cadastrar_estagio(request):
     return render(request, 'empresa/cadastrar_estagio.html')
 
-def tela_principal_empresa(request):
-    return render(request, 'empresa/tela_principal_empresa.html')
+
+def perfil_empresa(request):
+    return render(request, 'empresa/perfil_empresa.html')
+
+
+def vagas_empresa(request):
+    return render(request, 'empresa/vagas.html')
+
+
+def lista_candidatos(request):
+    return render(request, 'empresa/lista_candidatos.html')
+
+
+def visualizar_curriculo(request):
+    return render(request, 'empresa/visualizar_curriculo.html')
+
+
+def editar_vaga(request):
+    return render(request, 'empresa/editar_vaga.html')
+
 
 def criar_conta_empresa(request):
     if request.method == 'POST':
@@ -70,15 +154,6 @@ def criar_conta_empresa(request):
         )
 
         messages.success(request, 'Conta criada com sucesso.')
-        return redirect('login')  
+        return redirect('login')
+
     return render(request, 'empresa/criar_conta_empresa.html')
-
-def visualizar_curriculo(request):
-    return render(request, 'empresa/visualizar_curriculo.html')
-
-def editar_vaga(request):
-    return render(request, 'empresa/editar_vaga.html')
-
-def perfil_empresa(request):
-    return render(request,'empresa/perfil_empresa.html')
-
