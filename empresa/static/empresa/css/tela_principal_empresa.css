@@ -24,7 +24,7 @@ html, body {
   padding: 0.3rem 3rem 0rem 3rem;
   border-bottom: 3px solid #082f63;
   width: 70%;          
-  margin: 0 auto;   
+  margin-left: 240px;   
   position: relative;
   left: 100px;  
 }
@@ -185,87 +185,145 @@ html, body {
   padding-left: 60px;         /* alinha com os cards */
 }
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;     /* alinha os cards à esquerda */
-  align-items: flex-start;
-  gap: 40px;
-  padding: 20px 60px 40px 60px;    /* cola os cards no título e alinha com ele */
-  margin-top: 0px;                 /* remove espaço entre título e cards */
-  background-color: #d7e4ea;
-  box-sizing: border-box;
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-bottom: 48px;
+  align-items: start;
+  justify-items: center;
 }
 
 .card {
-    width: 320px;                 /* largura fixa */
-    background-color: #f5f5f5;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;               /* impede que o flexbox reduza o tamanho */
+  width: 280px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 18px rgba(7, 29, 52, 0.08);
+  overflow: hidden;
+  position: relative;
+  transition: transform .18s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
-.card-header {
-    height: 100px;
-    position: relative;
-    background-color: #A6FF9E;
+
+.card-header  {
+  height: 80px;
+  width: 100%;
+  background: #c9ffd0;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
-.card-header img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    position: absolute;
-    bottom: -40px;
-    left: 20px;
-    background-color: #fff;
+.logo-card {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  object-fit: cover;
 }
 
 .card-body {
-    padding: 60px 20px 20px 20px;
-}
-.info-value{
-  font-weight: bold;
-}
-.company-name {
-    font-weight: 700;
-    font-size: 18px;
-    margin: 0;
+  padding: 56px 18px 18px 18px;
+  position: relative;
+  min-height: 170px;
 }
 
-.company-location {
-    color: #777;
-    font-size: 14px;
-    margin: 4px 0 10px 0;
+.card-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 0;
+}
+
+.empresa {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #04294f;
+}
+
+.local {
+  font-size: 12px;
+  color: #6d6d6d;
+  margin: 4px 0 10px 0;
 }
 
 .status {
-    display: inline-block;
-    padding: 2px 10px;
-    border: 1px solid #00a400;
-    border-radius: 12px;
-    font-size: 12px;
-    color: #00a400;
-    margin-left: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 4px 8px;
+  white-space: nowrap;
 }
 
-.details-button {
-    display: inline-block;
-    margin-top:-20px;
-    padding: 6px 14px;
-    background-color: #cce4ff;
-    color: #1a3d7c;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    float: right;
+.status.ativa {
+  color: #0f8600;
+  background: #eaffea;
+  border: 1px solid #0f8600;
+}
+
+.status.arquivada {
+  color: #b80000;
+  background: #ffeaea;
+  border: 1px solid #b80000;
+}
+
+.vaga-info .label {
+  font-size: 13px;
+  color: #04294f;
+  margin: 8px 0 2px 0;
+}
+
+.vaga-info .valor {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 2px 0 8px 0;
+  color: #0f2740;
+}
+
+.btn-desativar, .btn-ativar {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+}
+
+.btn-desativar {
+  background: #032D5D;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(255,92,92,0.12);
+}
+
+.btn-desativar:hover {
+  background: #e84c4c;
+}
+
+.btn-ativar {
+  background: #d9edff;
+  color: #04294f;
+  box-shadow: 0 6px 12px rgba(13,68,128,0.06);
+}
+
+.btn-ativar:hover {
+  background: #c6e0ff;
+}
+
+.card.arquivada .header-bg {
+  background: #ffa7a7;
+}
+
+.card.arquivada .logo {
+  top: 22px;
 }
 .vagas-legenda {
     display: flex;

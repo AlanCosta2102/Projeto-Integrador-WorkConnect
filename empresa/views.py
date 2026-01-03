@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from core.models import Usuario
@@ -20,20 +20,18 @@ def tela_principal_empresa(request):
     except Empresa.DoesNotExist:
         return redirect('login')
 
-    vagas_ativas = Vaga.objects.filter(
-        empresa=empresa,
-        ativa=True
-    ).order_by('-criada_em')
+    vagas = Vaga.objects.filter(empresa=empresa)
 
-    vagas_arquivadas = Vaga.objects.filter(
-        empresa=empresa,
-        ativa=False
-    ).order_by('-criada_em')
+    context = {
+        'vagas_ativas':vagas.filter(ativa=True).order_by('-criada_em'),
+        'vagas_arquivadas': vagas.filter(ativa=False).order_by('-criada_em'),
 
-    return render(request, 'empresa/tela_principal_empresa.html', {
-        'vagas_ativas': vagas_ativas,
-        'vagas_arquivadas': vagas_arquivadas
-    })
+        'total_vagas': vagas.count(),
+        'total_ativas': vagas.filter(ativa=True).count(),
+        'total_arquivadas': vagas.filter(ativa=False).count(),
+    }
+
+    return render(request,'empresa/tela_principal_empresa.html',context)
 
 
 @login_required(login_url='login')
@@ -112,9 +110,34 @@ def lista_candidatos(request):
 def visualizar_curriculo(request):
     return render(request, 'empresa/visualizar_curriculo.html')
 
+@login_required(login_url='login')
+def editar_vaga(request,vaga_id):
+    empresa = Empresa.objects.get(usuario=request.user)
+    vaga = get_object_or_404(Vaga,id=vaga_id,empresa=empresa)
 
-def editar_vaga(request):
-    return render(request, 'empresa/editar_vaga.html')
+    if request.method == 'POST':
+        vaga.titulo = request.POST.get('titulo')
+        vaga.quantidade = request.POST.get('quantidade') or 1
+        vaga.requisitos = request.POST.get('requisitos')
+        vaga.modelo_trabalho = request.POST.get('modelo_trabalho')
+        vaga.tipo_contrato = request.POST.get('tipo_contrato')
+        vaga.jornada = request.POST.get('jornada')
+        vaga.faixa_salarial = request.POST.get('faixa_salarial') or 0
+        vaga.vale_refeicao = bool(request.POST.get('vale_refeicao'))
+        vaga.plano_saude = bool(request.POST.get('plano_saude'))
+        vaga.vale_transporte = bool(request.POST.get('vale_transporte'))
+        vaga.outros_beneficios = bool(request.POST.get('outros_beneficios'))
+        vaga.diferencial = request.POST.get('diferencial')
+        vaga.descricao = request.POST.get('descricao')
+
+        vaga.save()
+
+        messages.success(request,'Vaga atualizada com sucesso.')
+        return redirect('empresa:detalhes_vaga',vaga_id=vaga.id)
+    
+    return render(request, 'empresa/editar_vaga.html',{
+        'vaga':vaga
+    })
 
 
 def criar_conta_empresa(request):

@@ -157,55 +157,6 @@ body {
 
 /* VAGAS */
 
-.vagas-container {
-    display: flex;
-    gap: 25px;
-    justify-content: start;
-}
-
-.vaga-card {
-    background: white;
-    padding: 18px;
-    border-radius: 18px;
-    width: 260px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-}
-
-.vaga-logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    object-fit: cover;
-}
-
-.status {
-    background: #d1ffe1;
-    padding: 2px 7px;
-    font-size: 10px;
-    margin-left: 6px;
-    border-radius: 6px;
-}
-
-.cargo {
-    margin: 10px 0;
-    font-size: 22px;
-}
-
-.info-vaga p {
-    font-size: 14px;
-    color: #444;
-}
-
-.btn-detalhes {
-    display: inline-block;
-    margin-top: 22px;
-    font-size: 14px;
-    padding: 6px 12px;
-    border-radius: 8px;
-    background: #e1ecff;
-    cursor: pointer;
-    color: #003b82;
-}
 
 /* VER TODAS */
 

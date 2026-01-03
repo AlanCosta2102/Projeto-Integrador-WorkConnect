@@ -21,18 +21,18 @@
   <div class="stats-container">
     <div class="stat">
       <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
-      <p class="label">Vagas Disponíveis</p>
-      <p class="value">234</p>
+      <p class="label">Suas vagas cadastradas</p>
+      <p class="value">{{total_vagas}}</p>
     </div>
     <div class="stat">
       <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
-      <p class="label">Candidaturas Enviadas</p>
-      <p class="value">12</p>
+      <p class="label">Suas vagas ativas</p>
+      <p class="value">{{total_ativas}}</p>
     </div>
     <div class="stat">
       <div class="icon"><i class="fa-solid fa-building"></i></div>
-      <p class="label">Empresas Ativas</p>
-      <p class="value">189</p>
+      <p class="label">Suas vagas arquivadas</p>
+      <p class="value">{{total_arquivadas}}</p>
     </div>
   </div>
 </section>
@@ -48,34 +48,42 @@
          gap:40px; padding:20px 60px 40px 60px; margin-top:0;">
 
          {% for vaga in vagas_ativas %}
-<div class="card">
-    <div class="card-header">
-        <img src="{% static 'core/img/Ellipse 14.png' %}">
+<div class="card ativa">
+  <div class="card-header">
+    <div class="header-bg"></div>
+    <img src="{% static 'core/img/Ellipse 14.png' %}" alt="Logo" class="logo-card">
+  </div>
+
+  <div class="card-body">
+    <div class="card-header-top">
+      <div>
+        <h3 class="empresa">{{ vaga.empresa.razao_social }}</h3>
+        <p class="local">Pau dos Ferros/RN</p>
+      </div>
+
+      {% if vaga.ativa %}
+        <span class="status ativa">Ativa</span>
+      {% else %}
+        <span class="status arquivada">Arquivada</span>
+      {% endif %}
     </div>
 
-    <div class="card-body">
-        <p class="company-name">
-            {{ vaga.empresa.username }}
-            {% if not vaga.ativa %}
-                <span class="status Desativada">Arquivada</span>
-            {% endif %}
-        </p>
+    <div class="vaga-info">
+      <p class="label">🎯 Vaga</p>
+      <p class="valor">{{ vaga.titulo }}</p>
 
-        <p class="company-location">Pau dos Ferros/RN</p>
-
-        <div class="info-label"><span>🎯 Vaga</span></div>
-        <div class="info-value">{{ vaga.titulo }}</div>
-
-        <div class="info-label"><span>⏰ Turno e Horário</span></div>
-        <div class="info-value">
-            {{ vaga.modelo_trabalho|capfirst }} - {{ vaga.jornada }}
-        </div>
-
-        <a href="{% url 'empresa:detalhes_vaga' vaga.id %}" class="details-button">
-            Detalhes ›
-        </a>
+      <p class="label">⏰ Turno e Horário</p>
+      <p class="valor">{{ vaga.modelo_trabalho|capfirst }} - {{ vaga.jornada }}</p>
     </div>
+
+    <a href="{% url 'empresa:detalhes_vaga' vaga.id %}">
+      <button class="btn-desativar">
+        Detalhes
+      </button>
+    </a>
+  </div>
 </div>
+
 {% empty %}
 <p>Nenhuma vaga ativa cadastrada.</p>
 {% endfor %}
@@ -94,30 +102,39 @@
  
 {% for vaga in vagas_arquivadas %}
 <div class="card">
-    <div class="card-header">
-        <img src="{% static 'core/img/Peechinchou.png' %}">
+     <div class="card-header">
+    <div class="header-bg"></div>
+    <img src="{% static 'core/img/Ellipse 14.png' %}" alt="Logo" class="logo-card">
+  </div>
+
+  <div class="card-body">
+    <div class="card-header-top">
+      <div>
+        <h3 class="empresa">{{ vaga.empresa.razao_social }}</h3>
+        <p class="local">Pau dos Ferros/RN</p>
+      </div>
+
+      {% if vaga.ativa %}
+        <span class="status ativa">Ativa</span>
+      {% else %}
+        <span class="status arquivada">Arquivada</span>
+      {% endif %}
     </div>
 
-    <div class="card-body">
-        <p class="company-name">
-            {{ vaga.empresa.username }}
-            <span class="status Desativada">Arquivada</span>
-        </p>
+    <div class="vaga-info">
+      <p class="label">🎯 Vaga</p>
+      <p class="valor">{{ vaga.titulo }}</p>
 
-        <p class="company-location">Pau dos Ferros/RN</p>
-
-        <div class="info-label"><span>🎯 Vaga</span></div>
-        <div class="info-value">{{ vaga.titulo }}</div>
-
-        <div class="info-label"><span>⏰ Turno e Horário</span></div>
-        <div class="info-value">
-            {{ vaga.modelo_trabalho|capfirst }} - {{ vaga.jornada }}
-        </div>
-
-        <a href="{% url 'empresa:detalhes_vaga' vaga.id %}" class="details-button">
-            Detalhes ›
-        </a>
+      <p class="label">⏰ Turno e Horário</p>
+      <p class="valor">{{ vaga.modelo_trabalho|capfirst }} - {{ vaga.jornada }}</p>
     </div>
+
+    <a href="{% url 'empresa:detalhes_vaga' vaga.id %}">
+      <button class="btn-desativar">
+        Detalhes
+      </button>
+    </a>
+  </div>
 </div>
 {% empty %}
 <p>Nenhuma vaga arquivada.</p>
