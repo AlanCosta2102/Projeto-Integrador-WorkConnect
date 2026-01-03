@@ -22,9 +22,9 @@ urlpatterns = [
 
     path('visualizar_curriculo/', views.visualizar_curriculo, name='visualizar_curriculo'),
 
-    path('editar_vaga/', views.editar_vaga, name='editar_vaga'),
+    path('vaga/<int:vaga_id>/editar/', views.editar_vaga, name='editar_vaga'),
 
     path('perfil_empresa',views.perfil_empresa,name='perfil_empresa'),
 
-    path('vaga/<int:id>/',views.detalhes_vaga,name='detalhes_vaga')
+    path('vaga/<int:vaga_id>/',views.detalhes_vaga,name='detalhes_vaga'),
 ]
