@@ -67,6 +67,11 @@
         <span class="status arquivada">Arquivada</span>
       {% endif %}
     </div>
+{% if vaga.tipo == 'estagio' %}
+  <span class="status estagio">Estágio</span>
+{% else %}
+  <span class="status ativa">Emprego</span>
+{% endif %}
 
     <div class="vaga-info">
       <p class="label">🎯 Vaga</p>

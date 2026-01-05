@@ -23,8 +23,15 @@ def tela_principal_empresa(request):
     vagas = Vaga.objects.filter(empresa=empresa)
 
     context = {
-        'vagas_ativas':vagas.filter(ativa=True).order_by('-criada_em'),
-        'vagas_arquivadas': vagas.filter(ativa=False).order_by('-criada_em'),
+
+        'vagas_ativas': vagas.filter(ativa=True),
+        'vagas_arquivadas': vagas.filter(ativa=False),
+
+        'empregos_ativos':vagas.filter(tipo='emprego',ativa=True).order_by('-criada_em'),
+        'estagios_arquivados': vagas.filter(tipo='emprego',ativa=False).order_by('-criada_em'),
+
+        'estagios_ativos':vagas.filter(tipo='estagio',ativa=True),
+        'estagio_arquivados':vagas.filter(tipo='estagio',ativa=False),
 
         'total_vagas': vagas.count(),
         'total_ativas': vagas.filter(ativa=True).count(),
@@ -65,6 +72,7 @@ def cadastrar_emprego(request):
 
         Vaga.objects.create(
             empresa=empresa,
+            tipo='emprego',
             titulo=titulo,
             quantidade=quantidade,
             requisitos=requisitos,
@@ -91,7 +99,63 @@ def detalhes_vaga(request, vaga_id):
     vaga = Vaga.objects.get(id=vaga_id,empresa=empresa)
     return render(request, 'empresa/detalhes_vaga.html',{'vaga':vaga})
 
+@login_required(login_url='login')
+def detalhes_estagio(request, vaga_id):
+    empresa = Empresa.objects.get(usuario=request.user)
+    vaga = Vaga.objects.get(id=vaga_id,empresa=empresa)
+    return render(request, 'empresa/detalhes_estagio.html',{'vaga':vaga})
+
+
+@login_required(login_url='login')
 def cadastrar_estagio(request):
+    if request.user.tipo_usuario != 'empresa':
+        return redirect('login')
+    
+    try:
+        empresa = Empresa.objects.get(usuario=request.user)
+    except Empresa.DoesNotExist:
+        return redirect('login')
+    
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        quantidade = request.POST.get('quantidade') or 1
+        requisitos = request.POST.get('requisitos')
+        modelo_trabalho = request.POST.get('modelo_trabalho')
+        tipo_contrato = request.POST.get("tipo_contrato")
+        jornada = request.POST.get('jornada')
+        faixa_salarial = request.POST.get('faixa_salarial') or 0
+        vale_refeicao = bool(request.POST.get('vale_refeicao'))
+        plano_saude = bool(request.POST.get('plano_saude'))
+        vale_transporte = bool(request.POST.get('vale_transporte'))
+        outros_beneficios = bool(request.POST.get('outros_beneficios'))
+        diferencial = request.POST.get('diferencial')
+        descricao = request.POST.get('descricao')
+
+        if not titulo or not requisitos or not modelo_trabalho:
+            messages.error(request,'Preencha os campos obrigatórios.')
+            return render(request,'empresa/cadastrar_estagio.html')
+        
+        Vaga.objects.create(
+            empresa=empresa,
+            tipo='estagio',
+            titulo=titulo,
+            quantidade=quantidade,
+            requisitos=requisitos,
+            modelo_trabalho=modelo_trabalho,
+            tipo_contrato=tipo_contrato,
+            jornada=jornada,
+            faixa_salarial=faixa_salarial,
+            vale_refeicao=vale_refeicao,
+            plano_saude=plano_saude,
+            vale_transporte=vale_transporte,
+            outros_beneficios=outros_beneficios,
+            diferencial=diferencial,
+            descricao=descricao 
+        )
+
+        messages.success(request,'Vaga de estágio cadastrada com suceesso.')
+        return redirect('empresa:tela_principal_empresa')
+    
     return render(request, 'empresa/cadastrar_estagio.html')
 
 

@@ -38,16 +38,16 @@
         Estágio
     </button>
 </div>
-        <form class="job-form">
+     <form method="POST" action="{% url 'empresa:cadastrar_estagio' %}" class="job-form">
+    {% csrf_token %}
+
+        <input type="hidden" name="tipo" value="estagio">
+
             <div class="form-row">
                 <div class="form-group">
                     <label for="titulo">Titulo da vaga*</label>
                     <input type="text" id="titulo" name="titulo" placeholder="Ex: Vendedor">
                
-                
-                    
-
-
              <div class="form-group">
                     <label for="titulo">Quantidade de vagas</label>
                     <input type="number" id="quantidade" name="quantidade" min="0" placeholder="0">
@@ -59,41 +59,40 @@
             <div class="form-row">
                 <div class="form-group largura_total">
                     <label for="Requisitos">Requisitos e qualificações*</label>
-                    <textarea name="Requisitos" id="Requisitos" placeholder="Click 'Enter' a cada requisito"></textarea>
+                    <textarea name="requisitos" id="Requisitos" placeholder="Click 'Enter' a cada requisito"></textarea>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="modelo">Modelo de Trabalho</label>
-                    <select name="modelo" id="modelo">
+                    <select name="modelo_trabalho" id="modelo_trabalho">
                         <option value="">Selecione</option>
-                        <option value="">Presencial</option>
-                        <option value="">Híbrido</option>
-                        <option value="">Remoto</option>
+                        <option value="presencial">Presencial</option>
+                        <option value="hibrido">Híbrido</option>
+                        <option value="remoto">Remoto</option>
                     </select>
                 </div>
                 
                 
                 <div class="form-group">
                     <label for="salario">Remuneração</label>
-                    <input type="text" id="salario" name="salario" placeholder="R$ 0,00">
+                    <input type="text" id="salario" name="faixa_salarial" placeholder="R$ 0,00">
                 </div>  
                   </div>
                   
-                  <div class="form-row">
+                      <div class="form-row">
                 <div class="form-group">
-                    <label for="contrato">Tipo de contrato</label>
-                    <select name="contrato" id="contrato">
-                        <option value="">Selecione</option>
-                        <option value="">CLT</option>
-                        <option value="">PJ</option>
-                        <option value="">Temporário</option>
-                        <option value="">Freelance</option>
+                    <label>Tipo de contrato</label>
+                   <select name="tipo_contrato">
+                     <option value="">Selecione</option>
+                     <option value="clt">CLT</option>
+                     <option value="pj">PJ</option>
+                    <option value="temporario">Temporário</option>
                     </select>
-                
 
                 </div>
+
                 <div class="form-group">
                     <label for="Jornada">Jornada de Trabalho</label>
                     <input type="text" id="jornada" name="jornada" placeholder="Ex: 8h diárias">
@@ -106,19 +105,19 @@
                     <label for="">Benefícios</label>
                     <div class="check-box">
                         <label>
-                            <input type="checkbox" name="beneficio" value="vale_refeicao"> Vale-refeição 
+                            <input type="checkbox" name="vale_refeicao" value="1"> Vale-refeição 
                         </label>
 
                         <label>
-                            <input type="checkbox" name="beneficio" valeu="plano_saude"> Plano de Saúde
+                            <input type="checkbox" name="plano_saude" valeu="1"> Plano de Saúde
                         </label>
 
                         <label>
-                            <input type="checkbox" name="beneficio" value="vale_tranporte"> Vale-transporte
+                            <input type="checkbox" name="vale_transporte" value="1"> Vale-transporte
                         </label>
 
                         <label>
-                            <input type="checkbox" name="beneficio" valeu="outros"> Outros
+                            <input type="checkbox" name="outros_beneficios" valeu="1"> Outros
                         </label>
                     </div>
                      </div>  
@@ -126,7 +125,7 @@
                     
                     <div class="form-group">
                     <label for="Diferencial">Diferencial(Não obrigatório)</label>
-                    <input type="text" id="Diferencial" name="Diferencial" placeholder="">
+                    <input type="text" id="Diferencial" name="diferencial" placeholder="">
                   </div>  
                   </div>
                      

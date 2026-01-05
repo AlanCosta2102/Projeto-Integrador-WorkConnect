@@ -27,4 +27,6 @@ urlpatterns = [
     path('perfil_empresa',views.perfil_empresa,name='perfil_empresa'),
 
     path('vaga/<int:vaga_id>/',views.detalhes_vaga,name='detalhes_vaga'),
+
+    path('vaga/<int:vaga_id>/',views.detalhes_estagio,name='detalhes_estagio'),
 ]
