@@ -261,7 +261,11 @@ html, body {
   padding: 4px 8px;
   white-space: nowrap;
 }
-
+.status.estagio{
+  color: #ff7700;
+  background: #f9ebdf;
+  border: 1px solid #ff7700;
+}
 .status.ativa {
   color: #0f8600;
   background: #eaffea;

@@ -1,0 +1,94 @@
+{% extends 'core/base_empresa.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'empresa/css/detalhes_estagio.css' %}">
+    <title>Descrição da vaga</title>
+</head>
+
+<main class="main-content">
+
+    <section class="top">
+
+        <section class="detalhes-vaga">  
+            <div class="cabeçalho-vaga">
+                <img src="{% static 'core/img/capa-perfil.png' %}" class="capa-perfil">
+            </div>
+
+            <div class="infos-vaga">
+                <div class="logo-empresa">
+                    <img src="{% static 'core/img/perfil-empresa.png' %}">
+                </div>
+
+                <div class="nome-empresa">
+                    <h2>{{ vaga.empresa.razao_social }}</h2>
+                    <p class="area-atuaçao">
+                        <img src="{% static 'core/img/icone-area.png' %}" width="12px">
+                        {{ vaga.titulo }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row"></div>
+
+            <div class="resumo-vaga">
+                <div class="itens-resumos">
+                    <img src="{% static 'core/img/sumary-money.png' %}" width="50px">
+                    <p>R$ {{ vaga.faixa_salarial }}</p>
+                    <p class="titulos-resumo">Salário</p>
+                </div>
+
+                <div class="itens-resumos">
+                    <img src="{% static 'core/img/localization.png' %}" width="50px">
+                    <p>{{ vaga.modelo_trabalho|capfirst }}</p>
+                    <p class="titulos-resumo">Modalidade</p>
+                </div>
+
+                <div class="itens-resumos">
+                    <img src="{% static 'core/img/time.png' %}" width="50px">
+                    <p>{{ vaga.jornada }}</p>
+                    <p class="titulos-resumo">Horário</p>
+                </div>
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <section class="descrição-vaga">
+        <div class="conteudo-geral">
+            <div class="menu-aba">
+                <button class="acao-aba">Descrição da vaga</button>
+                <button class="outra-aba">Outros detalhes</button>
+            </div>
+        
+            <div class="conteudo-aba">
+                <h3>
+                    <img src="{% static 'core/img/icone-descrição.png' %}" width="15px">
+                    {{ vaga.tipo_contrato|upper }}
+                </h3>
+
+                <p>{{ vaga.descricao }}</p>
+
+                <h4>Requisitos da Vaga:</h4>
+                <ul>
+                    {% for req in vaga.requisitos.splitlines %}
+                        <li>{{ req }}</li>
+                    {% endfor %}
+                </ul>
+
+                {% if vaga.diferencial %}
+                <h4>Diferencial (Não Obrigatório):</h4>
+                <ul>
+                    <li>{{ vaga.diferencial }}</li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -14,11 +14,17 @@ class Empresa(models.Model):
         return self.razao_social
 
 class Vaga(models.Model):
+    TIPO_VAGA = [
+        ('emprego','Emprego'),
+        ('estagio','Estágio'),
+    ]
     empresa = models.ForeignKey(
         Empresa,
         on_delete=models.CASCADE,
         related_name='vagas'
     )
+    tipo = models.CharField(max_length=10, choices=TIPO_VAGA, default='emprego')
+
     titulo = models.CharField(max_length=100)
     quantidade = models.PositiveBigIntegerField(default=1)
   
@@ -52,8 +58,13 @@ class Vaga(models.Model):
     diferencial = models.CharField(max_length=255,blank=True,null=True)
     descricao = models.TextField()
 
+    tipo = models.CharField(
+        max_length=10,
+        choices=TIPO_VAGA
+    )
+
     ativa = models.BooleanField(default=True)
     criada_em = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.titulo
+        return f"{self.titulo}({self.get_tipo_display})"
