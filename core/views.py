@@ -13,15 +13,16 @@ def login(request):
 
         if not identificacao_raw or not senha:
             messages.error(request, 'Preencha todos os campos.')
-            return render(request, 'core/login.html')
+            return redirect('login')
 
         identificacao = re.sub(r'\D', '', identificacao_raw)
+        user = None
 
         if len(identificacao) == 11:
             candidato = Candidato.objects.filter(cpf=identificacao).first()
             if not candidato:
                 messages.error(request, 'CPF não cadastrado.')
-                return render(request, 'core/login.html')
+                return redirect('login')
 
             user = authenticate(
                 request,
@@ -33,7 +34,7 @@ def login(request):
             empresa = Empresa.objects.filter(cnpj=identificacao).first()
             if not empresa:
                 messages.error(request, 'CNPJ não cadastrado.')
-                return render(request, 'core/login.html')
+                return redirect('login')
 
             user = authenticate(
                 request,
@@ -48,29 +49,26 @@ def login(request):
                 password=senha
             )
 
-            if not user or user.tipo_usuario != 'admin':
-                messages.error(request, 'Credenciais inválidas.')
-                return render(request, 'core/login.html')
-
-            auth_login(request, user)
-            return redirect('administrador:dashboard')
-
         if not user:
-            messages.error(request, 'Senha incorreta.')
-            return render(request, 'core/login.html')
+            messages.error(request, 'Usuário ou senha inválidos.')
+            return redirect('login')
 
         auth_login(request, user)
 
-        if user.tipo_usuario == 'candidato':
-            return redirect('candidato:tela_principal_candidato')
+        if user.tipo_usuario == 'admin':
+            return redirect('administrador:dashboard')
 
-        if user.tipo_usuario == 'empresa':
+        if getattr(user, 'tipo_usuario', None) == 'empresa':
             return redirect('empresa:tela_principal_empresa')
 
+        if getattr(user, 'tipo_usuario', None) == 'candidato':
+            return redirect('candidato:tela_principal_candidato')
+
         messages.error(request, 'Tipo de usuário inválido.')
-        return render(request, 'core/login.html')
+        return redirect('login')
 
     return render(request, 'core/login.html')
+
 
 def logout_view(request):
     logout(request)

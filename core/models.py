@@ -9,4 +9,4 @@ class Usuario(AbstractUser):
         ('admin','Administrador'),
     )
 
-    tipo_usuario = models.CharField(max_length=10,choices=TIPOS)
+    tipo_usuario = models.CharField(max_length=10,choices=TIPOS,default='admin')
