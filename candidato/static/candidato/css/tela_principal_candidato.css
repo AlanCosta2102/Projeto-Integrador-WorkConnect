@@ -186,17 +186,15 @@ html, body {
 }
 
 .cards-container {
-    width: 100%;                  /* ocupa toda a largura da tela */
-    display: flex;                /* deixa os cards lado a lado */
-    flex-wrap: wrap;          /* garante alinhamento horizontal */
-    justify-content: center;      /* centraliza a fileira */
-    align-items: flex-start;
-    gap: 40px;                    /* espaço entre os cards */
-    padding: 40px;
-    background-color: #d7e4ea;    /* cor de fundo da seção */
-    flex-wrap: wrap;            /* impede que quebre a linha */
-    box-sizing: border-box;       /* evita que padding reduza a largura */
-    color: #1a1a1a;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 38px 0px;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    margin-top: 70px;
+    position: relative;
+    margin-left: 90px;
 }
 
 .card {
@@ -296,11 +294,11 @@ html, body {
 }
 
 .bolinha.verde {
-    background-color: #A6FF9E;
+    background-color: #0f8600;
 }
 
 .bolinha.laranja {
-    background-color: #ff9800;
+    background-color: #ff7700;
 }
 .ver-mais-container {
   text-align: center;
