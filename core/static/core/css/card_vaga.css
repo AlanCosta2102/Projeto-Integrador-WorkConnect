@@ -1,0 +1,131 @@
+.card {
+  width: 280px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 18px rgba(7, 29, 52, 0.08);
+  overflow: hidden;
+  position: relative;
+  transition: transform .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card-header {
+  height: 80px;
+  width: 100%;
+  background: #c9ffd0;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  position: relative;
+}
+
+.header-bg {
+  height: 100%;
+  width: 100%;
+}
+
+.logo-card {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.card-body {
+  padding: 56px 18px 18px 18px;
+  position: relative;
+  min-height: 170px;
+}
+
+.card-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.empresa {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #04294f;
+}
+
+.local {
+  font-size: 12px;
+  color: #6d6d6d;
+  margin: 4px 0 10px 0;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  
+}
+
+.status.emprego {
+  color: #0f8600;
+  background: #eaffea;
+  border: 1px solid #0f8600;
+  position: relative;
+  right: 10px;
+}
+
+.status.arquivada {
+  color: #b80000;
+  background: #ffeaea;
+  border: 1px solid #b80000;
+}
+
+.status.estagio {
+  color: #ff7700;
+  background: #f9ebdf;
+  border: 1px solid #ff7700;
+  position: relative;
+  right: 10px;
+}
+
+.vaga-info .label {
+  font-size: 13px;
+  color: #04294f;
+  margin: 8px 0 2px 0;
+}
+
+.vaga-info .valor {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 2px 0 8px 0;
+  color: #0f2740;
+}
+
+.btn-desativar {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  background: #032D5D;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(13, 68, 128, 0.12);
+  transition: background 0.2s ease;
+}
+
+.btn-desativar:hover {
+  background: #144a8d;
+}
+
+.card.arquivada .card-header {
+  background: #ffa7a7;
+}

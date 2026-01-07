@@ -1,0 +1,48 @@
+{%load static%}
+<link rel="stylesheet" href="{% static 'core/css/card_vaga.css' %}">
+
+<div class="card {% if not vaga.ativa %}arquivada{% endif %}">
+  <div class="card-header">
+    <div class="header-bg"></div>
+    <img src="{% static 'core/img/Ellipse 14.png' %}" class="logo-card">
+  </div>
+
+  <div class="card-body">
+    <div class="card-header-top">
+      <div>
+        <h3 class="empresa">{{ vaga.empresa.razao_social }}</h3>
+        <p class="local">Pau dos Ferros/RN</p>
+      </div>
+
+      {% if vaga.ativa %}
+        <span class="status ativa">Ativa</span>
+      {% else %}
+        <span class="status arquivada">Arquivada</span>
+      {% endif %}
+    </div>
+
+    {% if vaga.tipo == 'estagio' %}
+      <span class="status estagio">Estágio</span>
+    {% else %}
+      <span class="status emprego">Emprego</span>
+    {% endif %}
+
+    <div class="vaga-info">
+      <p class="label">🎯 Vaga</p>
+      <p class="valor">{{ vaga.titulo }}</p>
+
+      <p class="label">⏰ Turno e Horário</p>
+      <p class="valor">{{ vaga.modelo_trabalho|capfirst }} - {{ vaga.jornada }}</p>
+    </div>
+
+    {% if modo == 'empresa' %}
+      <a href="{% url 'empresa:detalhes_vaga' vaga.id %}">
+        <button class="btn-desativar">Detalhes</button>
+      </a>
+    {% else %}
+      <a href="{% url 'candidato:detalhes_vaga' vaga.id %}">
+        <button class="btn-desativar">Detalhes</button>
+      </a>
+    {% endif %}
+  </div>
+</div>
