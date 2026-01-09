@@ -15,7 +15,7 @@
 .card-header {
   height: 80px;
   width: 100%;
-  background: #c9ffd0;
+  background: #1e56a0;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   position: relative;
@@ -113,17 +113,18 @@
   padding: 8px 16px;
   font-weight: 600;
   cursor: pointer;
-  position: absolute;
+  position: relative;
+  margin-left: 190px;
   right: 16px;
   bottom: 14px;
-  background: #032D5D;
+  background: #c50000;
   color: #fff;
   box-shadow: 0 6px 12px rgba(13, 68, 128, 0.12);
   transition: background 0.2s ease;
 }
 
 .btn-desativar:hover {
-  background: #144a8d;
+  background: #ff3838;
 }
 
 .card.arquivada .card-header {

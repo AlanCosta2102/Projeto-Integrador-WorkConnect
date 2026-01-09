@@ -159,12 +159,40 @@ def cadastrar_estagio(request):
     return render(request, 'empresa/cadastrar_estagio.html')
 
 
+@login_required(login_url='login')
 def perfil_empresa(request):
     return render(request, 'empresa/perfil_empresa.html')
 
 
+@login_required(login_url='login')
 def vagas_empresa(request):
-    return render(request, 'empresa/vagas.html')
+     if request.user.tipo_usuario != 'empresa':
+        return redirect('login')
+
+     try:
+        empresa = Empresa.objects.get(usuario=request.user)
+     except Empresa.DoesNotExist:
+        return redirect('login')
+
+     vagas = Vaga.objects.filter(empresa=empresa)
+
+     context = {
+
+        'vagas_ativas': vagas.filter(ativa=True),
+        'vagas_arquivadas': vagas.filter(ativa=False),
+
+        'empregos_ativos':vagas.filter(tipo='emprego',ativa=True).order_by('-criada_em'),
+        'estagios_arquivados': vagas.filter(tipo='emprego',ativa=False).order_by('-criada_em'),
+
+        'estagios_ativos':vagas.filter(tipo='estagio',ativa=True),
+        'estagio_arquivados':vagas.filter(tipo='estagio',ativa=False),
+
+        'total_vagas': vagas.count(),
+        'total_ativas': vagas.filter(ativa=True).count(),
+        'total_arquivadas': vagas.filter(ativa=False).count(),
+    }
+
+     return render(request, 'empresa/vagas.html',context)
 
 
 def lista_candidatos(request):

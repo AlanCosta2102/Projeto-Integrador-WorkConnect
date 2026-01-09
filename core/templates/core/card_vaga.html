@@ -32,17 +32,14 @@
       <p class="valor">{{ vaga.titulo }}</p>
 
       <p class="label">⏰ Turno e Horário</p>
-      <p class="valor">{{ vaga.modelo_trabalho|capfirst }} - {{ vaga.jornada }}</p>
+      <p class="valor">{{ vaga.jornada }}</p>
     </div>
-
-    {% if modo == 'empresa' %}
-      <a href="{% url 'empresa:detalhes_vaga' vaga.id %}">
-        <button class="btn-desativar">Detalhes</button>
+  </div>
+      {% if modo == 'empresa' %}
+        <button class="btn-desativar">Arquivar</button>
       </a>
     {% else %}
-      <a href="{% url 'candidato:detalhes_vaga' vaga.id %}">
-        <button class="btn-desativar">Detalhes</button>
+        <button class="btn-desativar">Ativar</button>
       </a>
     {% endif %}
-  </div>
 </div>
