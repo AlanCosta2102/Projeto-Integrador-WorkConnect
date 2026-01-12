@@ -24,9 +24,11 @@
         <div class="cards-grid">
   {% for vaga in vagas_arquivadas %}
         {% include 'core/card_vaga.html' with vaga=vaga modo="empresa" %}
-      {% empty %}
+    
+          {% empty %}
         <p>Nenhuma vaga arquivada.</p>
       {% endfor %}
+       </a>
         </div>
   </main>
 {% endblock %}

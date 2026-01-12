@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Empresa,Vaga
+from .models import Empresa,Vaga,Candidatura
 
 @admin.register(Empresa)
 class EmpresaAdmin(admin.ModelAdmin):
@@ -30,3 +30,11 @@ class VagaAdmin(admin.ModelAdmin):
 
     ordering = ('-criada_em',)
     list_per_page = 20
+
+@admin.register(Candidatura)
+class CandidaturaAdmin(admin.ModelAdmin):
+    list_display = (
+        'vaga',
+        'candidato',
+        'data_inscricao'
+    )

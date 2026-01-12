@@ -1,6 +1,7 @@
 from django.db import models
 from core.models import Usuario
 from django.conf import settings
+from django.contrib.auth.models import User
 
 User = settings.AUTH_USER_MODEL
 
@@ -9,6 +10,12 @@ class Empresa(models.Model):
     razao_social = models.CharField(max_length=200)
     cnpj = models.CharField(max_length=14,unique=True,db_index=True)
     email = models.EmailField()
+
+    foto_perfil = models.ImageField(
+        upload_to='empresas/perfil/',
+        blank=True,
+        null=True
+    )
 
     def __str__(self):
         return self.razao_social
@@ -66,5 +73,14 @@ class Vaga(models.Model):
     ativa = models.BooleanField(default=True)
     criada_em = models.DateTimeField(auto_now_add=True)
 
+
     def __str__(self):
         return f"{self.titulo}({self.get_tipo_display})"
+    
+class Candidatura(models.Model):
+    vaga = models.ForeignKey('Vaga',on_delete=models.CASCADE,related_name='candidaturas')
+    candidato = models.ForeignKey(User,on_delete=models.CASCADE)
+    data_inscricao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.candidato} - {self.vaga.titulo}" 

@@ -1,10 +1,15 @@
-{%load static%}
+{% load static %}
 <link rel="stylesheet" href="{% static 'core/css/card_vaga.css' %}">
 
 <div class="card {% if not vaga.ativa %}arquivada{% endif %}">
   <div class="card-header">
     <div class="header-bg"></div>
-    <img src="{% static 'core/img/Ellipse 14.png' %}" class="logo-card">
+
+    {% if vaga.empresa.foto_perfil %}
+      <img src="{{ vaga.empresa.foto_perfil.url }}" alt="Logo da empresa" class="logo-card">
+    {% else %}
+      <img src="{% static 'core/img/Ellipse 14.png' %}" alt="Logo padrão" class="logo-card">
+    {% endif %}
   </div>
 
   <div class="card-body">
@@ -24,7 +29,7 @@
     {% if vaga.tipo == 'estagio' %}
       <span class="status estagio">Estágio</span>
     {% else %}
-      <span class="status emprego">Emprego</span>
+      <span class="status ativa">Emprego</span>
     {% endif %}
 
     <div class="vaga-info">
@@ -34,12 +39,17 @@
       <p class="label">⏰ Turno e Horário</p>
       <p class="valor">{{ vaga.jornada }}</p>
     </div>
+
   </div>
-      {% if modo == 'empresa' %}
+  
+    {% if modo == 'empresa' %}
+      {% if vaga.ativa %}
+       <a href="{% url 'empresa:lista_candidatos' vaga.id %}">
         <button class="btn-desativar">Arquivar</button>
-      </a>
-    {% else %}
-        <button class="btn-desativar">Ativar</button>
-      </a>
+        </a>
+      {% else %}
+        <button class="btn-ativar">Ativar</button>
+
+      {% endif %}
     {% endif %}
 </div>

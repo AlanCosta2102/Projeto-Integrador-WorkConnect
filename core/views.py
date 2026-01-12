@@ -1,8 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate,login as auth_login,logout,logout
 from .models import Usuario
 from candidato.models import Candidato
-from empresa.models import Empresa
+from empresa.models import Empresa,Vaga
 from django.contrib import messages
 import re
 
@@ -138,3 +138,5 @@ def cadastro_empresa(request):
         return redirect('login')
 
     return render(request,'empresa/criar_conta_empresa.html')
+
+
