@@ -1,44 +1,67 @@
 {% extends 'core/base_empresa.html' %}
 {% load static %}
 
-{% block title %}WorkConnect | Vagas{% endblock %}
+{% block title %}WorkConnect | Candidatos da Vaga{% endblock %}
 
 {% block content %}
-  <link rel="stylesheet" href="{% static 'empresa/css/lista_candidatos.css' %}">
+<link rel="stylesheet" href="{% static 'empresa/css/lista_candidatos.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <main class="content">
+
+  <!-- TOPO -->
   <section class="header-section">
+
+    <!-- CARD DA VAGA -->
     <div class="card">
       <div class="card-header">
-        <img src="{% static 'core/img/Ellipse 14.png' %}">
+        {% if vaga.empresa.foto_perfil %}
+          <img src="{{ vaga.empresa.foto_perfil.url }}" alt="Logo da empresa">
+        {% else %}
+          <img src="{% static 'core/img/Ellipse 14.png' %}" alt="Logo padrão">
+        {% endif %}
       </div>
+
       <div class="card-body">
         <p class="company-name">
-          Elétrica Cervejaria
-          <span class="status ativa">Ativa</span>
+          {{ vaga.empresa.razao_social }}
+          {% if vaga.ativa %}
+            <span class="status ativa">Ativa</span>
+          {% else %}
+            <span class="status arquivada">Arquivada</span>
+          {% endif %}
         </p>
-        <p class="company-location">Pau dos Ferros/RN</p>
+
+        <p class="company-location">
+          {{ vaga.empresa.cidade }}/{{ vaga.empresa.estado }}
+        </p>
 
         <div class="info-label"><span>🎯 Vaga</span></div>
-        <div class="info-value">Barmen</div>
+        <div class="info-value">{{ vaga.titulo }}</div>
 
         <div class="info-label"><span>⏰ Turno e Horário</span></div>
-        <div class="info-value">Noturno - 4h</div>
+        <div class="info-value">{{ vaga.turno }} - {{ vaga.carga_horaria }}</div>
 
-        <a href="#" class="details-button">Detalhes ›</a>
+        <a href="{% url 'empresa:detalhes_vaga' vaga.id %}" class="details-button">
+          Detalhes ›
+        </a>
       </div>
     </div>
 
+    <!-- PAINEL LATERAL -->
     <div class="painel-info">
       <h2>Total de Candidatos</h2>
-      <p class="numero">50</p>
-      <div class="search-bar">
-        <input type="text" placeholder="Pesquise por nome" class="input-job">
-        <button>Buscar</button>
-      </div>
+      <p class="numero">{{ candidatos.count }}</p>
+
+      <form method="get" class="search-bar">
+        <input type="text" name="q" placeholder="Pesquise por nome" class="input-job">
+        <button type="submit">Buscar</button>
+      </form>
     </div>
+
   </section>
 
+  <!-- TABELA -->
   <section class="table-section">
     <table>
       <thead>
@@ -49,64 +72,39 @@
           <th>Ações</th>
         </tr>
       </thead>
+
       <tbody>
-        <tr>
-          <td><img src="{% static 'core/img/Cristiano.png' %}" alt="">Cristiano Ronaldo</td>
-          <td>cristiano@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
-        <tr>
-          <td><img src="{% static 'core/img/ney.jpg' %}" alt="">Neymar Jr</td>
-          <td>Neymar@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
-        <tr>
-          <td><img src="{% static 'core/img/Alan.png' %}" alt="">Alan Costa</td>
-          <td>alanzin@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
-        <tr>
-          <td><img src="{% static 'core/img/messi.png' %}" alt="">Lionel Messi</td>
-          <td>messi@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
-        <tr>
-          <td><img src="{% static 'core/img/Arrascaeta.png' %}" alt="">Giorgian De Arrascaeta</td>
-          <td>Arrascaeta@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
-        <tr>
-          <td><img src="{% static 'core/img/gabigol.jpg' %}" alt="">Gabriel Barbosa</td>
-          <td>gabigol@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
-        <tr>
-          <td><img src="{% static 'core/img/Thiago.png' %}" alt="">Thiago Henrique</td>
-          <td>thiago@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
-        <tr>
-          <td><img src="{% static 'core/img/vini.png' %}" alt="">Vinicius Junior</td>
-          <td>Vini@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
-        <tr>
-          <td><img src="{% static 'core/img/Irlan.png' %}" alt="">Irlan Yarlei</td>
-          <td>Irlan@example.com</td>
-          <td>21/02/2025</td>
-          <td><i class="fa-regular fa-eye"></i> Ver Currículo</td>
-        </tr>
+        {% for inscricao in candidatos %}
+          <tr>
+            <td>
+              {% if inscricao.candidato.foto_perfil %}
+                <img src="{{ inscricao.candidato.foto_perfil.url }}">
+              {% else %}
+                <img src="{% static 'core/img/user_default.png' %}">
+              {% endif %}
+              {{ inscricao.candidato.usuario.get_full_name }}
+            </td>
+
+            <td>{{ inscricao.candidato.usuario.email }}</td>
+
+            <td>{{ inscricao.data_inscricao|date:"d/m/Y" }}</td>
+
+            <td>
+              <a href="{% url 'candidato:perfil_publico' inscricao.candidato.id %}">
+                <i class="fa-regular fa-eye"></i> Ver Currículo
+              </a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4" style="text-align:center;">
+              Nenhum candidato inscrito nesta vaga.
+            </td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </section>
-</main>
 
+</main>
 {% endblock %}

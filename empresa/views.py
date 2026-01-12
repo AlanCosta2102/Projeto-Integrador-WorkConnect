@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from core.models import Usuario
-from empresa.models import Empresa, Vaga
+from empresa.models import Empresa, Vaga,Candidatura
 import re
 
 
@@ -161,7 +161,23 @@ def cadastrar_estagio(request):
 
 @login_required(login_url='login')
 def perfil_empresa(request):
-    return render(request, 'empresa/perfil_empresa.html')
+    empresa = request.user.empresa
+
+    vagas = Vaga.objects.filter(
+        empresa=empresa
+    ).order_by('-id')[:3]
+
+    context = {
+        'empresa':empresa,
+        'vagas':vagas
+    }
+
+    if request.method ==  'POST':
+        if request.FILES.get('foto_perfil'):
+            empresa.foto_perfil = request.FILES['foto_perfil']
+            empresa.save()
+
+    return render(request, 'empresa/perfil_empresa.html',context)
 
 
 @login_required(login_url='login')
@@ -194,9 +210,18 @@ def vagas_empresa(request):
 
      return render(request, 'empresa/vagas.html',context)
 
+@login_required(login_url='login')
+def lista_candidatos(request,vaga_id):
+    vaga = get_object_or_404(Vaga,id=vaga_id,empresa=request.user.empresa)
 
-def lista_candidatos(request):
-    return render(request, 'empresa/lista_candidatos.html')
+    candidatos = Candidatura.objects.filter(vaga=vaga)
+
+    
+    context = {
+        'vaga':vaga,
+        'candidatos':candidatos
+    }
+    return render(request, 'empresa/lista_candidatos.html',context)
 
 
 def visualizar_curriculo(request):
@@ -272,3 +297,4 @@ def criar_conta_empresa(request):
         return redirect('login')
 
     return render(request, 'empresa/criar_conta_empresa.html')
+

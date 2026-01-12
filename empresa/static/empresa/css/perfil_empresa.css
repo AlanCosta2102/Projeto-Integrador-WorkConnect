@@ -50,8 +50,8 @@ body {
 }
 
 .capa-container {
-    width: 110%;
-    height: 250px;
+    width: 100%;
+    height: 270px;
     overflow: hidden;
     border-radius: 18px;
     margin-top: 22px;
@@ -112,11 +112,24 @@ body {
 .secao {
     margin-top: 25px;
 }
+.secao-cards {
+  margin-top: 70px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+
 
 .titulo-secao {
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 17px;
+    position: relative;
+    margin-top: 50px;
 }
 
 /* LADO DIREITO */
@@ -155,10 +168,144 @@ body {
     margin: 25px 0;
 }
 
-/* VAGAS */
+
+.card {
+  width: 100%;
+  max-width: none;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 18px rgba(7, 29, 52, 0.08);
+  overflow: hidden;
+  position: relative;
+  transition: transform .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
 
 
-/* VER TODAS */
+.card-header  {
+  height: 80px;
+  width: 100%;
+  background: #c9ffd0;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.logo-card {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 56px 18px 18px 18px;
+  position: relative;
+  min-height: 170px;
+}
+
+.card-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 0;
+}
+
+.empresa {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #04294f;
+}
+
+.local {
+  font-size: 12px;
+  color: #6d6d6d;
+  margin: 4px 0 10px 0;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+.status.estagio{
+  color: #ff7700;
+  background: #f9ebdf;
+  border: 1px solid #ff7700;
+}
+.status.ativa {
+  color: #0f8600;
+  background: #eaffea;
+  border: 1px solid #0f8600;
+}
+
+.status.arquivada {
+  color: #b80000;
+  background: #ffeaea;
+  border: 1px solid #b80000;
+}
+
+.vaga-info .label {
+  font-size: 13px;
+  color: #04294f;
+  margin: 8px 0 2px 0;
+}
+
+.vaga-info .valor {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 2px 0 8px 0;
+  color: #0f2740;
+}
+
+.btn-desativar, .btn-ativar {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+}
+
+.btn-desativar {
+  background: #032D5D;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(255,92,92,0.12);
+}
+
+.btn-desativar:hover {
+  background: #e84c4c;
+}
+
+.btn-ativar {
+  background: #d9edff;
+  color: #04294f;
+  box-shadow: 0 6px 12px rgba(13,68,128,0.06);
+}
+
+.btn-ativar:hover {
+  background: #c6e0ff;
+}
+
+.card.arquivada .header-bg {
+  background: #ffa7a7;
+}
+
+.card.arquivada .logo {
+  top: 22px;
+}
+
 
 .ver-todas {
     text-align: center;
@@ -169,4 +316,60 @@ body {
     color: #0A4BC0;
     font-weight: 600;
     text-decoration: none;
+}
+.form-foto {
+  display: flex;
+  gap: 12px;
+  margin: 15px 0 25px 0;
+  align-items: center;
+}
+
+/* Botão escolher arquivo */
+.upload-btn {
+  background-color: #eaf1f7;
+  color: #04294f;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #c7d7e5;
+  transition: all 0.2s ease;
+}
+
+/* Esconde o input real */
+.upload-btn input {
+  display: none;
+}
+
+.upload-btn:hover {
+  background-color: #dce9f3;
+}
+
+/* Botão atualizar */
+.btn-atualizar-foto {
+  background-color: #032D5D;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-atualizar-foto:hover {
+  background-color: #144a8d;
+}
+@media (max-width: 1000px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
