@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from core.models import Usuario
+from django.http import HttpResponseForbidden
 from empresa.models import Empresa, Vaga,Candidatura
+from .forms import EmpresaForm
 import re
 
 
@@ -167,18 +169,28 @@ def perfil_empresa(request):
         empresa=empresa
     ).order_by('-id')[:3]
 
-    context = {
-        'empresa':empresa,
-        'vagas':vagas
-    }
+    if request.method == 'POST':
+        form = EmpresaForm(request.POST, instance=empresa)
 
-    if request.method ==  'POST':
         if request.FILES.get('foto_perfil'):
             empresa.foto_perfil = request.FILES['foto_perfil']
+
+        if form.is_valid():
+            form.save()
             empresa.save()
+            messages.success(request, 'Perfil atualizado com sucesso!')
+            return redirect('empresa:perfil_empresa')
 
-    return render(request, 'empresa/perfil_empresa.html',context)
+    else:
+        form = EmpresaForm(instance=empresa)
 
+    context = {
+        'empresa': empresa,
+        'vagas': vagas,
+        'form': form
+    }
+
+    return render(request, 'empresa/perfil_empresa.html', context)
 
 @login_required(login_url='login')
 def vagas_empresa(request):
@@ -298,3 +310,14 @@ def criar_conta_empresa(request):
 
     return render(request, 'empresa/criar_conta_empresa.html')
 
+@login_required(login_url='login')
+def arquivar_vaga(request,vaga_id):
+    vaga = get_object_or_404(Vaga,id=vaga_id)
+
+    if vaga.empresa != request.user.empresa:
+        return HttpResponseForbidden()
+    
+    vaga.ativa  = False
+    vaga.save()
+
+    return redirect('/empresa/vagas/?status=arquivadas')

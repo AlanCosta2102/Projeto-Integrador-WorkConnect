@@ -55,6 +55,10 @@ body {
     overflow: hidden;
     border-radius: 18px;
     margin-top: 22px;
+    position: relative;
+}
+.capa-actions{
+  position: absolute;
 }
 
 .capa-img {
@@ -267,7 +271,7 @@ body {
   color: #0f2740;
 }
 
-.btn-desativar, .btn-ativar {
+.btn-arquivar, .btn-ativar {
   border: none;
   border-radius: 10px;
   padding: 8px 16px;
@@ -284,7 +288,7 @@ body {
   box-shadow: 0 6px 12px rgba(255,92,92,0.12);
 }
 
-.btn-desativar:hover {
+.btn-arquivar:hover {
   background: #e84c4c;
 }
 
@@ -358,6 +362,64 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
 }
+.form-edicao {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f5f9fc;
+  border-radius: 12px;
+}
+
+.form-grid p {
+  margin-bottom: 14px;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cfd9e2;
+  font-family: Poppins;
+}
+
+.btn-editar {
+    background: #032D5D;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-editar:hover {
+    background: #144a8d;
+}
+.form-edicao {
+  position: relative;
+  z-index: 10;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.btn-salvar {
+  background-color: #032D5D;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  position: relative;
+}
+
+.btn-salvar:hover {
+  background-color: #144a8d;
+}
+
+
 
 .btn-atualizar-foto:hover {
   background-color: #144a8d;

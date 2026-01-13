@@ -11,10 +11,18 @@ class Empresa(models.Model):
     cnpj = models.CharField(max_length=14,unique=True,db_index=True)
     email = models.EmailField()
 
+    telefone = models.CharField(max_length=20,blank=True,null=True)
+    instagram = models.CharField(max_length=100,blank=True,null=True)
+
+    estado = models.CharField(max_length=50,blank=True,null=True)
+    cidade = models.CharField(max_length=50,blank=True,null=True)
+    bairro = models.CharField(max_length=100,blank=True,null=True)
+    complemento = models.CharField(max_length=255,blank=True,null=True)
+
+    sobre = models.TextField(blank=True,null=True)
+
     foto_perfil = models.ImageField(
-        upload_to='empresas/perfil/',
-        blank=True,
-        null=True
+        upload_to='empresas/perfil/',blank=True,null=True
     )
 
     def __str__(self):

@@ -40,7 +40,7 @@
 
   <div class="cards-container">
       {% for vaga in vagas%}
-      {% include 'core/card_vaga.html'%}
+  {% include 'core/card_vaga.html' with vaga=vaga modo="candidato" %}
     {%empty%}
     <p>Nenhuma vaga publicada ainda.</p>
     {%endfor%}
