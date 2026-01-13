@@ -156,7 +156,7 @@ body {
   color: #0f2740;
 }
 
-.btn-desativar, .btn-ativar {
+.btn-arquivar, .btn-ativar {
   border: none;
   border-radius: 10px;
   padding: 8px 16px;
@@ -173,7 +173,7 @@ body {
   box-shadow: 0 6px 12px rgba(255,92,92,0.12);
 }
 
-.btn-desativar:hover {
+.btn-arquivar:hover {
   background: #e84c4c;
 }
 

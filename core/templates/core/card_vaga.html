@@ -1,6 +1,13 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'core/css/card_vaga.css' %}">
 
+
+{% if modo == 'empresa' %}
+  <a href="{% url 'empresa:lista_candidatos' vaga.id %}" class="card-link">
+{% elif modo == 'candidato' %}
+  <a href="{% url 'candidato:detalhes_vaga' vaga.id %}" class="card-link">
+{% endif %}
+
 <div class="card {% if not vaga.ativa %}arquivada{% endif %}">
   <div class="card-header">
     <div class="header-bg"></div>
@@ -43,13 +50,13 @@
   </div>
   
     {% if modo == 'empresa' %}
+    <div class="card-footer">
       {% if vaga.ativa %}
-       <a href="{% url 'empresa:lista_candidatos' vaga.id %}">
-        <button class="btn-desativar">Arquivar</button>
-        </a>
+        <button class="btn-arquivar">Arquivar</button>
       {% else %}
-        <button class="btn-ativar">Ativar</button>
-
+        <button class="btn-ativar">Detelhes</button>
       {% endif %}
-    {% endif %}
+    </div>
+  {% endif %}
+
 </div>

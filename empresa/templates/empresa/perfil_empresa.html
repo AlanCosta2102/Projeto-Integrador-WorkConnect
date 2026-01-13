@@ -10,10 +10,31 @@
 
     <!-- CAPA -->
     <div class="capa-container">
+
+        <!-- BOTÃO EDITAR NA CAPA -->
+        <div class="capa-actions">
+            <button id="btn-editar" class="btn-editar">
+                ✏️ Editar perfil
+            </button>
+        </div>
+
         <img src="{% static 'core/img/capa-perfil.png' %}" alt="Capa da empresa">
     </div>
 
-    <!-- BOX PRINCIPAL -->
+    <!-- FORMULÁRIO DE EDIÇÃO (ESCONDIDO) -->
+    <div id="form-edicao" class="form-edicao" style="display:none;">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-grid">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn-salvar">
+                Salvar alterações
+            </button>
+        </form>
+    </div>
+
+    <!-- CARD PRINCIPAL -->
     <div class="card-principal">
 
         <!-- LADO ESQUERDO -->
@@ -28,19 +49,17 @@
                 {% endif %}
             </div>
 
+            <!-- FORM FOTO -->
             <form method="post" enctype="multipart/form-data" class="form-foto">
-                 {% csrf_token %}
-
-                 <label class="upload-btn">
-        Escolher foto
-        <input type="file" name="foto_perfil" accept="image/*">
-               </label>
-
-             <button type="submit" class="btn-atualizar-foto">
-        Atualizar
-    </button>
-               </form>
-
+                {% csrf_token %}
+                <label class="upload-btn">
+                    Escolher foto
+                    <input type="file" name="foto_perfil" accept="image/*">
+                </label>
+                <button type="submit" class="btn-atualizar-foto">
+                    Atualizar
+                </button>
+            </form>
 
             <h2 class="nome-empresa">{{ empresa.razao_social }}</h2>
             <p class="tipo-empresa">🏢 Empresa</p>
@@ -48,9 +67,7 @@
 
             <div class="secao">
                 <p class="titulo-secao">📄 Sobre nós</p>
-                <p>
-                    {{ empresa.sobre|default:"Empresa ainda não adicionou uma descrição." }}
-                </p>
+                <p>{{ empresa.sobre|default:"Empresa ainda não adicionou uma descrição." }}</p>
             </div>
 
             <div class="secao">
@@ -61,54 +78,49 @@
                 <p>Complemento: {{ empresa.complemento|default:"" }}</p>
             </div>
 
-        
         </div>
 
+        <!-- LADO DIREITO -->
         <div class="lado-dir">
             <h3>Contato</h3>
 
             <div class="contato-item">
                 <span class="icon">📧</span>
-                <p>Email<br>
-                    <span class="txt-menor">{{ empresa.usuario.email }}</span>
-                </p>
+                <p>Email<br><span class="txt-menor">{{ empresa.usuario.email }}</span></p>
             </div>
 
             <div class="contato-item">
                 <span class="icon">📞</span>
-                <p>Telefone<br>
-                    <span class="txt-menor">{{ empresa.telefone|default:"Não informado" }}</span>
-                </p>
+                <p>Telefone<br><span class="txt-menor">{{ empresa.telefone|default:"Não informado" }}</span></p>
             </div>
 
             <div class="contato-item">
                 <span class="icon">📷</span>
-                <p>Instagram<br>
-                    <span class="txt-menor">{{ empresa.instagram|default:"Não informado" }}</span>
-                </p>
+                <p>Instagram<br><span class="txt-menor">{{ empresa.instagram|default:"Não informado" }}</span></p>
             </div>
         </div>
 
-</div>
-       <div class="container">
-            <p class="titulo-secao">🧾 Últimas Vagas Publicadas</p>
-  <div class="secao-cards">
-    <div class="cards-grid">
-      {% for vaga in vagas %}
-        {% include 'core/card_vaga.html' with vaga=vaga modo="empresa" %}
-      {% empty %}
-        <p>Nenhuma vaga publicada ainda.</p>
-      {% endfor %}
     </div>
-  </div>
-</div>
 
+    <!-- ÚLTIMAS VAGAS -->
+    <p class="titulo-secao">🧾 Últimas Vagas Publicadas</p>
 
-            <div class="ver-todas">
+    <div class="secao-cards">
+        <div class="cards-grid">
+            {% for vaga in vagas %}
+                {% include 'core/card_vaga.html' with vaga=vaga modo="empresa" %}
+            {% empty %}
+                <p>Nenhuma vaga publicada ainda.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="ver-todas">
         <a href="{% url 'empresa:vagas_empresa' %}">Ver todas as vagas</a>
     </div>
-    </div>
-
 
     <hr class="linha">
+</div>
+
+<script src="{% static 'core/js/perfil_empresa.js' %}"></script>
 {% endblock %}

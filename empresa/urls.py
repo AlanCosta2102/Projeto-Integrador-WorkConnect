@@ -29,4 +29,6 @@ urlpatterns = [
     path('vaga/<int:vaga_id>/',views.detalhes_vaga,name='detalhes_vaga'),
 
     path('vaga/<int:vaga_id>/',views.detalhes_estagio,name='detalhes_estagio'),
+
+    path('vaga/<int:vaga_id>/arquivar/',views.arquivar_vaga,name='arquivar_vaga'),
 ]

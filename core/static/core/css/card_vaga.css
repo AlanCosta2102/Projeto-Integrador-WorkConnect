@@ -7,6 +7,12 @@
   position: relative;
   transition: transform .18s ease;
 }
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 
 .card:hover {
   transform: translateY(-6px);
