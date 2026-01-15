@@ -113,7 +113,7 @@
   color: #0f2740;
 }
 
-.btn-desativar {
+.btn-arquivar {
   border: none;
   border-radius: 10px;
   padding: 8px 16px;
@@ -135,4 +135,19 @@
 
 .card.arquivada .card-header {
   background: #ffa7a7;
+}
+.btn-detalhes {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  margin-left: 190px;
+  right: 16px;
+  bottom: 14px;
+  background: #04294f;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(13, 68, 128, 0.12);
+  transition: background 0.2s ease;
 }

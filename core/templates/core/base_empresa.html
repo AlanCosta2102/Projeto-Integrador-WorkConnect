@@ -23,17 +23,38 @@
       </div>
     </div>
   </header>
-    <div class="sidebar">
+     <div class="sidebar">
+        <button id="toggle-sidebar" class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
         <div class="profile-header"> 
-            <img src="{% static 'core/img/Ellipse 14.png' %}" alt="Empresa">
-            <h6>Olá, {{ request.user.first_name|default:"Elétrica" }}!</h6>
+            <img src="{%if request.user.empresa.foto_perfil%}
+            {{request.user.empresa.foto_perfil.url}}
+            {%else%}
+            {%static 'core/img/defaut-user.png'%}
+            {%endif%}"
+            alt="Usuário">
+               <h6>Olá, {{ request.user.empresa.razao_social|truncatewords:1 }}!</h6>
         </div>
         <hr>
+        <a href="{% url 'empresa:tela_principal_empresa' %}"
+             class="{% if request.resolver_match.url_name == 'tela_principal_empresa' %}active{% endif %}">
+             <i class="fa-solid fa-house"></i> Início
+            </a>
+        <a href="{% url 'empresa:perfil_empresa' %}"
+           class="{% if request.resolver_match.url_name == 'perfil_empresa' %}active{% endif %}">
+         <i class="fa-solid fa-user"></i> Perfil
+          </a>
+          <a href="{% url 'empresa:cadastrar_emprego' %}"
+        class="{% if request.resolver_match.url_name == 'cadastrar_emprego' %}active{% endif %}">
+          <i class="fa-solid fa-building"></i> Cadastrar Emprego
+      </a>
 
-        <a href="{% url 'empresa:tela_principal_empresa' %}" class="active"><i class="fa-solid fa-house"></i> Início</a>
-        <a href="{% url 'empresa:perfil_empresa' %}"><i class="fa-solid fa-user"></i> Perfil</a>
-        <a href="{% url 'empresa:cadastrar_emprego' %}"><i class="fa-solid fa-briefcase"></i> Cadastrar Vaga</a>
-        <a href="{% url 'empresa:vagas_empresa' %}"><i class="fa-solid fa-building"></i> Vagas</a>
+       <a href="{% url 'empresa:vagas_empresa' %}"
+          class="{% if request.resolver_match.url_name == 'vagas_empresa' %}active{% endif %}">
+        <i class="fa-solid fa-building"></i> Vagas
+       </a>
         <a href="{% url 'logout'%}"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
     </div>
 
@@ -83,5 +104,6 @@
             </div>
         </footer>
     </div>
+    <script src="{%static 'core/js/base.js'%}"></script>
     </body>
 </html>

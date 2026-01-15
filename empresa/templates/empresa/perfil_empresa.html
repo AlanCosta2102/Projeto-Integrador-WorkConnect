@@ -6,7 +6,7 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'empresa/css/perfil_empresa.css' %}">
 
-<div class="container">
+<div class="perfil-wrapper">
 
     <!-- CAPA -->
     <div class="capa-container">
@@ -25,11 +25,13 @@
     <div id="form-edicao" class="form-edicao" style="display:none;">
         <form method="post">
             {% csrf_token %}
+
             <div class="form-grid">
                 {{ form.as_p }}
             </div>
+
             <button type="submit" class="btn-salvar">
-                Salvar alterações
+                💾 Salvar alterações
             </button>
         </form>
     </div>
@@ -52,10 +54,12 @@
             <!-- FORM FOTO -->
             <form method="post" enctype="multipart/form-data" class="form-foto">
                 {% csrf_token %}
+
                 <label class="upload-btn">
                     Escolher foto
                     <input type="file" name="foto_perfil" accept="image/*">
                 </label>
+
                 <button type="submit" class="btn-atualizar-foto">
                     Atualizar
                 </button>
@@ -86,17 +90,23 @@
 
             <div class="contato-item">
                 <span class="icon">📧</span>
-                <p>Email<br><span class="txt-menor">{{ empresa.usuario.email }}</span></p>
+                <p>Email<br>
+                    <span class="txt-menor">{{ empresa.usuario.email }}</span>
+                </p>
             </div>
 
             <div class="contato-item">
                 <span class="icon">📞</span>
-                <p>Telefone<br><span class="txt-menor">{{ empresa.telefone|default:"Não informado" }}</span></p>
+                <p>Telefone<br>
+                    <span class="txt-menor">{{ empresa.telefone|default:"Não informado" }}</span>
+                </p>
             </div>
 
             <div class="contato-item">
                 <span class="icon">📷</span>
-                <p>Instagram<br><span class="txt-menor">{{ empresa.instagram|default:"Não informado" }}</span></p>
+                <p>Instagram<br>
+                    <span class="txt-menor">{{ empresa.instagram|default:"Não informado" }}</span>
+                </p>
             </div>
         </div>
 

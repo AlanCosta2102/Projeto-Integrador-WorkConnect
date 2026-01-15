@@ -13,16 +13,41 @@
 </head>
 <body>
     <div class="sidebar">
+        <button id="toggle-sidebar" class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
         <div class="profile-header"> 
-            <img src="{% static 'core/img/cristiano.jpg' %}" alt="Usuário">
-            <h6>Olá, {{ request.user.first_name|default:"Cristiano" }}!</h6>
+            <img src="{%if request.user.candidato.foto_perfil%}
+            {{request.user.candidato.foto_perfil.url}}
+            {%else%}
+            {%static 'core/img/defaut-user.png'%}
+            {%endif%}"
+            alt="Usuário">
+            <h6>Olá, {{ request.user.candidato.nome|default:"Usuário"|truncatewords:1}}!</h6>
         </div>
         <hr>
 
-        <a href="{% url 'candidato:tela_principal_candidato' %}" class="active"><i class="fa-solid fa-house"></i> Início</a>
-        <a href="{% url 'candidato:perfil_candidato' %}"><i class="fa-solid fa-user"></i> Perfil</a>
-        <a href="{% url 'candidato:candidaturas_candidato' %}"><i class="fa-solid fa-briefcase"></i> Candidaturas</a>
-        <a href="{% url 'candidato:vagas_candidato' %}"><i class="fa-solid fa-building"></i> Vagas</a>
+      <a href="{% url 'candidato:tela_principal_candidato' %}"
+   class="{% if request.resolver_match.url_name == 'tela_principal_candidato' %}active{% endif %}">
+   <i class="fa-solid fa-house"></i> Início
+</a>
+
+<a href="{% url 'candidato:perfil_candidato' %}"
+   class="{% if request.resolver_match.url_name == 'perfil_candidato' %}active{% endif %}">
+   <i class="fa-solid fa-user"></i> Perfil
+</a>
+
+<a href="{% url 'candidato:candidaturas_candidato' %}"
+   class="{% if request.resolver_match.url_name == 'candidaturas_candidato' %}active{% endif %}">
+   <i class="fa-solid fa-briefcase"></i> Candidaturas
+</a>
+
+<a href="{% url 'candidato:vagas_candidato' %}"
+   class="{% if request.resolver_match.url_name == 'vagas_candidato' %}active{% endif %}">
+   <i class="fa-solid fa-building"></i> Vagas
+</a>
+
         <a href="{%url 'logout'%}"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
     </div>
 
@@ -72,5 +97,6 @@
             </div>
         </footer>
     </div>
+    <script src="{% static 'core/js/base.js'%}"></script>
     </body>
 </html>

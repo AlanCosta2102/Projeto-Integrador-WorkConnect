@@ -40,44 +40,43 @@
   </div>
 </section>
 
-<div class="vagas-duplas">
+<section class="vagas-section">
+  <div class="container-padrao">
 
-  <section class="vagas-section" style="padding-top:20px; padding-bottom:0;">
-    <h2 class="vagas-title" style="margin-bottom:0; padding-left:60px;">
+    <h2 class="vagas-title">
       Suas Últimas vagas publicadas
     </h2>
 
-    <div class="cards-container"
-         style="display:flex; flex-wrap:wrap; justify-content:flex-start;
-                gap:40px; padding:20px 60px 40px 60px;">
-
+    <div class="cards-container">
       {% for vaga in vagas_ativas %}
         {% include 'core/card_vaga.html' with vaga=vaga modo="empresa" %}
       {% empty %}
         <p>Nenhuma vaga ativa cadastrada.</p>
       {% endfor %}
-
     </div>
-  </section>
 
-  <section class="vagas-section" style="padding-top:20px; padding-bottom:0;">
-    <h2 class="vagas-title" style="margin-bottom:0; padding-left:60px;">
+  </div>
+</section>
+
+  <section class="vagas-section">
+  <div class="container-padrao">
+
+    <h2 class="vagas-title">
       Vagas Arquivadas
     </h2>
 
-    <div class="cards-container"
-         style="display:flex; flex-wrap:wrap; justify-content:flex-start;
-                gap:40px; padding:20px 60px 40px 60px;">
-
+    <div class="cards-container">
       {% for vaga in vagas_arquivadas %}
         {% include 'core/card_vaga.html' with vaga=vaga modo="empresa" %}
       {% empty %}
         <p>Nenhuma vaga arquivada.</p>
       {% endfor %}
-
     </div>
-  </section>
+
+  </div>
+</section>
 
 </div>
+  </section>
 
 {% endblock %}
