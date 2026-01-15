@@ -182,3 +182,25 @@ body {
     font-size: 13px;
     color: #cfd8dc;
 }
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar.collapsed h6,
+.sidebar.collapsed span {
+    display: none;
+}
+
+.sidebar.collapsed a {
+    justify-content: center;
+}

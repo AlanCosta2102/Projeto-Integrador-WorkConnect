@@ -56,14 +56,7 @@ body {
     margin-bottom: 0;
 }
 
-.sidebar h6 {
-    background-color: #1e56a0;
-    padding: 6px 30px;
-    border-radius: 10px;
-    color: #fff;
-    font-weight: 2000;
-    margin: 0px;
-}
+
 
 .profile-header {
     display: flex; 
@@ -75,12 +68,6 @@ body {
     width: 90%; 
 }
 
-.main-wrapper {
-    margin-left: 230px; 
-    min-height: 100vh;      
-    display: flex;
-    flex-direction: column;
-}
 
 .content {
     flex-grow: 1; 
@@ -210,4 +197,25 @@ body {
 .user-icon i {
   font-size: 1.8rem;
   color: #1e56a0;
+}
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+.sidebar.closed {
+    width: 70px;
+}
+
+.sidebar.closed a span,
+.sidebar.closed h6 {
+    display: none;
+}
+
+.main-wrapper.sidebar-closed {
+    margin-left: 70px;
 }
