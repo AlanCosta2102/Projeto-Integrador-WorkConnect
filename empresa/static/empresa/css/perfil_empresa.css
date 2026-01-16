@@ -262,15 +262,22 @@
   color: #0f2740;
 }
 
-.btn-arquivar, .btn-ativar {
+.btn-arquivar,
+.btn-detalhes {
   border: none;
   border-radius: 10px;
   padding: 8px 16px;
   font-weight: 600;
   cursor: pointer;
-  position: absolute;
-  right: 16px;
-  bottom: 14px;
+  align-self: flex-end;
+  background: #c50000;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(13, 68, 128, 0.12);
+  transition: background 0.2s ease;
+}
+
+.btn-detalhes {
+  background: #04294f;
 }
 
 .btn-desativar {
@@ -415,14 +422,120 @@
 .btn-atualizar-foto:hover {
   background-color: #144a8d;
 }
-@media (max-width: 1000px) {
+
+
+@media (max-width: 1200px) {
+
+  /* NAVBAR */
+  .navbar {
+    width: 90%;
+    left: 0;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
+  }
+
+  /* WRAPPER */
+  .perfil-wrapper {
+    padding: 20px;
+  }
+
+  /* CARD PRINCIPAL */
+  .card-principal {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .lado-dir {
+    width: 100%;
+  }
+
+  /* GRID DE CARDS */
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 900px) {
+
+  /* NAVBAR */
+  .navbar .container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* CAPA */
+  .capa-container {
+    height: 220px;
+  }
+
+  /* LOGO EMPRESA */
+  .logo-empresa {
+    width: 100px;
+    height: 100px;
+    margin-top: -55px;
+  }
+
+  /* TEXTOS */
+  .nome-empresa {
+    font-size: 24px;
+  }
+
+  /* CARD PRINCIPAL */
+  .card-principal {
+    padding: 20px;
+  }
+
+  /* GRID */
   .cards-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* NAVBAR */
+  .navbar {
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar nav a {
+    margin: 0 8px;
+    font-size: 14px;
+  }
+
+  /* CAPA */
+  .capa-container {
+    height: 180px;
+    border-radius: 14px;
+  }
+
+  /* CARD PRINCIPAL */
+  .card-principal {
+    margin-top: -45px;
+    padding: 18px;
+  }
+
+  /* LOGO */
+  .logo-empresa {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* FORM */
+  .form-edicao {
+    padding: 15px;
+  }
+
+  .btn-salvar,
+  .btn-editar,
+  .btn-atualizar-foto {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* CARDS */
+  .card {
+    max-width: 100%;
   }
 }

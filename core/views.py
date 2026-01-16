@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from core.validators import validar_cpf, validar_cnpj
 from django.contrib.auth import authenticate,login as auth_login,logout,logout
 from .models import Usuario
 from candidato.models import Candidato
@@ -81,9 +82,18 @@ def cadastro_candidato(request):
     if request.method == 'POST':
         senha = request.POST['senha']
         confirmar = request.POST['confirmar']
+        cpf_limpo = re.sub(r'\D','',request.POST['cpf'])
 
         if senha != confirmar:
             messages.error(request, 'As senhas não coincidem')
+            return redirect('candidato:criar_conta')
+        
+        if not validar_cpf(cpf_limpo):
+            messages.error(request,'CPF inválido.')
+            return redirect('candidato:criar_conta')
+        
+        if Candidato.objects.filter(cpf=cpf_limpo).exists():
+            messages.error(request,'CPF já cadastrado.')
             return redirect('candidato:criar_conta')
 
         user = Usuario.objects.create_user(
@@ -99,7 +109,7 @@ def cadastro_candidato(request):
         Candidato.objects.create(
             usuario=user,
             nome=request.POST['nome'],
-            cpf=re.sub(r'\D', '', request.POST['cpf']),
+            cpf=cpf_limpo,
             email=request.POST['email']
         )
 
@@ -113,12 +123,20 @@ def cadastro_empresa(request):
     if request.method == 'POST':
         senha = request.POST['senha']
         confirmar = request.POST['confirmar']
+        cnpj_limpo = re.sub(r'\D','',request.POST['cnpj'])
 
         if senha != confirmar:
             messages.error(request,'As senhas não são iguais.')
             return redirect('criar_conta_empresa')
+        
+        if not validar_cnpj(cnpj_limpo):
+            messages.error(request,'CNPJ inválido.')
+            return redirect('criar_conta_empresa')
+        
+        if Empresa.objects.filter(cnpj=cnpj_limpo).exists():
+            messages.error(request,'CNPJ já cadastrado.')
+            return redirect('criar_conta_empresa')
 
-        cnpj_limpo = re.sub(r'\D', '', request.POST['cnpj'])
 
         user = Usuario.objects.create_user(
             username=cnpj_limpo,  

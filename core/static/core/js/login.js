@@ -82,3 +82,6 @@ function validarIdentificacao(){
     }
     return true;
 }
+document.querySelector('.toggle-btn').onclick = () => {
+  document.querySelector('.sidebar').classList.toggle('open');
+};

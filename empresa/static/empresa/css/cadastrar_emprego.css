@@ -190,50 +190,116 @@ display: block;
 .button button:hover{
     background-color: #0052cc;
 }
+/* ========================= */
+/* RESPONSIVIDADE GERAL */
+/* ========================= */
 
+@media (max-width: 1024px) {
 
+  /* NAVBAR */
+  .navbar {
+    width: 90%;
+    left: 0;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
+  }
+
+  /* TOP BANNER */
+  .top-banner {
+    width: 100%;
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  /* BOTÃO */
+  .button button {
+    right: 0;
+  }
+}
 
 @media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .navbar .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* TOP BANNER */
   .top-banner {
     flex-direction: column;
     text-align: center;
-    gap: 15px;
+    gap: 20px;
   }
 
-  .banner-img img {
+  .banner-top img {
     width: 90px;
   }
 
+  /* FORM */
   .form-container {
     padding: 25px;
   }
 
   .form-row {
-    flex-direction: column; 
+    flex-direction: column;
+  }
+
+  /* BOTÃO */
+  .button {
+    display: flex;
+    justify-content: center;
   }
 
   .button button {
-    width: 100%; 
+    width: 100%;
+    max-width: 300px;
+    right: 0;
+    margin-top: 30px;
   }
 }
 
-
 @media (max-width: 480px) {
+
   body {
-    padding: 15px;
+    padding: 10px;
   }
 
-  .form-title {
+  /* TOP BANNER */
+  .top-banner {
+    padding: 20px;
+  }
+
+  .top-banner h2 {
     font-size: 1rem;
   }
 
-  label {
+  /* TABS */
+  .tabs {
+    gap: 10px;
+  }
+
+  .tab.active,
+  .tab-other {
     font-size: 0.9rem;
   }
 
+  /* INPUTS */
   input,
   select,
   textarea {
     font-size: 0.9rem;
+  }
+
+  /* BOTÃO */
+  .button button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px;
   }
 }

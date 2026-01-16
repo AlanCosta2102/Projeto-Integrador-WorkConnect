@@ -1,3 +1,7 @@
+/* ============================================================
+   SEU ESTILO ORIGINAL (MANTIDO EXATAMENTE IGUAL)
+   ============================================================ */
+
 html, body {
   font-family: 'Poppins', sans-serif;
   background-color: #DAE2E5;
@@ -17,7 +21,6 @@ html, body {
   width: 70%;          
   margin-left: 280px;   
 }
-
 
 .navbar .container {
   display: flex;
@@ -118,18 +121,18 @@ html, body {
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  
 }
+
 .cards-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 38px 0px;
-    padding: 30px 40px;
-    box-sizing: border-box;
-    margin-top: 25px;
-    position: relative;
-    margin-left: 60px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 38px 0px;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  margin-top: 25px;
+  position: relative;
+  margin-left: 60px;
 }
 
 .stat {
@@ -140,7 +143,7 @@ html, body {
   background: #D3FFE7;
   color: #032D5D;
   width: 80px;         
-  height: 80px;        
+  height: 80px;         
   display: flex;       
   align-items: center; 
   justify-content: center; 
@@ -148,7 +151,6 @@ html, body {
   font-size: 1.8rem;
   margin: 10px 0 10px -80px;
   margin-top: -5px;
-
 }
 
 .stat .label {
@@ -156,33 +158,32 @@ html, body {
   font-size: 0.95rem;
   position: relative;
   top: -100px;
-
 }
-
 
 .stat .value {
   font-size: 1.7rem;
   font-weight: bold;
-    margin: 10px 0 10px 20px;
-    position: relative;
-    left: -30px;
-    top: 35px;
-    margin-top: -130px;
-    margin-bottom: 50px; 
+  margin: 10px 0 10px 20px;
+  position: relative;
+  left: -30px;
+  top: 35px;
+  margin-top: -130px;
+  margin-bottom: 50px; 
 }
 
 .vagas-section {
-    background-color: #d7e4ea;
-    padding: 20px 0px;
-    margin-top: -50px;;
+  background-color: #d7e4ea;
+  padding: 20px 0px;
+  margin-top: -50px;
 }
+
 .vagas-title {
   font-size: 26px;
   font-weight: 700;
   color: #04294f;
-  margin-bottom: 0px;         /* remove espaço extra abaixo do título */
+  margin-bottom: 0px;
   letter-spacing: 1px;
-  padding-left: 60px;         /* alinha com os cards */
+  padding-left: 60px;
 }
 
 .cards-grid {
@@ -194,8 +195,6 @@ html, body {
   justify-items: center;
 }
 
-
-
 .logo-card {
   width: 74px;
   height: 74px;
@@ -205,8 +204,6 @@ html, body {
   top: 22px;
   object-fit: cover;
 }
-
-
 
 .empresa {
   font-size: 15px;
@@ -228,11 +225,13 @@ html, body {
   padding: 4px 8px;
   white-space: nowrap;
 }
-.status.estagio{
+
+.status.estagio {
   color: #ff7700;
   background: #f9ebdf;
   border: 1px solid #ff7700;
 }
+
 .status.ativa {
   color: #0f8600;
   background: #eaffea;
@@ -258,7 +257,8 @@ html, body {
   color: #0f2740;
 }
 
-.btn-arquivar, .btn-ativar {
+.btn-arquivar,
+.btn-ativar {
   border: none;
   border-radius: 10px;
   padding: 8px 16px;
@@ -296,36 +296,38 @@ html, body {
 .card.arquivada .logo {
   top: 22px;
 }
+
 .vagas-legenda {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 30px;
-    position: relative;
-    left: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  left: 1000px;
 }
 
 .legenda-item {
-    font-size: 15px;
-    color: #333;
-    display: flex;
-    gap: 8px;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  gap: 8px;
 }
 
 .bolinha {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .bolinha.verde {
-    background-color: #A6FF9E;
+  background-color: #A6FF9E;
 }
 
 .bolinha.laranja {
-    background-color: #ff9800;
+  background-color: #ff9800;
 }
+
 .ver-mais-container {
   text-align: center;
   margin-top: 40px;
@@ -350,6 +352,7 @@ html, body {
   background-color: #144a8d;
   transform: translateY(-2px);
 }
+
 .cards-row {
   display: flex;
   flex-wrap: wrap;
@@ -357,62 +360,108 @@ html, body {
   gap: 40px;
   padding: 40px 20px;
 }
+
 .status.Desativada {
-    border-color: #ff4d4d;
-    color: #ff4d4d;
+  border-color: #ff4d4d;
+  color: #ff4d4d;
 }
 
+/* ============================================================
+   RESPONSIVIDADE (ADICIONADA PARA TELAS MENORES)
+   ============================================================ */
 
+/* Ajuste para telas de notebook/desktop menor */
+@media (max-width: 1400px) {
+  .navbar {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .vagas-legenda {
+    left: 0;
+    padding-left: 60px;
+  }
+}
 
-@media (max-width: 1200px) {
+/* Ajuste para Tablets */
+@media (max-width: 1024px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
+    padding: 2rem;
   }
-
+  
   .hero-img {
     width: 320px;
   }
 
   .stats {
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
   }
 
   .stats-container {
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 30px;
   }
 
-  .vagas-legenda {
-    left: 0;
-    margin: 20px auto;
-    align-items: center;
+  .stat .icon {
+    margin: 0 auto 10px auto;
+  }
+
+  .stat .label, .stat .value {
+    position: static;
+    margin: 5px 0;
+  }
+
+  .cards-grid, .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 0;
+    padding: 20px;
   }
 }
 
+/* Ajuste para Celulares */
 @media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .navbar .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar nav a {
+    margin: 0 10px;
+    font-size: 0.9rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
   .search-bar {
     flex-direction: column;
   }
 
-  .search-bar button {
-    width: 100%;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  .stats-container {
-    width: 100%;
-    padding: 1rem;
+  .cards-grid, .cards-container {
+    grid-template-columns: 1fr;
+    padding: 15px;
   }
 
   .vagas-title {
-    left: 20px;
-    font-size: 22px;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  .vagas-legenda {
+    padding-left: 20px;
+    align-items: center;
+  }
+
+  .ver-mais-btn {
+    padding: 12px 35px;
+    font-size: 16px;
   }
 }
-
-
-
