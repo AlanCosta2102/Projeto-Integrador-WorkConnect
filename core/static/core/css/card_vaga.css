@@ -1,5 +1,6 @@
 .card {
-  width: 280px;
+   width: 100%;
+  max-width: 280px;
   border-radius: 16px;
   background-color: #ffffff;
   box-shadow: 0 6px 18px rgba(7, 29, 52, 0.08);
@@ -47,6 +48,7 @@
   padding: 56px 18px 18px 18px;
   position: relative;
   min-height: 170px;
+  
 }
 
 .card-header-top {
@@ -150,4 +152,53 @@
   color: #fff;
   box-shadow: 0 6px 12px rgba(13, 68, 128, 0.12);
   transition: background 0.2s ease;
+}
+@media (max-width: 600px) {
+
+  .card {
+    max-width: 100%;
+  }
+
+  .logo-card {
+    width: 60px;
+    height: 60px;
+    top: 26px;
+  }
+
+  .empresa {
+    font-size: 14px;
+  }
+
+  .local {
+    font-size: 11px;
+  }
+
+  .vaga-info .label {
+    font-size: 12px;
+  }
+
+  .vaga-info .valor {
+    font-size: 14px;
+  }
+
+  .status {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  .btn-arquivar,
+  .btn-detalhes {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .card {
+    max-width: 260px;
+  }
+
+  .empresa {
+    font-size: 14px;
+  }
 }

@@ -131,6 +131,25 @@ input {
 .login-text a:hover {
     text-decoration: underline;
 }
+.alert {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.alert.error {
+  background: #ffeaea;
+  color: #b80000;
+  border: 1px solid #b80000;
+}
+
+.alert.success {
+  background: #eaffea;
+  color: #0f8600;
+  border: 1px solid #0f8600;
+}
+
 
 /* ====== FOOTER ====== */
 .footer {

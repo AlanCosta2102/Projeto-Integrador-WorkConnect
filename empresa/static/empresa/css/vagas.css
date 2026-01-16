@@ -1,3 +1,7 @@
+:root {
+  --sidebar-width: 380px;
+}
+
 body {
   margin: 0;
   background-color: #dce5eb;
@@ -6,13 +10,17 @@ body {
    overflow-y: auto;
   overflow-x: hidden;
 }
+/* =======================
+   NAVBAR
+======================= */
 .navbar {
   padding: 0.8rem 3rem;
   border-bottom: 3px solid #082f63;
   background-color: #dce5eb;
-  width: 70%;
-  margin: 10;
-  margin-left: 320px;
+
+  margin-left: var(--sidebar-width);
+  width: calc(87% - var(--sidebar-width));
+
   position: relative;
   z-index: 10;
 }
@@ -195,22 +203,60 @@ body {
   top: 22px;
 }
 
+.cards-container {
+  margin-left: 30px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+/* Tablets */
+@media (max-width: 1100px) {
+    .cards-container {
+    margin-left: 0;
+    padding: 0 20px;
+  }
 
-@media (max-width:1100px) {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width:700px) {
+/* Mobile */
+@media (max-width: 900px) {
+    .cards-container {
+    margin-left: 0;
+    padding: 0 20px;
+  }
+
+  .navbar {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+
+  .titulo {
+    margin-left: 20px;
+    margin-top: 90px;
+  }
+
   .cards-grid {
+    margin-left: 0;
+    padding: 0 20px;
     grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 0 12px;
   }
 
   .card {
     width: 100%;
     max-width: 520px;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .navbar nav {
+    gap: 12px;
+  }
+
+  .titulo {
+    font-size: 20px;
   }
 }
