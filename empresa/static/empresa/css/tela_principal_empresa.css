@@ -134,7 +134,14 @@ html, body {
   position: relative;
   margin-left: 60px;
 }
+.card {
+  display: flex;
+  flex-direction: column;
+}
 
+.card-body {
+  flex: 1;
+}
 .stat {
   text-align: center;
 }
@@ -186,14 +193,6 @@ html, body {
   padding-left: 60px;
 }
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 34px;
-  margin-bottom: 48px;
-  align-items: start;
-  justify-items: center;
-}
 
 .logo-card {
   width: 74px;
@@ -257,22 +256,21 @@ html, body {
   color: #0f2740;
 }
 
-.btn-arquivar,
-.btn-ativar {
-  border: none;
+.btn-arquivar {
+  background: #c50000;
+  color: #fff;
   border-radius: 10px;
   padding: 8px 16px;
   font-weight: 600;
   cursor: pointer;
-  position: absolute;
-  right: 16px;
-  bottom: 14px;
 }
 
-.btn-desativar {
-  background: #032D5D;
+.btn-detalhes {
+  background: #04294f;
   color: #fff;
-  box-shadow: 0 6px 12px rgba(255,92,92,0.12);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 600;
 }
 
 .btn-arquivar:hover {
