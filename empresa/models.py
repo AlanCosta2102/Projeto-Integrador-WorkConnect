@@ -21,9 +21,8 @@ class Empresa(models.Model):
 
     sobre = models.TextField(blank=True,null=True)
 
-    foto_perfil = models.ImageField(
-        upload_to='empresas/perfil/',blank=True,null=True
-    )
+    foto_perfil = models.ImageField(upload_to='empresas/perfil/',blank=True,null=True)
+    capa = models.ImageField(upload_to='empresas/perfil/',blank=True,null=True)
 
     def __str__(self):
         return self.razao_social
@@ -83,7 +82,7 @@ class Vaga(models.Model):
 
 
     def __str__(self):
-        return f"{self.titulo}({self.get_tipo_display})"
+        return f"{self.titulo}"
     
 class Candidatura(models.Model):
     vaga = models.ForeignKey('Vaga',on_delete=models.CASCADE,related_name='candidaturas')

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,user_passes_test
 from core.models import Usuario
 from django.http import HttpResponseForbidden
 from empresa.models import Empresa, Vaga,Candidatura
@@ -11,19 +11,16 @@ import re
 def index(request):
     return render(request, 'empresa/base_empresa.html')
 
+def empresa_required(user):
+    return user.is_authenticated and user.tipo_usuario == 'empresa'
 
 @login_required(login_url='login')
+@user_passes_test(empresa_required,login_url='login')
 def tela_principal_empresa(request):
-    if request.user.tipo_usuario != 'empresa':
-        return redirect('login')
 
-    try:
-        empresa = Empresa.objects.get(usuario=request.user)
-    except Empresa.DoesNotExist:
-        return redirect('login')
-
+    empresa = get_object_or_404(Empresa,usuario=request.user)
     vagas = Vaga.objects.filter(empresa=empresa)
-
+    
     context = {
 
         'vagas_ativas': vagas.filter(ativa=True),
@@ -44,14 +41,10 @@ def tela_principal_empresa(request):
 
 
 @login_required(login_url='login')
+@user_passes_test(empresa_required,login_url='login')
 def cadastrar_emprego(request):
-    if request.user.tipo_usuario != 'empresa':
-        return redirect('login')
 
-    try:
-        empresa = Empresa.objects.get(usuario=request.user)
-    except Empresa.DoesNotExist:
-        return redirect('login')
+    empresa = get_object_or_404(Empresa,usuario=request.user)
 
     if request.method == 'POST':
         titulo = request.POST.get('titulo')
@@ -109,14 +102,11 @@ def detalhes_estagio(request, vaga_id):
 
 
 @login_required(login_url='login')
+@user_passes_test(empresa_required,login_url='login')
 def cadastrar_estagio(request):
-    if request.user.tipo_usuario != 'empresa':
-        return redirect('login')
-    
-    try:
-        empresa = Empresa.objects.get(usuario=request.user)
-    except Empresa.DoesNotExist:
-        return redirect('login')
+
+    empresa = get_object_or_404(Empresa,usuario=request.user)
+  
     
     if request.method == 'POST':
         titulo = request.POST.get('titulo')
@@ -162,28 +152,39 @@ def cadastrar_estagio(request):
 
 
 @login_required(login_url='login')
+@user_passes_test(empresa_required,login_url='login')
 def perfil_empresa(request):
-    empresa = request.user.empresa
 
-    vagas = Vaga.objects.filter(
-        empresa=empresa
-    ).order_by('-id')[:3]
+    empresa = get_object_or_404(Empresa,usuario=request.user)
 
-    if request.method == 'POST':
-        form = EmpresaForm(request.POST, instance=empresa)
+    vagas = Vaga.objects.filter(empresa=empresa).order_by('-id')[:3]
 
-        if request.FILES.get('foto_perfil'):
-            empresa.foto_perfil = request.FILES['foto_perfil']
+    form = EmpresaForm(instance=empresa)
 
-        if form.is_valid():
+    if 'form_foto' in request.POST:
+            foto = request.FILES.get('foto_perfil')
+            if foto:
+                empresa.foto_perfil = foto
+                empresa.save()
+                messages.success(request, 'Foto atualizada com sucesso.')
+            return redirect('empresa:perfil_empresa')
+    
+    if 'form_edicao' in request.POST:
+            capa = request.FILES.get('capa')
+            if capa:
+                empresa.capa = capa
+                empresa.save()
+            return redirect('empresa:perfil_empresa')
+        
+    if 'form_edicao' in request.POST:
+            form = EmpresaForm(request.POST,instance=empresa)
+    if form.is_valid():
             form.save()
             empresa.save()
             messages.success(request, 'Perfil atualizado com sucesso!')
             return redirect('empresa:perfil_empresa')
 
-    else:
-        form = EmpresaForm(instance=empresa)
-
+    
     context = {
         'empresa': empresa,
         'vagas': vagas,
@@ -193,14 +194,10 @@ def perfil_empresa(request):
     return render(request, 'empresa/perfil_empresa.html', context)
 
 @login_required(login_url='login')
+@user_passes_test(empresa_required,login_url='login')
 def vagas_empresa(request):
-     if request.user.tipo_usuario != 'empresa':
-        return redirect('login')
-
-     try:
-        empresa = Empresa.objects.get(usuario=request.user)
-     except Empresa.DoesNotExist:
-        return redirect('login')
+     
+     empresa = get_object_or_404(Empresa,usuario=request.user)
 
      vagas = Vaga.objects.filter(empresa=empresa)
 
@@ -223,7 +220,9 @@ def vagas_empresa(request):
      return render(request, 'empresa/vagas.html',context)
 
 @login_required(login_url='login')
+@user_passes_test(empresa_required,login_url='login')
 def lista_candidatos(request,vaga_id):
+
     vaga = get_object_or_404(Vaga,id=vaga_id,empresa=request.user.empresa)
 
     candidatos = Candidatura.objects.filter(vaga=vaga)
@@ -311,8 +310,11 @@ def criar_conta_empresa(request):
     return render(request, 'empresa/criar_conta_empresa.html')
 
 @login_required(login_url='login')
+@user_passes_test(empresa_required,login_url='login')
 def arquivar_vaga(request,vaga_id):
-    vaga = get_object_or_404(Vaga,id=vaga_id)
+
+    vaga = get_object_or_404(Vaga,id=vaga_id,empresa=request.user.empresa)
+   
 
     if vaga.empresa != request.user.empresa:
         return HttpResponseForbidden()
@@ -320,4 +322,5 @@ def arquivar_vaga(request,vaga_id):
     vaga.ativa  = False
     vaga.save()
 
+    messages.success(request,'Vaga arquivada com sucesso.')
     return redirect('/empresa/vagas/?status=arquivadas')

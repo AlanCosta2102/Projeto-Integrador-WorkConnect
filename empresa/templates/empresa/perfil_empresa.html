@@ -8,41 +8,46 @@
 
 <div class="perfil-wrapper">
 
-    <!-- CAPA -->
     <div class="capa-container">
 
-        <!-- BOTÃO EDITAR NA CAPA -->
         <div class="capa-actions">
             <button id="btn-editar" class="btn-editar">
                 ✏️ Editar perfil
             </button>
         </div>
 
-        <img src="{% static 'core/img/capa-perfil.png' %}" alt="Capa da empresa">
+       {%if empresa.capa%}
+        <img src="{{empresa.capa.url}}" alt="Capa da empresa">
+        {%else%}
+        <img src="{% static 'core/img/capa-perfil.png' %}" alt="Capa padrão">
+{% endif %}
     </div>
+    <div class="capa-actions-capa">
+    <form method="post" enctype="multipart/form-data" class="form-capa">
+        {% csrf_token %}
 
-    <!-- FORMULÁRIO DE EDIÇÃO (ESCONDIDO) -->
-    <div id="form-edicao" class="form-edicao" style="display:none;">
-        <form method="post">
-            {% csrf_token %}
+        <label for="input-capa" class="btn-editar-capa">
+            🖼️ Alterar capa
+        </label>
 
-            <div class="form-grid">
-                {{ form.as_p }}
-            </div>
+        <input 
+            id="input-capa"
+            type="file"
+            name="capa"
+            accept="image/*"
+            hidden
+            onchange="this.form.submit()"
+        >
 
-            <button type="submit" class="btn-salvar">
-                💾 Salvar alterações
-            </button>
-        </form>
-    </div>
+        <input type="hidden" name="form_capa">
+    </form>
+</div>
 
-    <!-- CARD PRINCIPAL -->
+
     <div class="card-principal">
 
-        <!-- LADO ESQUERDO -->
         <div class="lado-esq">
 
-            <!-- FOTO DA EMPRESA -->
             <div class="logo-empresa">
                 {% if empresa.foto_perfil %}
                     <img src="{{ empresa.foto_perfil.url }}" alt="Logo da empresa">
@@ -51,7 +56,6 @@
                 {% endif %}
             </div>
 
-            <!-- FORM FOTO -->
             <form method="post" enctype="multipart/form-data" class="form-foto">
                 {% csrf_token %}
 
@@ -60,7 +64,7 @@
                     <input type="file" name="foto_perfil" accept="image/*">
                 </label>
 
-                <button type="submit" class="btn-atualizar-foto">
+                <button type="submit" name="form_foto" class="btn-atualizar-foto">
                     Atualizar
                 </button>
             </form>
@@ -84,7 +88,6 @@
 
         </div>
 
-        <!-- LADO DIREITO -->
         <div class="lado-dir">
             <h3>Contato</h3>
 
@@ -112,7 +115,6 @@
 
     </div>
 
-    <!-- ÚLTIMAS VAGAS -->
     <p class="titulo-secao">🧾 Últimas Vagas Publicadas</p>
 
     <div class="secao-cards">

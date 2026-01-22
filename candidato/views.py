@@ -75,9 +75,11 @@ def criar_conta(request):
 
     return render(request, 'candidato/criar_conta.html')
 
+@login_required(login_url='login')
 def perfil_candidato(request):
     return render(request, 'candidato/perfil_candidato.html')
 
+@login_required(login_url='login')
 def perfil_empresa(request):
     return render(request, 'candidato/perfil_empresa.html')
 

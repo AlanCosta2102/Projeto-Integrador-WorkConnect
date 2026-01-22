@@ -1,21 +1,30 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'core/css/card_vaga.css' %}">
 
+<div class="card {% if not vaga.ativa %}arquivada{% endif %}"
+     onclick="window.location.href='{% if modo == 'empresa' %}
+       {% url 'empresa:lista_candidatos' vaga.id %}
+     {% else %}
+       {% url 'candidato:detalhes_vaga' vaga.id %}
+     {% endif %}'">
 
-{% if modo == 'empresa' %}
-  <a href="{% url 'empresa:lista_candidatos' vaga.id %}" class="card-link">
-{% elif modo == 'candidato' %}
-  <a href="{% url 'candidato:detalhes_vaga' vaga.id %}" class="card-link">
-{% endif %}
+  {% if modo == 'empresa' %}
+  <div class="card-actions" onclick="event.stopPropagation()">
+    <a href="{% url 'empresa:detalhes_vaga' vaga.id %}" title="Editar vaga">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
 
-<div class="card {% if not vaga.ativa %}arquivada{% endif %}">
+    <a href="{% url 'empresa:lista_candidatos' vaga.id %}" title="Detalhes da vaga">
+      <i class="fa-solid fa-eye"></i>
+    </a>
+  </div>
+  {% endif %}
+
   <div class="card-header">
-    <div class="header-bg"></div>
-
     {% if vaga.empresa.foto_perfil %}
-      <img src="{{ vaga.empresa.foto_perfil.url }}" alt="Logo da empresa" class="logo-card">
+      <img src="{{ vaga.empresa.foto_perfil.url }}" class="logo-card">
     {% else %}
-      <img src="{% static 'core/img/Ellipse 14.png' %}" alt="Logo padrão" class="logo-card">
+      <img src="{% static 'core/img/Ellipse 14.png' %}" class="logo-card">
     {% endif %}
   </div>
 
@@ -26,18 +35,14 @@
         <p class="local">Pau dos Ferros/RN</p>
       </div>
 
-      {% if vaga.ativa %}
-        <span class="status ativa">Ativa</span>
-      {% else %}
-        <span class="status arquivada">Arquivada</span>
-      {% endif %}
+      <span class="status {% if vaga.ativa %}ativa{% else %}arquivada{% endif %}">
+        {% if vaga.ativa %}Ativa{% else %}Arquivada{% endif %}
+      </span>
     </div>
 
-    {% if vaga.tipo == 'estagio' %}
-      <span class="status estagio">Estágio</span>
-    {% else %}
-      <span class="status ativa">Emprego</span>
-    {% endif %}
+    <span class="status {% if vaga.tipo == 'estagio' %}estagio{% else %}ativa{% endif %}">
+      {% if vaga.tipo == 'estagio' %}Estágio{% else %}Emprego{% endif %}
+    </span>
 
     <div class="vaga-info">
       <p class="label">🎯 Vaga</p>
@@ -47,16 +52,19 @@
       <p class="valor">{{ vaga.jornada }}</p>
     </div>
 
-  </div>
-  
     {% if modo == 'empresa' %}
-    <div class="card-footer">
+    <div class="card-footer" onclick="event.stopPropagation()">
       {% if vaga.ativa %}
-        <button class="btn-arquivar">Arquivar</button>
+      <form method="post" action="{% url 'empresa:arquivar_vaga' vaga.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn-arquivar">Arquivar</button>
+      </form>
       {% else %}
-        <button class="btn-detalhes">Detelhes</button>
+        <a href="{% url 'empresa:lista_candidatos' vaga.id %}" class="btn-detalhes">
+          Detalhes
+        </a>
       {% endif %}
     </div>
-  {% endif %}
-
+    {% endif %}
+  </div>
 </div>

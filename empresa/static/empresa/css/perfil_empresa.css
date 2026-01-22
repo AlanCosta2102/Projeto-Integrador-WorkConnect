@@ -423,7 +423,31 @@
   background-color: #144a8d;
 }
 
+.capa-container-capa {
+    position: relative;
+}
 
+.capa-actions-capa {
+    position: absolute;
+    top: 195px;
+    right: 56px;
+    z-index: 10;
+}
+
+.btn-editar-capa {
+    background: #032D5D;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn-editar-capa:hover {
+    background:  #144a8d;
+}
 @media (max-width: 1200px) {
 
   /* NAVBAR */
@@ -454,7 +478,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 900px) {
 
   /* NAVBAR */
