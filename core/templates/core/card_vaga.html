@@ -1,12 +1,14 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'core/css/card_vaga.css' %}">
 
+{% if modo == 'empresa' %}
+  {% url 'empresa:lista_candidatos' vaga.id as destino_url %}
+{% else %}
+  {% url 'candidato:detalhes_vaga' vaga.id as destino_url %}
+{% endif %}
+
 <div class="card {% if not vaga.ativa %}arquivada{% endif %}"
-     onclick="window.location.href='{% if modo == 'empresa' %}
-       {% url 'empresa:lista_candidatos' vaga.id %}
-     {% else %}
-       {% url 'candidato:detalhes_vaga' vaga.id %}
-     {% endif %}'">
+     onclick="window.location.href='{{ destino_url }}'">
 
   {% if modo == 'empresa' %}
   <div class="card-actions" onclick="event.stopPropagation()">

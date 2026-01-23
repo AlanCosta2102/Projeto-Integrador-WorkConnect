@@ -287,3 +287,24 @@ color: #6b7280;
   transform: translateY(-2px);        /* efeito sutil de elevação ao passar o mouse */
   box-shadow: 0 12px 30px rgba(11, 75, 155, 0.16);
 }
+.btn-editar{
+  background-color: #04294f;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 35px;
+  font-size: 20px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  position: relative;
+  left: 700px;
+}
+
+.btn-editar:hover {
+  background-color: #144a8d;
+  transform: translateY(-2px);
+}
