@@ -136,6 +136,7 @@
   color: #fff;
   box-shadow: 0 6px 12px rgba(13, 68, 128, 0.12);
   transition: background 0.2s ease;
+  text-decoration: none; 
 }
 
 /* botão detalhes */

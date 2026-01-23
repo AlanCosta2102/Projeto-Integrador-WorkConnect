@@ -144,7 +144,6 @@ input:focus {
   box-shadow: 0 0 0 4px rgba(0,84,160,0.06);
 }
 
-/* ===== SENHA E ÍCONE ===== */
 .password-wrapper {
   position: relative;
 }
@@ -177,7 +176,6 @@ input:focus {
   text-decoration: underline;
 }
 
-/* ===== BOTÕES ===== */
 .button-enter {
   background: #002b5c;
   color: white;
@@ -373,6 +371,19 @@ input:focus {
     border: 1px solid #ffecb5;
 }
 
+.toggle-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password img {
+  width: 20px;
+  height: 20px;
+}
 
 @media (max-width: 1000px) {
   .container { flex-direction: column; max-width: 92%; margin: 24px auto; }
