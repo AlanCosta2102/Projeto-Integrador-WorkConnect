@@ -5,109 +5,58 @@
 
 <link rel="stylesheet" href="{% static 'candidato/css/inscricao.css' %}">
 
+<div class="container">
 
-    <div class="container">
-
-        <header class="top-banner">
-            <div class="text">
-                <h1>Inscrição de Candidato</h1>
-                <p>Está pronto para dar o próximo passo na sua carreira? Complete suas informações e envie sua candidatura.</p>
-            </div>
-        <img src="{% static 'core/img/curriculo 1.png' %}" alt="Foto do Candidato" class="perfil-foto">
-        </header>
-
-        <div class="card">
-            <h2>Vamos lá!</h2>
-
-            <form class="form">
-
-                <label>Nome</label>
-                <input type="text" placeholder="Seu nome completo">
-
-                <label>E-mail</label>
-                <input type="email" placeholder="seu@exemplo.com">
-
-                <label>Telefone</label>
-                <div class="row">
-                    <select class="col-30">
-                        <option>Brasil +55</option>
-                    </select>
-                    <input type="text" placeholder="(99) 99999-9999">
-                </div>
-
-                <label>CPF</label>
-                <input type="text" placeholder="000.000.000-00">
-
-                <label>Selecione um Gênero</label>
-                <select>
-                    <option value="">Selecione um Gênero</option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                    <option>Outro</option>
-                </select>
-
-                <label>Data de nascimento</label>
-                <div class="row">
-                    <input class="col-20" type="text" placeholder="Dia">
-                    <input class="col-20" type="text" placeholder="Mês">
-                    <input class="col-20" type="text" placeholder="Ano">
-                </div>
-
-                <label>País</label>
-                <input type="text" placeholder="Brasil">
-
-                <div class="row">
-                    <div class="col-30">
-                        <label>CEP</label>
-                        <input type="text" placeholder="00000-000">
-                    </div>
-
-                    <div class="col">
-                        <label>Cidade</label>
-                        <input type="text" placeholder="Cidade">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <label>Rua</label>
-                        <input type="text" placeholder="Rua, número">
-                    </div>
-
-                    <div class="col-30">
-                        <label>Bairro</label>
-                        <input type="text" placeholder="Bairro">
-                    </div>
-                </div>
-
-               
-                  <label>Currículo</label>
-
-<div class="file-wrapper">
-    <label for="curriculo" class="custom-file-btn">Selecionar arquivo...</label>
-
-    <label for="curriculo" class="file-icon">
-        <img src="{% static 'core/img/subir.png' %}" alt="Upload">
-    </label>
-
-    <input type="file" id="curriculo" accept=".pdf,.doc,.docx,.txt,.rtf">
-</div>
-
-<small class="help">
-    Os currículos devem estar em formato de texto: Word (.docx ou .doc), PDF (.pdf) ou Texto (.txt ou .rtf) e ter no máximo 5MB.
-</small>
-
-                <div class="checks">
-                    <label><input type="checkbox"> Eu aceito os <a href="#">Termos de Uso</a></label>
-                    <label><input type="checkbox"> Eu aceito a <a href="#">Política de Privacidade</a></label>
-                </div>
-
-                <button class="btn">Inscrever-se</button>
-
-            </form>
+    <header class="top-banner">
+        <div class="text">
+            <h1>Inscrição de Candidato</h1>
+            <p>Está pronto para dar o próximo passo na sua carreira? Complete suas informações e envie sua candidatura.</p>
         </div>
+        <img src="{% static 'core/img/curriculo 1.png' %}" class="perfil-foto">
+    </header>
 
+    <div class="card">
+        <h2>Vamos lá!</h2>
+
+        <form class="form"
+              method="POST"
+              action="{% url 'candidato:inscricao' vaga.id %}"
+              enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <label>Nome</label>
+            <input type="text" name="nome" value="{{ request.user.candidato.nome }}" required>
+
+            <label>E-mail</label>
+            <input type="email" name="email" value="{{ request.user.email }}" required>
+
+            <label>Telefone</label>
+            <input type="text" name="telefone" placeholder="(99) 99999-9999">
+
+            <label>CPF</label>
+            <input type="text" name="cpf" value="{{ request.user.candidato.cpf }}" required>
+
+            <label>Currículo</label>
+            <input type="file" name="curriculo" accept=".pdf,.doc,.docx,.txt,.rtf">
+
+            <div class="checks">
+                <label>
+                    <input type="checkbox" required>
+                    Eu aceito os <a href="#">Termos de Uso</a>
+                </label>
+
+                <label>
+                    <input type="checkbox" required>
+                    Eu aceito a <a href="#">Política de Privacidade</a>
+                </label>
+            </div>
+
+            <button type="submit" class="btn">Inscrever-se</button>
+
+        </form>
     </div>
 
+</div>
 
-{%endblock%}
+{% endblock %}

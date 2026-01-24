@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from core.models import Usuario
 from candidato.models import Candidato
 from empresa.models import Vaga
+from empresa.models import Candidatura
 from django.contrib import messages
 import re
 
@@ -24,8 +25,20 @@ def tela_principal_candidato(request):
 
 
 def candidaturas_candidato(request):
-    return render(request, 'candidato/candidaturas.html')
+    candidato = get_object_or_404(
+        Candidato,
+        usuario=request.user
+    )
 
+    candidaturas = Candidatura.objects.filter(
+        candidato=candidato
+    ).select_related('vaga', 'vaga__empresa')
+
+    return render(
+        request,
+        'candidato/candidaturas.html',
+        {'candidaturas': candidaturas}
+    )
 @login_required(login_url='login')
 def vagas_candidato(request):
     vagas =Vaga.objects.filter(ativa=True).order_by('-criada_em')
@@ -83,15 +96,45 @@ def perfil_candidato(request):
 def perfil_empresa(request):
     return render(request, 'candidato/perfil_empresa.html')
 
-@login_required
+@login_required(login_url='login')
 def inscricao(request, vaga_id):
     vaga = get_object_or_404(Vaga, id=vaga_id, ativa=True)
 
-    if request.method == 'POST':
+    candidato = get_object_or_404(
+        Candidato,
+        usuario=request.user
+    )
 
-     return redirect('candidato:inscricao', vaga_id=vaga.id)
-    
-    return render(request,'candidato/inscricao.html')
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        email = request.POST.get('email')
+        cpf = request.POST.get('cpf')
+        telefone = request.POST.get('telefone')
+        curriculo = request.FILES.get('curriculo')
+
+       
+        if not all([nome, email, cpf]):
+            messages.error(request, 'Preencha todos os campos obrigatórios.')
+            return render(request, 'candidato/inscricao.html', {'vaga': vaga})
+
+        cpf_limpo = re.sub(r'\D', '', cpf)
+
+      
+        candidato.nome = nome
+        candidato.email = email
+        candidato.cpf = cpf_limpo
+        candidato.save()
+
+        
+        Candidatura.objects.get_or_create(
+            candidato=candidato,
+            vaga=vaga
+        )
+
+        messages.success(request, 'Candidatura realizada com sucesso!')
+        return redirect('candidato:candidaturas_candidato')
+
+    return render(request, 'candidato/inscricao.html', {'vaga': vaga})
 
 def detalhes_vaga(request,vaga_id):
     vaga = get_object_or_404(Vaga,id=vaga_id,ativa=True)
