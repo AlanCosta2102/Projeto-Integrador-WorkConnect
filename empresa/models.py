@@ -3,6 +3,7 @@ from core.models import Usuario
 from django.conf import settings
 from django.contrib.auth.models import User
 
+
 User = settings.AUTH_USER_MODEL
 
 class Empresa(models.Model):
@@ -84,10 +85,20 @@ class Vaga(models.Model):
     def __str__(self):
         return f"{self.titulo}"
     
+from candidato.models import Candidato
+
 class Candidatura(models.Model):
-    vaga = models.ForeignKey('Vaga',on_delete=models.CASCADE,related_name='candidaturas')
-    candidato = models.ForeignKey(User,on_delete=models.CASCADE)
+    vaga = models.ForeignKey(
+        'Vaga',
+        on_delete=models.CASCADE,
+        related_name='candidaturas'
+    )
+    candidato = models.ForeignKey(
+        Candidato,
+        on_delete=models.CASCADE,
+        related_name='candidaturas'
+    )
     data_inscricao = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.candidato} - {self.vaga.titulo}" 
+        return f"{self.candidato.nome} - {self.vaga.titulo}"
