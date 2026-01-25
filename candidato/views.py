@@ -41,10 +41,25 @@ def candidaturas_candidato(request):
     )
 @login_required(login_url='login')
 def vagas_candidato(request):
-    vagas =Vaga.objects.filter(ativa=True).order_by('-criada_em')
+    vagas = Vaga.objects.filter(ativa=True)
 
-    return render(request, 'candidato/vagas.html',{
-         'vagas':vagas
+    titulo = request.GET.get('titulo')
+    empresa = request.GET.get('empresa')
+    cidade = request.GET.get('cidade')
+
+    if titulo:
+        vagas = vagas.filter(titulo__icontains=titulo)
+
+    if empresa:
+        vagas = vagas.filter(empresa__razao_social__icontains=empresa)
+
+    if cidade:
+        vagas = vagas.filter(empresa__cidade__icontains=cidade)
+
+    vagas = vagas.order_by('-criada_em')
+
+    return render(request, 'candidato/vagas.html', {
+        'vagas': vagas
     })
 
 def criar_conta(request):
