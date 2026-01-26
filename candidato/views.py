@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from core.models import Usuario
 from candidato.models import Candidato
-from empresa.models import Vaga
+from empresa.models import Vaga, Empresa
 from empresa.models import Candidatura
 from django.contrib import messages
 import re
@@ -14,15 +14,30 @@ def index(request):
 def tela_principal_candidato(request):
     if request.user.tipo_usuario != 'candidato':
         return redirect('login')
+
+    candidato = Candidato.objects.get(usuario=request.user)
+
+    
+    total_vagas = Vaga.objects.filter(ativa=True).count()
+
+    total_candidaturas = Candidatura.objects.filter(
+        candidato=candidato
+    ).count()
+
+    total_empresas = Empresa.objects.count()
+
     
     ultimas_vagas = (
         Vaga.objects.filter(ativa=True)
         .order_by('-criada_em')[:9]
     )
-    return render(request, 'candidato/tela_principal_candidato.html',{
-        'ultimas_vagas':ultimas_vagas
-    })
 
+    return render(request, 'candidato/tela_principal_candidato.html', {
+        'ultimas_vagas': ultimas_vagas,
+        'total_vagas': total_vagas,
+        'total_candidaturas': total_candidaturas,
+        'total_empresas': total_empresas,
+    })
 
 def candidaturas_candidato(request):
     candidato = get_object_or_404(
