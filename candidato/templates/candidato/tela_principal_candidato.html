@@ -41,24 +41,29 @@
   </section>
 
   <section class="stats">
-    <div class="stats-container">
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
-        <p class="label">Vagas Disponíveis</p>
-        <p class="value">234</p>
-      </div>
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
-        <p class="label">Candidaturas Enviadas</p>
-        <p class="value">12</p>
-      </div>
-      <div class="stat">
-        <div class="icon"><i class="fa-solid fa-building"></i></div>
-        <p class="label">Empresas Ativas</p>
-        <p class="value">189</p>
-      </div>
+  <div class="stats-container">
+
+    <div class="stat">
+      <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
+      <p class="label">Vagas Disponíveis</p>
+      <p class="value">{{ total_vagas }}</p>
     </div>
-  </section>
+
+    <div class="stat">
+      <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
+      <p class="label">Candidaturas Enviadas</p>
+      <p class="value">{{ total_candidaturas }}</p>
+    </div>
+
+    <div class="stat">
+      <div class="icon"><i class="fa-solid fa-building"></i></div>
+      <p class="label">Empresas Ativas</p>
+      <p class="value">{{ total_empresas }}</p>
+    </div>
+
+  </div>
+</section>
+
 
   <section class="vagas-section">
   <h2 class="vagas-title">Vagas Recentes</h2>
