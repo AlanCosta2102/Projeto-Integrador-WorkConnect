@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('criar_conta/', views.criar_conta, name='criar_conta'),   
 
-    path('perfil_candidato/', views.perfil_candidato, name='perfil_candidato'),
+    path('perfil_candidato/<int:id>/', views.perfil_candidato, name='perfil_candidato'),
 
      path('perfil_empresa/', views.perfil_empresa, name='perfil_empresa'),
 

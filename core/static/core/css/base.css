@@ -74,6 +74,13 @@ body {
     justify-content: flex-start; 
     width: 90%; 
 }
+.profile-header img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
 
 .main-wrapper {
     margin-left: 230px; 

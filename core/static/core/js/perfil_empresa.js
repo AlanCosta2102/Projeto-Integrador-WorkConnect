@@ -9,3 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+document.getElementById('btn-editar').addEventListener('click', function () {
+        const form = document.getElementById('form-edicao-wrapper');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    });

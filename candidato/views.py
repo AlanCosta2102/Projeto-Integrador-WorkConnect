@@ -119,8 +119,15 @@ def criar_conta(request):
     return render(request, 'candidato/criar_conta.html')
 
 @login_required(login_url='login')
-def perfil_candidato(request):
-    return render(request, 'candidato/perfil_candidato.html')
+def perfil_candidato(request,id):
+    candidato = get_object_or_404(Candidato,id=id)
+
+    if request.user.tipo_usuario == 'candidato' and candidato.usuario != request.user:
+        return redirect('candidato:perfil_candidato',request.user.candidato.id)
+
+    return render(request, 'candidato/perfil_candidato.html',{
+        'candidato':candidato
+    })
 
 @login_required(login_url='login')
 def perfil_empresa(request):
@@ -142,23 +149,26 @@ def inscricao(request, vaga_id):
         telefone = request.POST.get('telefone')
         curriculo = request.FILES.get('curriculo')
 
-       
-        if not all([nome, email, cpf]):
+        if not all([nome, email, cpf, curriculo]):
             messages.error(request, 'Preencha todos os campos obrigatórios.')
             return render(request, 'candidato/inscricao.html', {'vaga': vaga})
 
         cpf_limpo = re.sub(r'\D', '', cpf)
 
-      
         candidato.nome = nome
         candidato.email = email
         candidato.cpf = cpf_limpo
+        candidato.telefone = telefone
         candidato.save()
 
-        
-        Candidatura.objects.get_or_create(
+        if Candidatura.objects.filter(candidato=candidato, vaga=vaga).exists():
+            messages.warning(request, 'Você já se candidatou a esta vaga.')
+            return redirect('candidato:candidaturas_candidato')
+
+        Candidatura.objects.create(
             candidato=candidato,
-            vaga=vaga
+            vaga=vaga,
+            curriculo=curriculo
         )
 
         messages.success(request, 'Candidatura realizada com sucesso!')

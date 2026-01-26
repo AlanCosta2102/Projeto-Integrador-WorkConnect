@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required,user_passes_test
 from core.models import Usuario
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden,FileResponse
 from empresa.models import Empresa, Vaga,Candidatura
 from .forms import EmpresaForm
 import re
@@ -152,39 +152,37 @@ def cadastrar_estagio(request):
 
 
 @login_required(login_url='login')
-@user_passes_test(empresa_required,login_url='login')
+@user_passes_test(empresa_required, login_url='login')
 def perfil_empresa(request):
 
-    empresa = get_object_or_404(Empresa,usuario=request.user)
-
+    empresa = get_object_or_404(Empresa, usuario=request.user)
     vagas = Vaga.objects.filter(empresa=empresa).order_by('-id')[:3]
 
     form = EmpresaForm(instance=empresa)
 
-    if 'form_foto' in request.POST:
-            foto = request.FILES.get('foto_perfil')
-            if foto:
-                empresa.foto_perfil = foto
-                empresa.save()
-                messages.success(request, 'Foto atualizada com sucesso.')
-            return redirect('empresa:perfil_empresa')
-    
-    if 'form_edicao' in request.POST:
-            capa = request.FILES.get('capa')
-            if capa:
-                empresa.capa = capa
-                empresa.save()
-            return redirect('empresa:perfil_empresa')
-        
-    if 'form_edicao' in request.POST:
-            form = EmpresaForm(request.POST,instance=empresa)
-    if form.is_valid():
-            form.save()
+    if request.method == 'POST' and 'form_foto' in request.POST:
+        foto = request.FILES.get('foto_perfil')
+        if foto:
+            empresa.foto_perfil = foto
             empresa.save()
+            messages.success(request, 'Foto atualizada com sucesso.')
+        return redirect('empresa:perfil_empresa')
+
+    if request.method == 'POST' and 'form_capa' in request.POST:
+        capa = request.FILES.get('capa')
+        if capa:
+            empresa.capa = capa
+            empresa.save()
+            messages.success(request, 'Capa atualizada com sucesso.')
+        return redirect('empresa:perfil_empresa')
+
+    if request.method == 'POST' and 'form_edicao' in request.POST:
+        form = EmpresaForm(request.POST, instance=empresa)
+        if form.is_valid():
+            form.save()
             messages.success(request, 'Perfil atualizado com sucesso!')
             return redirect('empresa:perfil_empresa')
 
-    
     context = {
         'empresa': empresa,
         'vagas': vagas,
@@ -192,6 +190,7 @@ def perfil_empresa(request):
     }
 
     return render(request, 'empresa/perfil_empresa.html', context)
+
 
 @login_required(login_url='login')
 @user_passes_test(empresa_required,login_url='login')
@@ -235,8 +234,13 @@ def lista_candidatos(request,vaga_id):
     return render(request, 'empresa/lista_candidatos.html',context)
 
 
-def visualizar_curriculo(request):
-    return render(request, 'empresa/visualizar_curriculo.html')
+def visualizar_curriculo(request,id):
+    candidatura = get_object_or_404(Candidatura,id=id)
+
+    return FileResponse(
+         candidatura.curriculo.open(),
+         content_type='application/pdf'
+    )
 
 @login_required(login_url='login')
 def editar_vaga(request,vaga_id):

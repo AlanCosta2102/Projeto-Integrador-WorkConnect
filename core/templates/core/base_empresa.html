@@ -32,7 +32,7 @@
             <img src="{%if request.user.empresa.foto_perfil%}
             {{request.user.empresa.foto_perfil.url}}
             {%else%}
-            {%static 'core/img/defaut-user.png'%}
+            {%static 'core/img/user-icon.png'%}
             {%endif%}"
             alt="Usuário">
                <h6>Olá, {{ request.user.empresa.razao_social|truncatewords:1 }}!</h6>
