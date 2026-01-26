@@ -21,7 +21,7 @@
             <img src="{%if request.user.candidato.foto_perfil%}
             {{request.user.candidato.foto_perfil.url}}
             {%else%}
-            {%static 'core/img/defaut-user.png'%}
+            {%static 'core/img/user-icon.png'%}
             {%endif%}"
             alt="Usuário">
             <h6>Olá, {{ request.user.candidato.nome|default:"Usuário"|truncatewords:1}}!</h6>
@@ -32,11 +32,13 @@
    class="{% if request.resolver_match.url_name == 'tela_principal_candidato' %}active{% endif %}">
    <i class="fa-solid fa-house"></i> Início
 </a>
-
-<a href="{% url 'candidato:perfil_candidato' %}"
+{% if request.user.is_authenticated and request.user.tipo_usuario == 'candidato' %}
+<a href="{% url 'candidato:perfil_candidato' request.user.candidato.id %}"
    class="{% if request.resolver_match.url_name == 'perfil_candidato' %}active{% endif %}">
    <i class="fa-solid fa-user"></i> Perfil
 </a>
+{% endif %}
+
 
 <a href="{% url 'candidato:candidaturas_candidato' %}"
    class="{% if request.resolver_match.url_name == 'candidaturas_candidato' %}active{% endif %}">

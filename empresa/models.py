@@ -88,17 +88,13 @@ class Vaga(models.Model):
 from candidato.models import Candidato
 
 class Candidatura(models.Model):
-    vaga = models.ForeignKey(
-        'Vaga',
-        on_delete=models.CASCADE,
-        related_name='candidaturas'
-    )
-    candidato = models.ForeignKey(
-        Candidato,
-        on_delete=models.CASCADE,
-        related_name='candidaturas'
-    )
+    vaga = models.ForeignKey('Vaga',on_delete=models.CASCADE,related_name='candidaturas')
+
+    candidato = models.ForeignKey( Candidato,on_delete=models.CASCADE,related_name='candidaturas' )
+
     data_inscricao = models.DateTimeField(auto_now_add=True)
+
+    curriculo = models.FileField(upload_to='curriculos/',null=True,blank=True)
 
     def __str__(self):
         return f"{self.candidato.nome} - {self.vaga.titulo}"

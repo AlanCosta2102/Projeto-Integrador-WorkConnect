@@ -20,7 +20,7 @@ urlpatterns = [
 
     path('criar_conta_empresa/', views.criar_conta_empresa, name='criar_conta_empresa'),
 
-    path('visualizar_curriculo/', views.visualizar_curriculo, name='visualizar_curriculo'),
+    path('visualizar_curriculo/<int:id>/', views.visualizar_curriculo, name='visualizar_curriculo'),
 
     path('vaga/<int:vaga_id>/editar/', views.editar_vaga, name='editar_vaga'),
 

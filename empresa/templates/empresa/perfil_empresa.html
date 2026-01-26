@@ -7,19 +7,34 @@
 <link rel="stylesheet" href="{% static 'empresa/css/perfil_empresa.css' %}">
 
 <div class="perfil-wrapper">
+    <div class="capa-actions-editar">
+    <button id="btn-editar" class="btn-editar" type="button">
+        ✏️ Editar perfil
+    </button>
+</div>
+
+<div id="form-edicao-wrapper" style="display: none;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="form_edicao">Salvar alterações</button>
+    </form>
+</div>
 
     <div class="capa-container">
 
-        <div class="capa-actions">
-            <button id="btn-editar" class="btn-editar">
-                ✏️ Editar perfil
-            </button>
-        </div>
 
+<div id="form-edicao-wrapper" style="display: none;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="form_edicao">Salvar alterações</button>
+    </form>
+</div>
        {%if empresa.capa%}
         <img src="{{empresa.capa.url}}" alt="Capa da empresa">
         {%else%}
-        <img src="{% static 'core/img/capa-perfil.png' %}" alt="Capa padrão">
+        <img src="{% static 'core/img/user-icon.png' %}" alt="Capa padrão">
 {% endif %}
     </div>
     <div class="capa-actions-capa">

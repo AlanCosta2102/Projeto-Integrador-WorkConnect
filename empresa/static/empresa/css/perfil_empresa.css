@@ -348,7 +348,6 @@
   background-color: #dce9f3;
 }
 
-/* Botão atualizar */
 .btn-atualizar-foto {
   background-color: #032D5D;
   color: #fff;
@@ -363,7 +362,7 @@
 .form-edicao {
   margin-top: 30px;
   padding: 20px;
-  background: #f5f9fc;
+  background: #032D5D;
   border-radius: 12px;
 }
 
@@ -427,9 +426,16 @@
     position: relative;
 }
 
+.capa-actions{
+    position: absolute;
+    top: 200px;
+    right: 56px;
+    z-index: 10;
+}
+
 .capa-actions-capa {
     position: absolute;
-    top: 195px;
+    top: 230px;
     right: 56px;
     z-index: 10;
 }
