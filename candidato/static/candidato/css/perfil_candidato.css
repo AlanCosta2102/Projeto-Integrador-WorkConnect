@@ -1,10 +1,25 @@
 .perfil {
     display: flex;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     background-color: #04294f;
+    border-radius: 10px;
 }
+.btn-editar {
+    background: #1e56a0;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 35px
+}
+    
+  
+
 .navbar {
   background-color: #DAE2E5;
   padding: 0.3rem 3rem 0rem 3rem;
@@ -45,6 +60,7 @@
     height: 70px;
     border-radius: 50%;
     margin-right: 20px;
+    margin-left: 20px;
     object-fit: cover;
     border: 3px solid white; 
     box-shadow: 0 0 0 1px #ccc;
