@@ -60,10 +60,14 @@ html, body {
 }
 
 .hero-content {
-  display: flex;
-  align-items: center;
+  display: flex;                /* coloca lado a lado */
+  align-items: center;          /* alinha verticalmente */
   justify-content: space-between;
   gap: 40px;
+}
+
+.text {
+  max-width: 600px;
 }
 
 .hero-content h1 {
@@ -75,6 +79,11 @@ html, body {
 .hero-content p {
   color: #6b7a90;
   margin-top: 10px;
+}
+
+.hero-img {
+  max-width: 450px;
+  width: 100%;
 }
 
 .search-bar {
@@ -109,9 +118,6 @@ html, body {
   background-color: #144a8d;
 }
 
-.hero-img {
-  width: 420px;
-}
 
 .stats {
   padding: 6rem 7rem;
