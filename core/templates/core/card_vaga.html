@@ -57,10 +57,12 @@
     {% if modo == 'empresa' %}
     <div class="card-footer" onclick="event.stopPropagation()">
       {% if vaga.ativa %}
-      <form method="post" action="{% url 'empresa:arquivar_vaga' vaga.id %}">
-        {% csrf_token %}
-        <button type="submit" class="btn-arquivar">Arquivar</button>
-      </form>
+        <button
+          type="button"
+          class="btn-arquivar"
+          onclick="event.stopPropagation(); abrirModal();">
+          Arquivar
+        </button>
       {% else %}
         <a href="{% url 'empresa:lista_candidatos' vaga.id %}" class="btn-detalhes">
           Detalhes
@@ -70,3 +72,36 @@
     {% endif %}
   </div>
 </div>
+
+<div id="modal-confirmar" class="modal-overlay" style="display: none;">
+  <div class="modal-confirm-box">
+
+    <div class="modal-icon">!</div>
+
+    <h2>Tem certeza que deseja<br>arquivar?</h2>
+
+    <div class="modal-buttons">
+      <button type="button" class="btn-cancelar" onclick="fecharModal()">
+        Cancelar
+      </button>
+
+      <form method="post" action="{% url 'empresa:arquivar_vaga' vaga.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn-confirmar">
+          Sim
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function abrirModal() {
+    document.getElementById('modal-confirmar').style.display = 'flex';
+  }
+
+  function fecharModal() {
+    document.getElementById('modal-confirmar').style.display = 'none';
+  }
+</script>

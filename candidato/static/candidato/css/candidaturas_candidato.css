@@ -139,16 +139,7 @@ html, body {
     position: relative;
 }
 
-.card-header img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background: #fff;
-    border: 3px solid #fff;
-    position: absolute;
-    bottom: -25px;
-    left: 15px;
-}
+
 
 /* BODY */
 .card-body {
