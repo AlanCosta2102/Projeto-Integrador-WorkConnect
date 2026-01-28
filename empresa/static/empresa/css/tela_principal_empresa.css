@@ -10,9 +10,7 @@ html, body {
   overflow-x: hidden;
 }
 
-.content-wrap {
-  flex: 1;
-}
+
 
 .navbar {
   background-color: #DAE2E5;

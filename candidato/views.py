@@ -5,6 +5,7 @@ from candidato.models import Candidato
 from empresa.models import Vaga, Empresa
 from empresa.models import Candidatura
 from django.contrib import messages
+from .forms import CandidatoForm
 import re
 
 def index(request):
@@ -119,16 +120,33 @@ def criar_conta(request):
     return render(request, 'candidato/criar_conta.html')
 
 @login_required(login_url='login')
-def perfil_candidato(request,id):
-    candidato = get_object_or_404(Candidato,id=id)
+def perfil_candidato(request, id=None):
+    # Se passar id, pega esse candidato, senão pega o do usuário logado
+    if id:
+        candidato = get_object_or_404(Candidato, id=id)
+    else:
+        candidato = get_object_or_404(Candidato, usuario=request.user)
 
+    # Garante que um candidato só veja seu próprio perfil
     if request.user.tipo_usuario == 'candidato' and candidato.usuario != request.user:
-        return redirect('candidato:perfil_candidato',request.user.candidato.id)
+        return redirect('candidato:perfil_candidato', id=request.user.candidato.id)
 
-    return render(request, 'candidato/perfil_candidato.html',{
-        'candidato':candidato
+    # Formulário de edição do candidato (somente para o próprio candidato)
+    if request.method == 'POST' and candidato.usuario == request.user:
+        form = CandidatoForm(request.POST, request.FILES, instance=candidato)
+        if form.is_valid():
+            form.save()
+            return redirect('candidato:perfil_candidato', id=candidato.id)
+    else:
+        form = CandidatoForm(instance=candidato)
+
+    candidaturas = Candidatura.objects.filter(candidato=candidato)
+
+    return render(request, 'candidato/perfil_candidato.html', {
+        'candidato': candidato,
+        'form': form,
+        'candidaturas': candidaturas,
     })
-
 @login_required(login_url='login')
 def perfil_empresa(request):
     return render(request, 'candidato/perfil_empresa.html')

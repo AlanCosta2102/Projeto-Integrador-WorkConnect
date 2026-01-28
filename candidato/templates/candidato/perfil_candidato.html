@@ -1,146 +1,101 @@
-{%extends 'core/base.html'%}
+{% extends 'core/base.html' %}
 {% load static %}
-{% block css%}
+
+{% block css %}
 <link rel="stylesheet" href="{% static 'candidato/css/perfil_candidato.css' %}">
-{%endblock css %}
-{%block content%}
+{% endblock css %}
 
-    <header class="header-topo">
-        <div class="perfil">
-            <img src="{% static 'core/img/cristiano.png' %}" alt="Foto de Perfil de Cristiano Ronaldo" class="foto-perfil">
-            <div class="info-principal">
-                <h1>Cristiano Ronaldo dos Santos Aveiro</h1>
-                <p>cristianor@gmail.com</p>
-            </div>
-              <button id="btn-editar" class="btn-editar" type="button">
-        ✏️ Editar perfil
-    </button>
+{% block content %}
+
+<header class="header-topo">
+    <div class="perfil">
+        <img src="{% if candidato.foto_perfil %}{{ candidato.foto_perfil.url }}{% else %}{% static 'core/img/user-icon.png' %}{% endif %}" 
+             alt="Foto de Perfil" class="foto-perfil">
+        <div class="info-principal">
+            <h1>{{ candidato.nome }}</h1>
+            <p>{{ request.user.email }}</p>
         </div>
-    </header>
+        <button id="btn-editar" class="btn-editar" type="button">✏️ Editar perfil</button>
+    </div>
+</header>
 
-    <main class="secoes-principais">
-        
-        <section class="card sobre">
-            <h2>Sobre</h2>
-            <hr class="divisor">
-            <div class="dados-contato">
-                <p><strong>Nome Completo:</strong> Cristiano Ronaldo dos Santos Aveiro</p>
-                <p class="contato-item">📍 Madeira, Portugal</p>
-                <p class="contato-item">📧 cristianor@gmail.com</p>
-                <p class="contato-item">📱 211234567</p>
-            </div>
-        </section>
+<!-- Formulário de edição -->
+<div id="form-edicao-wrapper" style="display:none;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar alterações</button>
+    </form>
+</div>
 
-        <section class="card experiencia">
-            <h2>Experiência Profissional</h2>
-            <hr class="divisor">
+<main class="secoes-principais">
 
-            <div class="experiencia-item">
-                <div class="titulo-periodo">
-                    <h3>Tosador de Petshop</h3>
-                    <span class="periodo">2022 - 2025</span>
-                </div>
-                <p class="descricao">Tosando os mais variados raças de cães e gatos. Especialista em máquinas adequadas para pelos embaraçados e na tesoura (com acabamento mais delicado, para pelos médios e longos), além de estilos mais específicos como "nosso visual pelo lombo de um leão", além da tosa bebê (visual de "ursinho") e a tosa de raça (que segue o padrão do cão).</p>
-            </div>
-            
-            <div class="experiencia-item">
-                <div class="titulo-periodo">
-                    <h3>Ciência de Dados</h3>
-                    <span class="periodo">2018 - 2021</span>
-                </div>
-                <p class="descricao">Atuação no desenvolvimento de soluções baseadas em dados para apoio à tomada de decisão, por meio de coleta, tratamento, análise e visualização dos dados. Experiência com modelagem estatística, aprendizado de máquina, análise preditiva e interpretação de resultados para geração de insights estratégicos.</p>
-            </div>
-        </section>
-
-        <section class="card formacao">
-            <h2>Formação Acadêmica</h2>
-            <hr class="divisor">
-            <p><strong>Bacharelado em Ciência da Computação - USP</strong></p>
-            <p>Formação sólida em algoritmos, estruturas de dados e desenvolvimento de software.</p>
-        </section>
-
-    </main>
-
-    <section class="candidaturas-container">
-        <div class="candidaturas-header">
-            <h2>Minhas Candidaturas</h2>
-            <a href="{% url 'candidato:candidaturas_candidato' %}"class="ver-todas">Ver todas</a>
-        </div>
-        
-        <div class="cards-container">
-            <div class="card-candidatura card-verde">
-                <div class="card-header">
-                    <img src="{% static 'core/img/Ellipse 14.png' %}"> 
-                </div>
-                <div class="card-body">
-                    <p class="company-name">Elétrica Cervejaria <span class="status status-ativa">Ativa</span></p>
-                    <p class="company-location">Pau dos Ferros/RN</p>
-
-                    <div class="info-label"><span>🎯 Vaga</span></div>
-                    <div class="info-value">Barmen</div>
-
-                    <div class="info-label"><span>⏰ Turno e Horário</span></div>
-                    <div class="info-value">Noturno - 4h</div>
-
-                    <a href="#" class="details-button">Detalhes ›</a>
-                </div>
-            </div>
-
-            <div class="card-candidatura card-vermelho">
-                <div class="card-header header-vermelho">
-                    <img src="{% static 'core/img/Brisanet.png' %}"> 
-                </div>
-                <div class="card-body">
-                    <p class="company-name">Operador Suporte <span class="status status-rejeitada">Rejeitada</span></p>
-                    <p class="company-location">Natal/RN</p>
-
-                    <div class="info-label"><span>🎯 Vaga</span></div>
-                    <div class="info-value">Tosador</div>
-
-                    <div class="info-label"><span>⏰ Turno e Horário</span></div>
-                    <div class="info-value">Integral - 8h</div>
-
-                    <a href="#" class="details-button">Detalhes ›</a>
-                </div>
-            </div>
-
-            <div class="card-candidatura card-amarelo">
-                <div class="card-header header-amarelo">
-                    <img src="{% static 'core/img/Nike.jpg' %}"> 
-                </div>
-                <div class="card-body">
-                    <p class="company-name">Consultoria XYZ <span class="status status-aguardando">Aguardando</span></p>
-                    <p class="company-location">São Paulo/SP</p>
-
-                    <div class="info-label"><span>🎯 Vaga</span></div>
-                    <div class="info-value">Cientista de Dados</div>
-
-                    <div class="info-label"><span>⏰ Turno e Horário</span></div>
-                    <div class="info-value">Remoto - 6h</div>
-
-                    <a href="#" class="details-button">Detalhes ›</a>
-                </div>
-            </div>
-
-            <div class="card-candidatura card-verde">
-                <div class="card-header">
-                    <img src="{% static 'core/img/Peechinchou.png' %}"> 
-                </div>
-                <div class="card-body">
-                    <p class="company-name">Marketing Digital <span class="status status-ativa">Ativa</span></p>
-                    <p class="company-location">Recife/PE</p>
-
-                    <div class="info-label"><span>🎯 Vaga</span></div>
-                    <div class="info-value">Social Media</div>
-
-                    <div class="info-label"><span>⏰ Turno e Horário</span></div>
-                    <div class="info-value">Híbrido - 7h</div>
-
-                    <a href="#" class="details-button">Detalhes ›</a>
-                </div>
-            </div>
-            
+    <!-- Sobre o candidato -->
+    <section class="card sobre">
+        <h2>Sobre</h2>
+        <hr class="divisor">
+        <div class="dados-contato">
+            <p><strong>Nome Completo:</strong> {{ candidato.nome }}</p>
+            <p class="contato-item">📍 {{ candidato.cidade }}</p>
+            <p class="contato-item">📧 {{ request.user.email }}</p>
+            <p class="contato-item">📱 {{ candidato.telefone }}</p>
         </div>
     </section>
 
-{%endblock%}
+    <!-- Experiência profissional -->
+    <section class="card experiencia">
+        <h2>Experiência Profissional</h2>
+        <hr class="divisor">
+        {% for experiencia in experiencias %}
+        <div class="experiencia-item">
+            <div class="titulo-periodo">
+                <h3>{{ experiencia.titulo }}</h3>
+                <span class="periodo">{{ experiencia.inicio }} - {{ experiencia.fim }}</span>
+            </div>
+            <p class="descricao">{{ experiencia.descricao }}</p>
+        </div>
+        {% empty %}
+        <p>Nenhuma experiência cadastrada.</p>
+        {% endfor %}
+    </section>
+
+    <!-- Formação acadêmica -->
+    <section class="card formacao">
+        <h2>Formação Acadêmica</h2>
+        <hr class="divisor">
+        {% for formacao in formacoes %}
+        <p><strong>{{ formacao.curso }} - {{ formacao.instituicao }}</strong></p>
+        <p>{{ formacao.descricao }}</p>
+        {% empty %}
+        <p>Nenhuma formação cadastrada.</p>
+        {% endfor %}
+    </section>
+
+</main>
+
+<!-- Candidaturas -->
+<section class="candidaturas-container">
+    <div class="candidaturas-header">
+        <h2>Minhas Candidaturas</h2>
+        <a href="{% url 'candidato:candidaturas_candidato' %}" class="ver-todas">Ver todas</a>
+    </div>
+
+    <div class="cards-container">
+        {% for candidatura in candidaturas %}
+            {% include 'core/card_vaga.html' with vaga=candidatura.vaga modo="candidato" status=candidatura.status %}
+        {% empty %}
+            <p>Nenhuma candidatura ainda.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+    const btnEditar = document.getElementById('btn-editar');
+    const formWrapper = document.getElementById('form-edicao-wrapper');
+
+    btnEditar.addEventListener('click', () => {
+        formWrapper.style.display = formWrapper.style.display === 'none' ? 'block' : 'none';
+    });
+</script>
+
+{% endblock %}

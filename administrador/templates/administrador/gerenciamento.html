@@ -1,18 +1,11 @@
-{%extends 'core/base_admin.html'%}
+{% extends 'core/base_admin.html' %}
 {% load static %}
 
-{%block content%}
-<html lang="pt-br">
-<head>
-    <title>Gerenciamento</title>
-  <link rel="stylesheet" href="{% static 'administrador/css/gerenciamento.css' %}">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    
+{% block content %}
+<link rel="stylesheet" href="{% static 'administrador/css/gerenciamento.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-
-  <div class="search-container">
+<div class="search-container">
   <div class="search-bar">
     <div class="search-item">
       <i class="fa fa-search"></i>
@@ -20,14 +13,14 @@
     </div>
     <div class="divider"></div>
     <div class="search-item">
-      <i class="fa fa-map-marker-alt"></i>
-      <input type="text" placeholder="|E-mail">
+      <i class="fa fa-envelope"></i>
+      <input type="text" placeholder="E-mail">
     </div>
     <div class="divider"></div>
     <div class="search-item">
       <i class="fa fa-layer-group"></i>
       <select>
-        <option selected disabled>Selecionar por Status</option>
+        <option selected disabled>Status</option>
         <option>Ativo</option>
         <option>Inativo</option>
       </select>
@@ -36,149 +29,67 @@
   </div>
 </div>
 
-  <div class="container">
-    <div class="tabela-container">
-      <table class="tabela-usuarios">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Tipo</th>
-            <th>Status</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="perfil">
-             <img src="{% static 'administrador/img/Cristiano.png' %}">
-              Cristiano Ronaldo
-            </td>
-            <td>cristiano@example.com</td>
-            <td>Empresa</td>
-            <td><span class="status inativo">● Inativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
+<div class="container">
+  <div class="tabela-container">
+    <table class="tabela-usuarios">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Tipo</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
 
-          <tr>
-            <td class="perfil">
-                    <img src="{% static 'administrador/img/Nubank.png' %}">
-              Nubank
-            </td>
-            <td>nubank@gmail.com</td>
-            <td>Candidato</td>
-            <td><span class="status ativo">● Ativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
+      <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+          <td class="perfil">
+            {% if usuario.foto %}
+              <img src="{{ usuario.foto.url }}" alt="Foto de {{ usuario.nome }}">
+            {% else %}
+              <img src="{% static 'core/img/user-icon.png' %}" alt="Usuário">
+            {% endif %}
+            {{ usuario.nome }}
+          </td>
 
-          <tr>
-            <td class="perfil">
-    <img src="{% static 'administrador/img/Alan.png' %}">
-                  Alan Costa
-            </td>
-            <td>alan@gmail.com</td>
-            <td>Candidato</td>
-            <td><span class="status inativo">● Inativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
+          <td>{{ usuario.email }}</td>
 
-          <tr>
-            <td class="perfil">
-    <img src="{% static 'administrador/img/Eletrica.png' %}">
-                  Cervejaria Elétrica
-            </td>
-            <td>eletrica@gmail.com</td>
-            <td>Empresa</td>
-            <td><span class="status ativo">● Ativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
+          <td>
+            {% if usuario.tipo == 'candidato' %}
+              Candidato
+            {% elif usuario.tipo == 'empresa' %}
+              Empresa
+            {% endif %}
+          </td>
 
-          <tr>
-            <td class="perfil">
-    <img src="{% static 'administrador/img/Arrascaeta.png' %}">
-                  Giorgian De Arrascaeta
-            </td>
-            <td>arrascaeta@gmail.com</td>
-            <td>Candidato</td>
-            <td><span class="status inativo">● Inativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
+          <td>
+            {% if usuario.ativo %}
+              <span class="status ativo">● Ativo</span>
+            {% else %}
+              <span class="status inativo">● Inativo</span>
+            {% endif %}
+          </td>
 
-          <tr>
-            <td class="perfil">
-    <img src="{% static 'administrador/img/Brisanet.png' %}">
-                  Brisanet
-            </td>
-            <td>brisanet@gmail.com</td>
-            <td>Empresa</td>
-            <td><span class="status ativo">● Ativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="perfil">
-    <img src="{% static 'administrador/img/Thiago.png' %}">
-                  Thiago Henrique
-            </td>
-            <td>thiago@gmail.com</td>
-            <td>Candidato</td>
-            <td><span class="status inativo">● Inativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="perfil">
-    <img src="{% static 'administrador/img/Nike.png' %}">
-                  Nike
-            </td>
-            <td>nike@gmail.com</td>
-            <td>Empresa</td>
-            <td><span class="status ativo">● Ativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="perfil">
-    <img src="{% static 'administrador/img/Irlan.png' %}">
-                  Irlan
-            </td>
-            <td>irlan@gmail.com</td>
-            <td>Empresa</td>
-            <td><span class="status inativo">● Inativo</span></td>
-            <td>
-              <button class="excluir">Excluir</button>
-              <button class="detalhes">↗</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <td>
+            <a href="{% url 'administrador:excluir_usuario' usuario.id %}"
+               class="excluir"
+               onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
+              Excluir
+            </a>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" style="text-align:center;">
+            Nenhum usuário encontrado.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
+</div>
 
-</body>
-</html>
-{%endblock%}
+{% endblock %}
