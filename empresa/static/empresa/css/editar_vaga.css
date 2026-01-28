@@ -1,14 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    background-color:#DAE2E5;
-     min-height: 100vh;
-}
-
 .main-content{
   max-width: 980px;      /* largura máxima do conteúdo para leitura confortável */
   margin: 24px auto;     /* centraliza horizontalmente e adiciona espaçamento vertical */

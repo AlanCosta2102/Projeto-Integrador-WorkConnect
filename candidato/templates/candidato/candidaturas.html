@@ -40,46 +40,17 @@
 
   <div class="cards-container">
 
-  
-   {% for candidatura in candidaturas %}
-<div class="card">
-
-  <div class="card-header">
-    <img src="{% static 'core/img/Ellipse 14.png' %}">
-  </div>
-
-  <div class="card-body">
-    <p class="company-name">
-      {{ candidatura.vaga.empresa.razao_social }}
-      <span class="status">Inscrito</span>
-    </p>
-
-    <p class="company-location">
-      {{ candidatura.vaga.empresa.cidade }}/{{ candidatura.vaga.empresa.estado }}
-    </p>
-
-    <div class="info-label"><span>🎯 Vaga</span></div>
-    <div class="info-value">{{ candidatura.vaga.titulo }}</div>
-
-    <div class="info-label"><span>⏰ Turno e Horário</span></div>
-    <div class="info-value">
-      {{ candidatura.vaga.jornada }} 
-    </div>
-
-    <a href="{% url 'candidato:detalhes_vaga' candidatura.vaga.id %}" class="details-button">
-      Detalhes ›
-    </a>
-  </div>
-
-</div>
-{% empty %}
-<p>Você ainda não se candidatou a nenhuma vaga.</p>
-{% endfor %}
+    {% for candidatura in candidaturas %}
+      <div class="vaga-card-wrapper">
+        {% include 'core/card_vaga.html' with vaga=candidatura.vaga modo="candidato" %}
+      </div>
+    {% empty %}
+      <p>Você ainda não se candidatou a nenhuma vaga.</p>
+    {% endfor %}
 
   </div>
-
-</div>
 </section>
+
 
 
 </body>
