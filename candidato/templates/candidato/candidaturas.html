@@ -27,15 +27,35 @@
   <section class="filter-section">
   <h2 class="filter-title">Filtros</h2>
 
-  <div class="search-bar">
-          <input type="text" placeholder="Cargo, Empresas..." class="input-job">
-          <input type="text" placeholder="Cidade" class="input-location">
-          <input type="text" placeholder="Modo de trabalho" class="input-location">
-          <button>Buscar Vaga</button>
-        </div>
-      </div>
-  
-<section class="vagas-section">
+  <form method="get" class="search-bar">
+    <input
+      type="text"
+      name="cargo"
+      placeholder="Cargo"
+      class="input-job"
+      value="{{ request.GET.cargo }}"
+    >
+
+    <input
+      type="text"
+      name="empresa"
+      placeholder="Empresa"
+      class="input-location"
+      value="{{ request.GET.empresa }}"
+    >
+
+    <input
+      type="text"
+      name="cidade"
+      placeholder="Cidade"
+      class="input-location"
+      value="{{ request.GET.cidade }}"
+    >
+
+    <button type="submit">Buscar</button>
+  </form>
+</section>
+
   <h2 class="candidaturas-title">Suas Candidaturas:</h2>
 
   <div class="cards-container">

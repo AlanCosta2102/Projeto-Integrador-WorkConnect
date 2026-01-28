@@ -46,9 +46,31 @@ def candidaturas_candidato(request):
         usuario=request.user
     )
 
-    candidaturas = Candidatura.objects.filter(
-        candidato=candidato
-    ).select_related('vaga', 'vaga__empresa')
+    candidaturas = (
+        Candidatura.objects
+        .filter(candidato=candidato)
+        .select_related('vaga', 'vaga__empresa')
+    )
+
+    # 🔎 Filtros
+    cargo = request.GET.get('cargo')
+    empresa = request.GET.get('empresa')
+    cidade = request.GET.get('cidade')
+
+    if cargo:
+        candidaturas = candidaturas.filter(
+            vaga__titulo__icontains=cargo
+        )
+
+    if empresa:
+        candidaturas = candidaturas.filter(
+            vaga__empresa__razao_social__icontains=empresa
+        )
+
+    if cidade:
+        candidaturas = candidaturas.filter(
+            vaga__empresa__cidade__icontains=cidade
+        )
 
     return render(
         request,
