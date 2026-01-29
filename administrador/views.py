@@ -24,7 +24,36 @@ def dashboard(request):
     return render(request, 'administrador/dashboard.html', context)
 @login_required
 def gerenciamento_view(request):
+    nome_query = request.GET.get('nome', '').strip()
+    email_query = request.GET.get('email', '')
+    status_query = request.GET.get('status', '')
+
     usuarios = Usuario.objects.exclude(tipo_usuario='admin')
+
+
+    if nome_query:
+     usuarios = usuarios.filter(
+        id__in=[
+            u.id for u in usuarios
+            if (
+                (u.tipo_usuario == 'candidato' and
+                 Candidato.objects.filter(usuario=u, nome__icontains=nome_query).exists())
+                or
+                (u.tipo_usuario == 'empresa' and
+                 Empresa.objects.filter(usuario=u, razao_social__icontains=nome_query).exists())
+            )
+        ]
+    )
+
+
+    if email_query:
+        usuarios = usuarios.filter(email__icontains=email_query)
+
+    if status_query:
+        if status_query.lower() == 'ativo':
+            usuarios = usuarios.filter(is_active=True)
+        elif status_query.lower() == 'inativo':
+            usuarios = usuarios.filter(is_active=False)
 
     dados = []
 
@@ -49,13 +78,14 @@ def gerenciamento_view(request):
             'email': user.email,
             'tipo': user.tipo_usuario,
             'foto': foto,
-            'ativo':user.is_active,
+            'ativo': user.is_active,
         })
 
     return render(request, 'administrador/gerenciamento.html', {
-        'usuarios': dados
+        'usuarios': dados,
+        'request': request, 
     })
-@login_required
+
 def tela_moderar_vagas_view(request):
     if request.user.tipo_usuario != 'admin':
         return redirect('login')

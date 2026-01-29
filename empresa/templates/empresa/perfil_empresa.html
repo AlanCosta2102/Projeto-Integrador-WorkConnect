@@ -6,6 +6,16 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'empresa/css/perfil_empresa.css' %}">
 
+{% if messages %}
+  <div class="messages-container">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 <div class="perfil-wrapper">
     <div class="capa-actions-editar">
     <button id="btn-editar" class="btn-editar" type="button">

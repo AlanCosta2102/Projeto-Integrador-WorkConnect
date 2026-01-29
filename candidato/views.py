@@ -143,17 +143,14 @@ def criar_conta(request):
 
 @login_required(login_url='login')
 def perfil_candidato(request, id=None):
-    # Se passar id, pega esse candidato, senão pega o do usuário logado
     if id:
         candidato = get_object_or_404(Candidato, id=id)
     else:
         candidato = get_object_or_404(Candidato, usuario=request.user)
 
-    # Garante que um candidato só veja seu próprio perfil
     if request.user.tipo_usuario == 'candidato' and candidato.usuario != request.user:
         return redirect('candidato:perfil_candidato', id=request.user.candidato.id)
 
-    # Formulário de edição do candidato (somente para o próprio candidato)
     if request.method == 'POST' and candidato.usuario == request.user:
         form = CandidatoForm(request.POST, request.FILES, instance=candidato)
         if form.is_valid():

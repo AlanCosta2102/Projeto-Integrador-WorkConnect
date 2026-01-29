@@ -6,27 +6,27 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <div class="search-container">
-  <div class="search-bar">
+  <form method="get" class="search-bar">
     <div class="search-item">
       <i class="fa fa-search"></i>
-      <input type="text" placeholder="Pesquisar por nome">
+      <input type="text" name="nome" placeholder="Pesquisar por nome" value="{{ request.GET.nome }}">
     </div>
     <div class="divider"></div>
     <div class="search-item">
       <i class="fa fa-envelope"></i>
-      <input type="text" placeholder="E-mail">
+      <input type="text" name="email" placeholder="Pesquisar por E-mail" value="{{ request.GET.email }}">
     </div>
     <div class="divider"></div>
     <div class="search-item">
       <i class="fa fa-layer-group"></i>
-      <select>
-        <option selected disabled>Status</option>
-        <option>Ativo</option>
-        <option>Inativo</option>
+      <select name="status">
+        <option value="" disabled {% if not request.GET.status %}selected{% endif %}> Pesquisar por Status</option>
+        <option value="Ativo" {% if request.GET.status == 'Ativo' %}selected{% endif %}>Ativo</option>
+        <option value="Inativo" {% if request.GET.status == 'Inativo' %}selected{% endif %}>Inativo</option>
       </select>
     </div>
-    <button class="search-btn">Buscar</button>
-  </div>
+    <button type="submit" class="search-btn">Buscar</button>
+  </form>
 </div>
 
 <div class="container">
@@ -41,7 +41,6 @@
           <th>Ações</th>
         </tr>
       </thead>
-
       <tbody>
         {% for usuario in usuarios %}
         <tr>
@@ -73,8 +72,8 @@
           </td>
 
           <td>
-            <a href="{% url 'administrador:excluir_usuario' usuario.id %}"
-               class="excluir"
+            <a href="{% url 'administrador:excluir_usuario' usuario.id %}" 
+               class="excluir" 
                onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
               Excluir
             </a>
