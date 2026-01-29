@@ -8,6 +8,16 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 
+{% if messages %}
+  <div class="messages-container">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 <section class="hero">
   <div class="hero-content">
     <div class="text">
@@ -42,10 +52,7 @@
 
 <section class="vagas-section">
   <div class="container-padrao">
-
-    <h2 class="vagas-title">
-      Suas Últimas vagas publicadas
-    </h2>
+    <h2 class="vagas-title">Suas Últimas vagas publicadas</h2>
 
     <div class="cards-container">
       {% for vaga in vagas_ativas %}
@@ -54,16 +61,12 @@
         <p>Nenhuma vaga ativa cadastrada.</p>
       {% endfor %}
     </div>
-
   </div>
 </section>
 
-  <section class="vagas-section">
+<section class="vagas-section">
   <div class="container-padrao">
-
-    <h2 class="vagas-title">
-      Vagas Arquivadas
-    </h2>
+    <h2 class="vagas-title">Vagas Arquivadas</h2>
 
     <div class="cards-container">
       {% for vaga in vagas_arquivadas %}
@@ -72,11 +75,7 @@
         <p>Nenhuma vaga arquivada.</p>
       {% endfor %}
     </div>
-
   </div>
 </section>
-
-</div>
-  </section>
 
 {% endblock %}
